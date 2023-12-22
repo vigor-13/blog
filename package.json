@@ -1,21 +1,13 @@
 {
-  "name": "polyrepo",
+  "name": "blog",
   "version": "0.1.0",
-  "description": "Default Polyrepo Template.",
+  "description": "vigor-13 blog",
   "keywords": [],
-  "author": "",
+  "author": "vigor-13",
   "license": "ISC",
-  "main": "./dist/index.js",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "prepare": "husky install",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "build": "tsc",
-    "lint": "eslint \"src/**/*.{ts,tsx}\""
-  },
+  "packageManager": "pnpm@8.6.10",
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "@commitlint/cli": "^18.4.0",
     "@commitlint/config-conventional": "^18.4.0",
     "@types/node": "^20.9.0",
@@ -26,5 +18,11 @@
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
-  "packageManager": "pnpm@8.6.10"
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "build": "eleventy",
+    "dev": "eleventy --watch --serve --port=8081"
+  }
 }

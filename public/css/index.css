@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'NotoSansKR-Thin';
+  src: url('../fonts/NotoSansKR-Thin.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-ExtraLight';
+  src: url('../fonts/NotoSansKR-ExtraLight.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Light';
+  src: url('../fonts/NotoSansKR-Light.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Regular';
+  src: url('../fonts/NotoSansKR-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Medium';
+  src: url('../fonts/NotoSansKR-Medium.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-SemiBold';
+  src: url('../fonts/NotoSansKR-SemiBold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Bold';
+  src: url('../fonts/NotoSansKR-Bold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-ExtraBold';
+  src: url('../fonts/NotoSansKR-ExtraBold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Black';
+  src: url('../fonts/NotoSansKR-Black.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BlackHanSans-Regular';
+  src: url('../fonts/BlackHanSans-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-size-14: 14px;
+  --font-size-60: 60px;
+  --spacing-10: 10px;
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #454c56;
+  --color-gray-100: #22272e;
+  --color-gray-200: #1c2128;
+  --color-crayal-100: #adbac7;
+  --color-middle-blue-green-100: #99cccc;
+}
+
+:root {
+  --background-color-body: var(--color-gray-200);
+  --background-color-section: var(--color-gray-100);
+  --text-color-default: var(--color-crayal-100);
+  --text-color-title: var(--color-white);
+  --font-family-default: NotoSansKR-regular;
+  --font-family-title: BlackHanSans-Regular;
+  --font-family-info: NotoSansKR-Light;
+  --font-size-default: var(--font-size-14);
+  --font-size-title: var(--font-size-60);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+  }
+}
+
+body {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-default);
+  background-color: var(--background-color-body);
+  color: var(--text-color-default);
+  height: 100vh;
+}
+
+main {
+  background-color: var(--background-color-section);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color-title);
+}
+
+h1 {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-title);
+}
