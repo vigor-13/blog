@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Get the commit message from COMMIT_EDITMSG file
+commit_msg_file=".git/COMMIT_EDITMSG"
+commit_msg=$(cat $commit_msg_file)
+
+# Define the string to check and remove
+string_to_remove="# Select the type of change that you're committing:"
+
+# Check if the string exists in the commit message
+if echo "$commit_msg" | grep -q "$string_to_remove"; then
+    # Remove the string and the content after it
+    new_commit_msg=$(echo "$commit_msg" | sed -n "/$string_to_remove/q;p")
+
+    # Save the modified commit message back to the file
+    echo "$new_commit_msg" > "$commit_msg_file"
+fi
+
+npx --no -- commitlint --edit 

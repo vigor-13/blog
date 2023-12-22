@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
+  "compilerOptions": {
+    "composite": false, // TypeScript 프로젝트 중첩 여부
+    "declaration": true, // `.d.ts` 파일 생성 여부
+    "declarationMap": true, // `.ts` 파일과 `.d.ts` 파일 매핑 여부
+    "esModuleInterop": true, // ESM과 CJS 모듈 상호 운용 허용 여부
+    "forceConsistentCasingInFileNames": false, // 파일명 대소문자 구분 여부
+    "inlineSources": false, // 원본 `.ts`파일의 내용을 소스맵에 포함시킬지 여부
+    "isolatedModules": true, // 소스 코드를 모듈로 작성하도록 강제할지 여부
+    "moduleResolution": "node", // 모듈을 탐색하는 방식을 지정한다. (보통 node를 사용함)
+    "noUnusedLocals": false, // 사용안하는 지역변수에 대한 오류 보고 여부
+    "noUnusedParameters": false, // 사용안하는 파라미터에 대한 오류 보고 여부
+    "preserveWatchOutput": true, // 감시 모드에서 콘솔 지우기를 비활성화할지 여부
+    "skipLibCheck": true, // `.d.ts` 파일의 타입 검사를 생략할지 여부 (외부 라이브러리의 경우 간혹 `.d.ts` 파일이 잘못된 경우가 있음)
+    "strict": true // 모든 stict 검사 옵션 활성화 여부
+  },
+  "exclude": ["node_modules", "dist"]
+}

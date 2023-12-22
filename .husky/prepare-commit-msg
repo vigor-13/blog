@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Get branch name to check rebasing
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
+
+# Commit convention hint
+CONVENTION_HINT="# Select the type of change that you're committing:
+# feat:     ✨ A new featrue
+# fix:      🐛 A bug fix
+# docs:     📚 Documentation only changes
+# style:    💎 Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+# refactor: 📦 A code change that neither fixes a bug nor adds a feature
+# perf:     🚀 A code change that improves performance
+# test:     🚨 Adding missing tests or correcting existing tests
+# build:    🛠 Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+# ci:       ⚙️ Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+# chore:    ♻️ Other changes that don't modify src or test files
+# revert:   🗑 Reverts a previous commit"
+
+if [[ $BRANCH_NAME != *"rebasing"* ]]
+then
+  echo "$CONVENTION_HINT" >> $1 
+fi

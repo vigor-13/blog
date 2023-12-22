@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "display": "TypeScript for library",
+  "compilerOptions": {
+    "target": "ES2019", // 트랜스파일할 자바스크립트 버전 지정
+    "lib": ["ES2019"], // 런타임에서 사용하는 기능에 대한 타입을 컴파일러에게 알려준다. (target에서 지정한 버전의 JS에서 제공하지 않는 기능이 있다면 여기에서 추가해야함)
+    "resolveJsonModule": true, // JSON 파일을 import할 수 있게 해준다.
+    "outDir": "dist", // 트랜스파일된 파일을 지정된 디렉토리로 출력한다.
+    "allowJs": false // 자바스크립트 파일 허용 여부
+  }
+}
