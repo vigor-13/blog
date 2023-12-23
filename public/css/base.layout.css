@@ -7,7 +7,6 @@ body {
 header {
   display: flex;
   align-items: center;
-  /* background: red; */
   padding: 5px var(--spacing-10);
   border-bottom: 1px solid var(--color-gray-50);
 }

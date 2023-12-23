@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="css/components/placeholder.css">
+
+{# 
+  사용법 예제:
+  {% set placeholder = { title: '404', link: '/', linkText: '메인으로 돌아가기' } %} 
+#}
+
+<div class="placeholder-wrap">
+  <img src="/img/404.jpg" />
+  <h2>{{ placeholder.title }}</h2>
+  <a href={{ placeholder.link }}>{{ placeholder.linkText }}</a>
+</div>

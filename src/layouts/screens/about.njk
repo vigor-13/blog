@@ -1,11 +1,11 @@
 ---
-permalink: 404.html
-title: 404 Page
+permalink: about.html
+title: 소개 페이지
 eleventyExcludeFromCollections: true
 ---
 {% extends "src/layouts/base.njk" %}
 
 {% block local %}
-  {% set placeholder = { title: '404', link: '/', linkText: '메인으로 돌아가기' } %}
+  {% set placeholder = { title: '준비중!', link: '/', linkText: '메인으로 돌아가기' } %}
   {% include "src/layouts/components/placeholder.njk" %}
 {% endblock %}
