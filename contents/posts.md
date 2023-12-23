@@ -1,0 +1,3 @@
+---
+layout: screens/posts.njk
+---
