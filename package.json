@@ -8,6 +8,8 @@
   "packageManager": "pnpm@8.6.10",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.8",
+    "@11ty/eleventy-plugin-bundle": "^1.0.5",
     "@commitlint/cli": "^18.4.0",
     "@commitlint/config-conventional": "^18.4.0",
     "@types/node": "^20.9.0",
@@ -17,6 +19,7 @@
     "husky": "^8.0.3",
     "luxon": "^3.4.4",
     "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
     "typescript": "^5.2.2"
   },
   "scripts": {
@@ -24,6 +27,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "build": "eleventy",
-    "dev": "eleventy --watch --serve --port=8081"
+    "dev": "pnpm clean:dist && eleventy --watch --serve --port=8081",
+    "clean:dist": "rimraf dist",
+    "clean:modules": "rimraf node_modules"
   }
 }

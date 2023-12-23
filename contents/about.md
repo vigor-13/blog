@@ -1,3 +1,0 @@
----
-layout: screens/about.njk
----

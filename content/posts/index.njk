@@ -1,15 +1,16 @@
 ---
 eleventyExcludeFromCollections: true
-css: ['css/pages/home.css']
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Posts
+  order: 2
 ---
-{% extends "src/layouts/base.njk" %}
-
-{% block local %}
+{% block main %}
   <div class="page-wrapper">
     <section class="home-latest-posts">
       <h2>최신글</h2>
       <div>
-      {% include "src/layouts/components/post-list.njk" %}
+      {% include "components/post-list.njk" %}
       </div>
     </section>
     {{ content | safe }}

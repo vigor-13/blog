@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or metadata.title }}</title>
+    <meta
+      name="description"
+      content="{{ description or metadata.description }}"
+    />
+
+    {%- css %}{% include "public/css/reset.css" %}{% endcss %}
+    {%- css %}{% include "public/css/index.css" %}{% endcss %}
+    {%- css %}{% include "public/css/base.layout.css" %}{% endcss %}
+    <style>{% getBundle "css" %}</style>
+
+    {# {% if css %}
+      {% for link in css %}
+        <link rel="stylesheet" href="{{link}}" />
+      {% endfor %}
+    {% endif %} #}
+
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
+    <header>
+      <a id="logo" href="/">
+        <img src="img/logo.jpg" />
+        <span>VIGOROUSLY</span>
+      </a>
+      <nav id="main-navigation">
+        <ul>
+          <li>
+            <a href="/posts">Posts</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+    {% block main %}
+    {% endblock %}
+    </main>
+    <footer>
+      <div>© Copyright 2023 | vigor-13</div>
+    </footer>
+    {% block foot %}
+    {% endblock %}
+  </body>
+</html>

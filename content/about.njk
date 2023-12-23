@@ -1,0 +1,12 @@
+---
+permalink: about.html
+layout: layouts/home.njk
+eleventyNavigation:
+  key: About
+  order: 3
+---
+
+{% block main %}
+  {% set placeholder = { title: '준비중!', link: '/', linkText: '메인으로 돌아가기' } %}
+  {% include "components/replace.njk" %}
+{% endblock %}

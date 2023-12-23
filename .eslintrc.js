@@ -1,4 +1,9 @@
 module.exports = {
   extends: ['standard-with-typescript', 'prettier'],
-  ignorePatterns: ['.eslintrc.js', 'node_modules', 'dist'],
+  ignorePatterns: [
+    '.eslintrc.js',
+    'node_modules',
+    'dist',
+    'eleventy.config.js',
+  ],
 };
