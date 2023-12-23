@@ -25,6 +25,9 @@ devDependencies:
   husky:
     specifier: ^8.0.3
     version: 8.0.3
+  luxon:
+    specifier: ^3.4.4
+    version: 3.4.4
   prettier:
     specifier: ^3.0.3
     version: 3.1.1

@@ -41,7 +41,7 @@ header {
   display: flex;
 }
 #main-navigation ul li {
-  margin-right: var(--spacing-10);
+  margin-right: var(--spacing-20);
 }
 #main-navigation ul li:last-of-type {
   margin-right: 0px;

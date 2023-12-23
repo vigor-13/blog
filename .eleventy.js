@@ -1,8 +1,18 @@
+const { EleventyRenderPlugin } = require('@11ty/eleventy');
+const { DateTime } = require('luxon');
+
 module.exports = function (eleventyConfig) {
-  // Copy the contents of the `public` folder to the output folder
-  // For example, `./public/css/` ends up in `_site/css/`
+  /* Plugins */
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
+
+  /* Public Asset */
   eleventyConfig.addPassthroughCopy({
     './public/': '/',
+  });
+
+  /* Post Date */
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
   return {

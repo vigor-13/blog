@@ -59,34 +59,59 @@
   font-style: normal;
 }
 
+/* Static Token */
 :root {
+  --font-size-12: 12px;
   --font-size-14: 14px;
+  --font-size-20: 20px;
+  --font-size-30: 30px;
   --font-size-60: 60px;
+
+  --spacing-5: 5px;
   --spacing-10: 10px;
+  --spacing-20: 20px;
+  --spacing-30: 30px;
+
+  --radius-round: 50%;
+  --radius-4: 4px;
+  --radius-10: 10px;
 }
 
+/* Static Token: Color */
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
+
   --color-gray-50: #454c56;
+  --color-gray-90: #768390;
   --color-gray-100: #22272e;
   --color-gray-200: #1c2128;
+
   --color-crayal-100: #adbac7;
+
   --color-middle-blue-green-100: #99cccc;
 }
 
+/* Semantic Token */
 :root {
   --background-color-body: var(--color-gray-200);
   --background-color-section: var(--color-gray-100);
+
   --text-color-default: var(--color-crayal-100);
   --text-color-title: var(--color-white);
+  --text-color-info: var(--color-gray-90);
+
   --font-family-default: NotoSansKR-regular;
   --font-family-title: BlackHanSans-Regular;
+  --font-family-list-title: NotoSansKR-Bold;
   --font-family-info: NotoSansKR-Light;
+
   --font-size-default: var(--font-size-14);
   --font-size-title: var(--font-size-60);
+  --font-size-info: var(--font-size-12);
 }
 
+/* Theme */
 @media (prefers-color-scheme: light) {
   :root {
   }
@@ -101,7 +126,7 @@ body {
 }
 
 main {
-  background-color: var(--background-color-section);
+  overflow-y: auto;
 }
 
 h1,
@@ -116,4 +141,8 @@ h6 {
 h1 {
   font-family: var(--font-family-title);
   font-size: var(--font-size-title);
+}
+
+a {
+  color: var(--color-crayal-100);
 }
