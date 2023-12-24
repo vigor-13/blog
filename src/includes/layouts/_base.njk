@@ -10,8 +10,9 @@
     />
 
     {%- css %}{% include "public/css/reset.css" %}{% endcss %}
+    {%- css %}{% include "public/css/font.css" %}{% endcss %}
     {%- css %}{% include "public/css/index.css" %}{% endcss %}
-    {%- css %}{% include "public/css/base.layout.css" %}{% endcss %}
+    {%- css %}{% include "public/css/base.css" %}{% endcss %}
     <style>{% getBundle "css" %}</style>
 
     {# {% if css %}
@@ -26,7 +27,7 @@
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
     <header>
       <a id="logo" href="/">
-        <img src="img/logo.jpg" />
+        <img src="/img/logo.jpg" />
         <span>VIGOROUSLY</span>
       </a>
       <nav id="main-navigation">

@@ -1,77 +1,26 @@
-@font-face {
-  font-family: 'NotoSansKR-Thin';
-  src: url('../fonts/NotoSansKR-Thin.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-ExtraLight';
-  src: url('../fonts/NotoSansKR-ExtraLight.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-Light';
-  src: url('../fonts/NotoSansKR-Light.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-Regular';
-  src: url('../fonts/NotoSansKR-Regular.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-Medium';
-  src: url('../fonts/NotoSansKR-Medium.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-SemiBold';
-  src: url('../fonts/NotoSansKR-SemiBold.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-Bold';
-  src: url('../fonts/NotoSansKR-Bold.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-ExtraBold';
-  src: url('../fonts/NotoSansKR-ExtraBold.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NotoSansKR-Black';
-  src: url('../fonts/NotoSansKR-Black.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'BlackHanSans-Regular';
-  src: url('../fonts/BlackHanSans-Regular.ttf') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Static Token */
+/**
+ * Static Token 
+ */
 :root {
+  /* width */
+  --width-640: 640px;
+
+  /* font size */
+  --font-size-10: 10px;
   --font-size-12: 12px;
   --font-size-14: 14px;
   --font-size-20: 20px;
   --font-size-30: 30px;
   --font-size-60: 60px;
 
+  /* spacing */
   --spacing-5: 5px;
   --spacing-10: 10px;
   --spacing-20: 20px;
   --spacing-30: 30px;
+  --spacing-40: 40px;
 
+  /* radius */
   --radius-round: 50%;
   --radius-4: 4px;
   --radius-10: 10px;
@@ -92,8 +41,15 @@
   --color-middle-blue-green-100: #99cccc;
 }
 
-/* Semantic Token */
+/**
+ * Semantic Token
+ */
 :root {
+  --content-width: var(--width-640);
+  --font-size-tag: var(--font-size-12);
+  --tag-background-color: #394b51;
+  --tag-font-color: #a0eeee;
+
   --background-color-body: var(--color-gray-200);
   --background-color-section: var(--color-gray-100);
 
@@ -105,43 +61,28 @@
   --font-family-title: BlackHanSans-Regular;
   --font-family-list-title: NotoSansKR-Bold;
   --font-family-info: NotoSansKR-Light;
+  --font-family-h1: NotoSansKR-Black;
+  --font-family-h2: NotoSansKR-Black;
+  --font-family-h3: NotoSansKR-Black;
+  --font-family-h4: NotoSansKR-Black;
+  --font-family-h5: NotoSansKR-Black;
+  --font-family-h6: NotoSansKR-Black;
 
   --font-size-default: var(--font-size-14);
   --font-size-title: var(--font-size-60);
   --font-size-info: var(--font-size-12);
+  --font-size-h1: 30px;
+  --font-size-h2: 24px;
+  --font-size-h3: 30px;
+  --font-size-h4: 30px;
+  --font-size-h5: 30px;
+  --font-size-h6: 30px;
 }
 
-/* Theme */
+/**
+ * Theme
+ */
 @media (prefers-color-scheme: light) {
   :root {
   }
-}
-
-body {
-  font-family: var(--font-family-default);
-  font-size: var(--font-size-default);
-  background-color: var(--background-color-body);
-  color: var(--text-color-default);
-  height: 100vh;
-}
-
-main {
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--text-color-title);
-}
-
-h1 {
-  font-family: var(--font-family-title);
-  font-size: var(--font-size-title);
-}
-
-a {
-  color: var(--color-crayal-100);
 }

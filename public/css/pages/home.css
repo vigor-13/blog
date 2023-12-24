@@ -5,12 +5,12 @@ main .page-wrapper {
 }
 
 section.home-latest-posts {
-  max-width: 720px;
+  max-width: 768px;
   width: 100%;
 }
 
 section.home-latest-posts > h2 {
-  font-family: var(--font-family-title);
-  font-size: var(--font-size-30);
+  font-family: var(--font-family-list-title);
+  font-size: var(--font-size-20);
   margin-bottom: var(--spacing-10);
 }

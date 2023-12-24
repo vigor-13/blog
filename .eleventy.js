@@ -7,10 +7,10 @@ module.exports = function (eleventyConfig) {
   /* Plugins */
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginBundle);
-  eleventyConfig.addPlugin(eleventyImagePlugin, {
-    formats: ['jpg'],
-    urlPath: '/img/',
-  });
+  // eleventyConfig.addPlugin(eleventyImagePlugin, {
+  //   formats: ['jpg'],
+  //   urlPath: '/img/',
+  // });
 
   /* Public Asset */
   eleventyConfig.addPassthroughCopy({

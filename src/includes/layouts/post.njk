@@ -1,0 +1,36 @@
+{%- css %}{% include "public/css/pages/post.css" %}{% endcss %}
+{% extends "layouts/_base.njk" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<section class="post-left">
+  <div class="post-page-box">
+    <div>태그</div>
+    <ul class="post-tag-list">
+      {%- for tag in tags | filterTagList %}
+      {# {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+      <li><a href="{{ tagUrl }}" class="post-tag-item">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li> #}
+      <li>
+        <div class="tag">{{ tag }}</div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+<section class="post post-page-box">
+  <h1 class="_title">{{ title }}</h1>
+  <div class="_date">{{ page.date | htmlDateString }}</div>
+  {% if description %}
+  <div class="gap _description">{{ description }}</div>
+  {% else %}
+  <div class="gap"></div>
+  {% endif %}
+  {{ content | safe }}
+</section>
+<section class="post-right"></section>
+{% endblock %}
+
+{% block foot %}
+{% endblock %}
