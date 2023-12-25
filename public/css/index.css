@@ -1,3 +1,17 @@
+:root {
+  --base-spacing: 8px;
+  --base-font-size: 8px;
+
+  --default-line-height: 1.8;
+  --default-font-size: 14px;
+  --default-font-family: NotoSansKR-Regular;
+  --brand-font: BlackHanSans-Regular;
+  --information-font: NotoSansKR-Thin;
+
+  --default-border-color: #454c56;
+  --brand-color: #99cccc;
+}
+
 /**
  * Static Token 
  */
@@ -8,10 +22,17 @@
   /* font size */
   --font-size-10: 10px;
   --font-size-12: 12px;
-  --font-size-14: 14px;
   --font-size-20: 20px;
   --font-size-30: 30px;
   --font-size-60: 60px;
+
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-26: 26px;
 
   /* spacing */
   --spacing-5: 5px;
@@ -61,22 +82,10 @@
   --font-family-title: BlackHanSans-Regular;
   --font-family-list-title: NotoSansKR-Bold;
   --font-family-info: NotoSansKR-Light;
-  --font-family-h1: NotoSansKR-Black;
-  --font-family-h2: NotoSansKR-Black;
-  --font-family-h3: NotoSansKR-Black;
-  --font-family-h4: NotoSansKR-Black;
-  --font-family-h5: NotoSansKR-Black;
-  --font-family-h6: NotoSansKR-Black;
 
   --font-size-default: var(--font-size-14);
   --font-size-title: var(--font-size-60);
   --font-size-info: var(--font-size-12);
-  --font-size-h1: 30px;
-  --font-size-h2: 24px;
-  --font-size-h3: 30px;
-  --font-size-h4: 30px;
-  --font-size-h5: 30px;
-  --font-size-h6: 30px;
 }
 
 /**

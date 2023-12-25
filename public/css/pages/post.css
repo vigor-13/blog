@@ -28,25 +28,6 @@ section.post ._description {
   color: var(--text-color-info);
 }
 
-section.post h1 {
-  font-family: var(--font-family-h1);
-  font-size: var(--font-size-h1);
-  /* margin-bottom: var(--spacing-40); */
-}
-section.post h2 {
-  font-family: var(--font-family-h2);
-  font-size: var(--font-size-h2);
-  margin-top: var(--spacing-30);
-  margin-bottom: 20px;
-  padding-bottom: var(--spacing-10);
-  color: #6bb6ff;
-  border-bottom: 1px solid var(--color-gray-50);
-}
-
-section.post p {
-  margin-bottom: var(--spacing-20);
-}
-
 section.post-left {
   max-width: 300px;
   width: 100%;

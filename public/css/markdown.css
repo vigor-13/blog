@@ -1,0 +1,181 @@
+:root {
+  /* Font size */
+  --h1-size: calc(var(--base-font-size) * 4);
+  --h2-size: calc(var(--h1-size) - 4px);
+  --h3-size: calc(var(--base-font-size) * 3);
+  --h4-size: calc(var(--h3-size) - 4px);
+  --h5-size: calc(var(--base-font-size) * 2);
+  --h6-size: var(--default-font-size);
+
+  /* Font family */
+  --p-font: var(--default-font-family);
+  --head-font: NotoSansKR-Black;
+  --strong-font: NotoSansKR-Bold;
+  --blockquite-font: NotoSansKR-Thin;
+
+  /* Gap */
+  --content-spacing-0: calc(var(--base-spacing));
+  --content-spacing-2: calc(var(--base-spacing) * 2);
+  --content-spacing-3: calc(var(--base-spacing) * 3);
+  --content-spacing-4: calc(var(--base-spacing) * 4);
+
+  /* Color */
+  --bold-color: var(--brand-color);
+  --italic-color: #ff8a36;
+  --code-color: #ffbbec;
+  --link-color: #398fd1;
+}
+
+/* Head Tag */
+main .post h1,
+main .post h2,
+main .post h3,
+main .post h4,
+main .post h5,
+main .post h6 {
+  font-family: var(--head-font);
+  margin-top: var(--content-spacing-4);
+  margin-bottom: var(--content-spacing-2);
+}
+main .post h1 {
+  font-size: var(--h1-size);
+}
+main .post h2 {
+  font-size: var(--h2-size);
+}
+main .post h3 {
+  font-size: var(--h3-size);
+}
+main .post h4 {
+  font-size: var(--h4-size);
+}
+main .post h5 {
+  font-size: var(--h5-size);
+}
+main .post h6 {
+  font-size: var(--h6-size);
+}
+
+/* P Tag */
+main .post p,
+main .post table td p {
+  font-family: var(--p-font);
+  font-size: var(--default-font-size);
+  line-height: var(--default-line-height);
+  margin: var(--content-spacing-2) 0;
+}
+main .post p strong,
+main .post table td strong {
+  font-family: var(--strong-font);
+  color: var(--brand-color);
+}
+main .post p em,
+main .post table td em {
+  font-style: italic;
+  color: var(--italic-color);
+}
+main .post p code,
+main .post table td code {
+  color: var(--code-color);
+  font-family: var(--blockquite-font);
+  border: 1px solid var(--default-border-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+main .post p a,
+main .post table td a {
+  color: var(--link-color);
+}
+main .post p a:hover,
+main .post table td a:hover {
+  text-decoration: underline;
+}
+
+/* Ol, Ul Tag */
+main .post ol:before,
+main .post ul:before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: -15px;
+  border-left: 1px solid var(--default-border-color);
+  height: calc(100% - 26px);
+}
+main .post ol {
+  list-style: decimal;
+}
+main .post ul {
+  list-style: circle;
+}
+main .post > ol,
+main .post > ul {
+  padding-left: var(--content-spacing-2);
+  margin: var(--content-spacing-3) 0;
+}
+main .post > ol ol,
+main .post > ul ul {
+  padding-left: var(--content-spacing-2);
+}
+
+/* Li Tag */
+main .post li {
+  margin: var(--content-spacing-0) 0;
+  position: relative;
+}
+
+/* Blockquote Tag */
+main .post blockquote {
+  margin: var(--content-spacing-3) 0;
+}
+main .post blockquote {
+  font-family: var(--blockquite-font);
+  padding-left: var(--content-spacing-2);
+  border-left: calc(var(--base-spacing) / 2) solid var(--default-border-color);
+}
+main .post blockquote * {
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+/* Hr Tag */
+main .post hr {
+  margin: var(--content-spacing-4) 0;
+  border: 1px solid var(--default-border-color);
+  border-bottom: none;
+}
+
+/* Image tag */
+main .post img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* Table tag */
+main .post table {
+  width: 100%;
+  border: 1px solid var(--default-border-color);
+  margin: var(--content-spacing-3) 0;
+}
+main .post table th,
+main .post table tr {
+  border-bottom: 1px solid var(--default-border-color);
+}
+main .post table th,
+main .post table td {
+  text-align: left;
+  border-right: 1px solid var(--default-border-color);
+  padding: var(--content-spacing-0);
+}
+main .post table th {
+  font-size: 12px;
+  line-height: var(--default-line-height);
+  font-family: var(--strong-font);
+  color: var(--brand-color);
+}
+main .post table td {
+  font-family: var(--p-font);
+  font-size: 12px;
+  line-height: var(--default-line-height);
+}
