@@ -1,16 +1,15 @@
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const pluginBundle = require('@11ty/eleventy-plugin-bundle');
-const { eleventyImagePlugin } = require('@11ty/eleventy-img');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const { DateTime } = require('luxon');
 
 module.exports = function (eleventyConfig) {
   /* Plugins */
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginBundle);
-  // eleventyConfig.addPlugin(eleventyImagePlugin, {
-  //   formats: ['jpg'],
-  //   urlPath: '/img/',
-  // });
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    alwaysWrapLineHighlights: true,
+  });
 
   /* Public Asset */
   eleventyConfig.addPassthroughCopy({

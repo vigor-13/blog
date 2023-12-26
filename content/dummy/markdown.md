@@ -50,3 +50,13 @@ tags: [markdown]
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
+
+```js
+function myFunction() {
+  return true;
+}
+```
+
+```bash
+npm init
+```

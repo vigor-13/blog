@@ -1,9 +1,9 @@
 :root {
   --base-spacing: 8px;
-  --base-font-size: 8px;
+  --base-font-size: 7px;
 
   --default-line-height: 1.8;
-  --default-font-size: 14px;
+  --default-font-size: 13px;
   --default-font-family: NotoSansKR-Regular;
   --brand-font: BlackHanSans-Regular;
   --information-font: NotoSansKR-Thin;
@@ -17,7 +17,7 @@
  */
 :root {
   /* width */
-  --width-640: 640px;
+  --width-640: 620px;
 
   /* font size */
   --font-size-10: 10px;

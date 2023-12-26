@@ -10,6 +10,9 @@ devDependencies:
   '@11ty/eleventy-plugin-bundle':
     specifier: ^1.0.5
     version: 1.0.5
+  '@11ty/eleventy-plugin-syntaxhighlight':
+    specifier: ^5.0.0
+    version: 5.0.0
   '@commitlint/cli':
     specifier: ^18.4.0
     version: 18.4.3(typescript@5.3.3)
@@ -108,6 +111,12 @@ packages:
       debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@11ty/eleventy-plugin-syntaxhighlight@5.0.0:
+    resolution: {integrity: sha512-y9BUmP1GofmbJgxM1+ky/UpFCpD8JSOeLeKItUs0WApgnrHk9haHziW7lS86lbArX5SiCVo4zTTw9x53gvRCaA==}
+    dependencies:
+      prismjs: 1.29.0
     dev: true
 
   /@11ty/eleventy-utils@1.0.2:
@@ -3252,6 +3261,11 @@ packages:
     resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: true
+
+  /prismjs@1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
+    engines: {node: '>=6'}
     dev: true
 
   /promise-each@2.2.0:

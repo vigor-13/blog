@@ -42,6 +42,8 @@ main .post h1 {
 }
 main .post h2 {
   font-size: var(--h2-size);
+  border-bottom: 1px solid var(--default-border-color);
+  padding-bottom: var(--base-spacing);
 }
 main .post h3 {
   font-size: var(--h3-size);
@@ -58,24 +60,28 @@ main .post h6 {
 
 /* P Tag */
 main .post p,
-main .post table td p {
+main .post table td p,
+main .post li {
   font-family: var(--p-font);
   font-size: var(--default-font-size);
   line-height: var(--default-line-height);
   margin: var(--content-spacing-2) 0;
 }
 main .post p strong,
-main .post table td strong {
+main .post table td strong,
+main .post li strong {
   font-family: var(--strong-font);
   color: var(--brand-color);
 }
 main .post p em,
-main .post table td em {
+main .post table td em,
+main .post li em {
   font-style: italic;
   color: var(--italic-color);
 }
 main .post p code,
-main .post table td code {
+main .post table td code,
+main .post li code {
   color: var(--code-color);
   font-family: var(--blockquite-font);
   border: 1px solid var(--default-border-color);
@@ -84,11 +90,13 @@ main .post table td code {
   font-size: 12px;
 }
 main .post p a,
-main .post table td a {
+main .post table td a,
+main .post li a {
   color: var(--link-color);
 }
 main .post p a:hover,
-main .post table td a:hover {
+main .post table td a:hover,
+main .post li a:hover {
   text-decoration: underline;
 }
 
@@ -149,6 +157,7 @@ main .post hr {
 main .post img {
   display: block;
   margin: 0 auto;
+  width: 100%;
   border-radius: 4px;
 }
 

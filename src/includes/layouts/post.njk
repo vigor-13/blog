@@ -3,6 +3,7 @@
 {% extends "layouts/_base.njk" %}
 
 {% block head %}
+<link href="/css/prism-vsc-dark-plus.css" rel="stylesheet">
 {% endblock %}
 
 {% block main %}
@@ -24,9 +25,7 @@
   <h1 class="_title">{{ title }}</h1>
   <div class="_date">{{ page.date | htmlDateString }}</div>
   {% if description %}
-  <div class="gap _description">{{ description }}</div>
-  {% else %}
-  <div class="gap"></div>
+  <blockquote>{{ description }}</blockquote>
   {% endif %}
   {{ content | safe }}
 </section>
