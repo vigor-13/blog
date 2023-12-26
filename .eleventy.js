@@ -1,6 +1,7 @@
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const pluginBundle = require('@11ty/eleventy-plugin-bundle');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+var markdownItCheckbox = require('markdown-it-task-checkbox');
 const { DateTime } = require('luxon');
 
 module.exports = function (eleventyConfig) {
@@ -10,6 +11,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
   });
+  // eleventyConfig.setLibrary('md', markdownIt());
+  eleventyConfig.amendLibrary('md', (mdLib) =>
+    mdLib.use(markdownItCheckbox, {
+      ulClass: 'checkbox-list',
+      liClass: 'checkbox-list-item',
+    }),
+  );
 
   /* Public Asset */
   eleventyConfig.addPassthroughCopy({

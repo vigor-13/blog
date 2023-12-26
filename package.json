@@ -19,6 +19,7 @@
     "eslint-config-standard-with-typescript": "^39.1.1",
     "husky": "^8.0.3",
     "luxon": "^3.4.4",
+    "markdown-it-task-checkbox": "^1.0.6",
     "prettier": "^3.0.3",
     "rimraf": "^5.0.5",
     "typescript": "^5.2.2"
