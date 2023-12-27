@@ -23,10 +23,10 @@
 </section>
 <section class="post post-page-box">
   <h1 class="_title">{{ title }}</h1>
-  <div class="_date">{{ page.date | htmlDateString }}</div>
   {% if description %}
   <blockquote>{{ description }}</blockquote>
   {% endif %}
+  <div class="_date">{{ page.date | htmlDateString }}</div>
   {{ content | safe }}
 </section>
 <section class="post-right"></section>
