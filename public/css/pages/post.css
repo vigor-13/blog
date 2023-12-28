@@ -18,6 +18,9 @@ main {
   background: var(--background-color-section);
   border: 1px solid var(--color-gray-50);
 }
+.info-box:last-of-type {
+  margin-bottom: 0;
+}
 .info-box.content-index ul {
   list-style: circle;
 }
@@ -53,12 +56,12 @@ section.post ._date {
 }
 
 section.post-left {
-  margin-right: 40px;
+  margin-right: 30px;
   flex: 1;
 }
 
 section.post-right {
-  margin-left: 40px;
+  margin-left: 30px;
   flex: 1;
 }
 
@@ -90,6 +93,20 @@ section.post-right {
 main .post h1 {
   margin-top: 0;
 }
+.related-post .related-post-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.related-post .related-post-item > p {
+  width: 50px;
+  font-family: NotoSansKR-Thin;
+}
+.related-post .related-post-item > a {
+  flex: 1;
+}
+.related-post .related-post-item:last-of-type {
+  margin-bottom: 0px;
+}
 
 @media only screen and (max-width: 1280px) {
   main {
@@ -115,5 +132,9 @@ main .post h1 {
     width: 100%;
     margin-left: 0;
     flex: 0;
+  }
+
+  .info-box {
+    margin-bottom: 10px;
   }
 }

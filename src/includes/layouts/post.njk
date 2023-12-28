@@ -7,8 +7,9 @@
 {% endblock %}
 
 {% block main %}
+{# LEFT #}
 <section class="post-left">
-  <div class="info-box ">
+  <div class="info-box">
     <div>태그</div>
     <ul class="post-tag-list">
       {%- for tag in tags | filterTagList %}
@@ -21,6 +22,7 @@
     </ul>
   </div>
 </section>
+{# CENTER #}
 <section class="post post-page-box">
   <h1 class="_title">{{ title }}</h1>
   {% if description %}
@@ -29,7 +31,27 @@
   <div class="_date">{{ page.date | htmlDateString }}</div>
   {{ content | safe }}
 </section>
-<section class="post-right"></section>
+{# RIGHT #}
+<section class="post-right">
+  {% set previousPost = collections.post | getPreviousCollectionItem %}
+  {% set nextPost = collections.post | getNextCollectionItem %}
+  {% if previousPost or nextPost %}
+    <div class="info-box related-post">      
+    {% if previousPost %}
+    <div class="related-post-item _previous">
+      <p>이전글</p>
+      <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+    </div>
+    {% endif %}
+    {% if nextPost %}
+    <div class="related-post-item _next">
+      <p>다음글</p>
+      <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+    </div>
+    {% endif %}
+    </div>
+  {% endif %}
+</section>
 {% endblock %}
 
 {% block foot %}
