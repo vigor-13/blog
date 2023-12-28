@@ -8,7 +8,7 @@
 
 {% block main %}
 <section class="post-left">
-  <div class="post-page-box">
+  <div class="info-box ">
     <div>태그</div>
     <ul class="post-tag-list">
       {%- for tag in tags | filterTagList %}
@@ -33,4 +33,5 @@
 {% endblock %}
 
 {% block foot %}
+<script src="/js/indexing.js"></script>
 {% endblock %}

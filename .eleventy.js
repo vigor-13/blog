@@ -2,6 +2,7 @@ const { DateTime } = require('luxon');
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const pluginBundle = require('@11ty/eleventy-plugin-bundle');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const { attrs } = require('@mdit/plugin-attrs');
 const markdownItCheckbox = require('markdown-it-task-checkbox');
 const markdownItCallout = require('./eleventy.callout');
 
@@ -19,6 +20,7 @@ module.exports = function (eleventyConfig) {
     }),
   );
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItCallout));
+  eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(attrs));
 
   /* Public Asset */
   eleventyConfig.addPassthroughCopy({

@@ -112,9 +112,9 @@ main .post ul:before {
   content: '';
   position: absolute;
   top: 26px;
-  left: -15px;
+  left: -16px;
   border-left: 1px solid var(--default-border-color);
-  height: calc(100% - 20px);
+  height: calc(100% - 26px);
 }
 main .post ol {
   list-style: decimal;

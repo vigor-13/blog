@@ -19,6 +19,9 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^18.4.0
     version: 18.4.3
+  '@mdit/plugin-attrs':
+    specifier: ^0.8.0
+    version: 0.8.0
   '@mdit/plugin-container':
     specifier: ^0.8.0
     version: 0.8.0
@@ -470,6 +473,18 @@ packages:
       strip-ansi-cjs: /strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: /wrap-ansi@7.0.0
+    dev: true
+
+  /@mdit/plugin-attrs@0.8.0:
+    resolution: {integrity: sha512-ewmx5i+b3M4CRJNDpDNBA0YTHa1snn+adDsDDpDtPPSzCH1NhtWXdzwI0TrcCQUnueeSEEWX/wY4ESo+NRkBNQ==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      markdown-it: ^14.0.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+    dependencies:
+      '@types/markdown-it': 13.0.7
     dev: true
 
   /@mdit/plugin-container@0.8.0:
