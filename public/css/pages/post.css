@@ -49,10 +49,13 @@ section.post {
   width: 100%;
 }
 
-section.post ._date {
+main section.post ._date {
   margin-top: var(--spacing-10);
   margin-bottom: var(--spacing-20);
   color: var(--text-color-info);
+}
+main section.post ._date p {
+  margin: 0;
 }
 
 section.post-left {

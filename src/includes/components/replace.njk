@@ -5,7 +5,9 @@
   {% set placeholder = { title: '404', link: '/', linkText: '메인으로 돌아가기' } %} 
 #}
 <div class="placeholder-wrap">
-  <img src="/img/404.jpg" />
+  <a href={{ placeholder.link }}>
+    <img src="/img/404.jpg" />
+    <span>{{ placeholder.linkText }}</span>
+  </a>
   <h2>{{ placeholder.title }}</h2>
-  <a href={{ placeholder.link }}>{{ placeholder.linkText }}</a>
 </div>

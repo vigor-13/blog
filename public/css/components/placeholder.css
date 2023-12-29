@@ -17,18 +17,34 @@ main {
   font-family: var(--font-family-title);
   font-size: 80px;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .placeholder-wrap img {
   width: 350px;
   height: 350px;
-  border-radius: 10%;
+  border-radius: 50%;
+  transition: 0.3s filter linear;
+  padding: 10px;
 }
 
 .placeholder-wrap a {
-  color: var(--text-color-default);
+  position: relative;
+}
+.placeholder-wrap a span {
+  color: white;
+  font-family: NotoSansKR-Black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.placeholder-wrap a:hover img {
+  filter: blur(3px);
+}
+.placeholder-wrap a:hover span {
+  display: block;
 }
 
 @media only screen and (max-width: 765px) {

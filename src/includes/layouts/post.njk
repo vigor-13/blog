@@ -28,7 +28,10 @@
   {% if description %}
   <blockquote>{{ description }}</blockquote>
   {% endif %}
-  <div class="_date">{{ page.date | htmlDateString }}</div>
+  <div class="_date">
+    <p>생성일: {{ created }}</p>
+    <p>수정일: {{ updated }}</p>
+  </div>
   {{ content | safe }}
 </section>
 {# RIGHT #}
