@@ -1,0 +1,16 @@
+main .page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-30);
+}
+
+section.home-latest-posts {
+  max-width: 720px;
+  width: 100%;
+}
+
+section.home-latest-posts > h2 {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-30);
+  margin-bottom: var(--spacing-10);
+}

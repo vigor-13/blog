@@ -1,0 +1,17 @@
+{%- css %}{% include "public/css/components/post-list.css" %}{% endcss %}
+
+<ul class="post-list-wrap">
+{%- for post in collections.post -%}  
+	<li>
+		<a class="post-list-item" href={{ post.page.url}}>
+			<div class="_top">
+				<p class="_title">{{ post.data.title }}</p>
+				<p class="_date">{{post.page.date | htmlDateString}}</p>
+			</div>
+			<div class="_bottom">
+				<p class="_description">{{ post.data.description }}</p>
+			</div>
+		</a>
+	</li>
+{%- endfor -%}
+</ul>

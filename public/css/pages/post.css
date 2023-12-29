@@ -1,0 +1,143 @@
+main {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-30);
+}
+
+.post-page-box {
+  padding: var(--spacing-40);
+  border-radius: var(--radius-4);
+  background: var(--background-color-section);
+  border: 1px solid var(--color-gray-50);
+}
+
+.info-box {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: var(--radius-4);
+  background: var(--background-color-section);
+  border: 1px solid var(--color-gray-50);
+}
+.info-box:last-of-type {
+  margin-bottom: 0;
+}
+.info-box.content-index ul {
+  list-style: circle;
+}
+.info-box.content-index > ul {
+  padding-left: var(--content-spacing-2);
+  margin: var(--content-spacing-0) 0;
+}
+.info-box.content-index ul ul {
+  padding-left: var(--content-spacing-2);
+}
+.info-box.content-index ul li {
+  margin: var(--content-spacing-0) 0;
+  position: relative;
+}
+.info-box.content-index ul:before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -15px;
+  border-left: 1px solid var(--default-border-color);
+  height: calc(100% - 20px);
+}
+
+section.post {
+  max-width: 640px;
+  width: 100%;
+}
+
+main section.post ._date {
+  margin-top: var(--spacing-10);
+  margin-bottom: var(--spacing-20);
+  color: var(--text-color-info);
+}
+main section.post ._date p {
+  margin: 0;
+}
+
+section.post-left {
+  margin-right: 30px;
+  flex: 1;
+}
+
+section.post-right {
+  margin-left: 30px;
+  flex: 1;
+}
+
+.post-tag-list {
+  display: flex;
+  flex-direction: row;
+}
+.post-tag-list li {
+  /* margin-bottom: 10px; */
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.post-tag-list li:last-of-type {
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.tag {
+  display: inline-block;
+  font-size: var(--font-size-tag);
+  background-color: var(--tag-background-color);
+  color: var(--tag-font-color);
+  line-height: 1;
+  border: 1px solid;
+  border-radius: 26px;
+  padding: 5px 10px;
+}
+
+main .post h1 {
+  margin-top: 0;
+}
+.related-post .related-post-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.related-post .related-post-item > p {
+  width: 50px;
+  font-family: NotoSansKR-Thin;
+}
+.related-post .related-post-item > a {
+  flex: 1;
+}
+.related-post .related-post-item:last-of-type {
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 1280px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  section.post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  section.post-left {
+    max-width: 640px;
+    width: 100%;
+    margin-right: 0;
+    flex: 0;
+  }
+
+  section.post-right {
+    max-width: 640px;
+    width: 100%;
+    margin-left: 0;
+    flex: 0;
+  }
+
+  .info-box {
+    margin-bottom: 10px;
+  }
+}

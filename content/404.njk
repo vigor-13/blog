@@ -1,0 +1,9 @@
+---
+permalink: 404.html
+layout: layouts/home.njk
+---
+
+{% block main %}
+  {% set placeholder = { title: '404', link: '/', linkText: '메인으로 돌아가기' } %}
+  {% include "components/replace.njk" %}
+{% endblock %}

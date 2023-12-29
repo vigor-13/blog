@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'NotoSansKR-Thin';
+  src: url('/fonts/NotoSansKR-Thin.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-ExtraLight';
+  src: url('/fonts/NotoSansKR-ExtraLight.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Light';
+  src: url('/fonts/NotoSansKR-Light.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Regular';
+  src: url('/fonts/NotoSansKR-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Medium';
+  src: url('/fonts/NotoSansKR-Medium.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-SemiBold';
+  src: url('/fonts/NotoSansKR-SemiBold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Bold';
+  src: url('/fonts/NotoSansKR-Bold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-ExtraBold';
+  src: url('/fonts/NotoSansKR-ExtraBold.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansKR-Black';
+  src: url('/fonts/NotoSansKR-Black.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'BlackHanSans-Regular';
+  src: url('/fonts/BlackHanSans-Regular.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

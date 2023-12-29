@@ -1,0 +1,333 @@
+:root {
+  /* Font size */
+  --h1-size: calc(var(--base-font-size) * 4);
+  --h2-size: calc(var(--h1-size) - 4px);
+  --h3-size: calc(var(--base-font-size) * 3);
+  --h4-size: calc(var(--h3-size) - 4px);
+  --h5-size: calc(var(--base-font-size) * 2);
+  --h6-size: var(--default-font-size);
+
+  /* Font family */
+  --p-font: var(--default-font-family);
+  --head-font: NotoSansKR-Black;
+  --strong-font: NotoSansKR-Bold;
+  --blockquite-font: NotoSansKR-Thin;
+
+  /* Gap */
+  --content-spacing-0: calc(var(--base-spacing));
+  --content-spacing-2: calc(var(--base-spacing) * 2);
+  --content-spacing-3: calc(var(--base-spacing) * 3);
+  --content-spacing-4: calc(var(--base-spacing) * 4);
+
+  /* Color */
+  --bold-color: var(--brand-color);
+  --italic-color: #ff8a36;
+  --code-color: #ffbbec;
+  --link-color: #398fd1;
+}
+
+/* Head Tag */
+main .post h1,
+main .post h2,
+main .post h3,
+main .post h4,
+main .post h5,
+main .post h6 {
+  font-family: var(--head-font);
+  margin-top: var(--content-spacing-4);
+  margin-bottom: var(--content-spacing-2);
+}
+main .post h1 {
+  font-size: var(--h1-size);
+}
+main .post h2 {
+  font-size: var(--h2-size);
+  border-bottom: 1px solid var(--default-border-color);
+  padding-bottom: var(--base-spacing);
+}
+main .post h3 {
+  font-size: var(--h3-size);
+}
+main .post h4 {
+  font-size: var(--h4-size);
+}
+main .post h5 {
+  font-size: var(--h5-size);
+}
+main .post h6 {
+  font-size: var(--h6-size);
+}
+
+/* P Tag */
+main .post p,
+main .post table td p,
+main .post li,
+main .post li label {
+  font-family: var(--p-font);
+  font-size: var(--default-font-size);
+  line-height: var(--default-line-height);
+  margin: var(--content-spacing-2) 0;
+}
+main .post p strong,
+main .post table td strong,
+main .post li strong,
+main .post li label strong {
+  font-family: var(--strong-font);
+  color: var(--brand-color);
+}
+main .post p em,
+main .post table td em,
+main .post li em,
+main .post li label em {
+  font-style: italic;
+  color: var(--italic-color);
+}
+main .post p code,
+main .post table td code,
+main .post li code,
+main .post li label code {
+  color: var(--code-color);
+  font-family: var(--blockquite-font);
+  border: 1px solid var(--default-border-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+main .post p a,
+main .post table td a,
+main .post li a,
+main .post li label a {
+  color: var(--link-color);
+}
+main .post p a:hover,
+main .post table td a:hover,
+main .post li a:hover,
+main .post li label a:hover {
+  text-decoration: underline;
+}
+
+/* Ol, Ul Tag */
+main .post ol:before,
+main .post ul:before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: -16px;
+  border-left: 1px solid var(--default-border-color);
+  height: calc(100% - 26px);
+}
+main .post ol {
+  list-style: decimal;
+}
+main .post ul {
+  list-style: circle;
+}
+main .post > ol,
+main .post > ul {
+  padding-left: var(--content-spacing-2);
+  margin: var(--content-spacing-3) 0;
+}
+main .post > ol ol,
+main .post > ul ul {
+  padding-left: var(--content-spacing-2);
+}
+
+/* Li Tag */
+main .post li {
+  margin: var(--content-spacing-0) 0;
+  position: relative;
+}
+
+/* Blockquote Tag */
+main .post blockquote {
+  margin: var(--content-spacing-3) 0;
+}
+main .post blockquote {
+  font-family: var(--blockquite-font);
+  padding-left: var(--content-spacing-2);
+  border-left: calc(var(--base-spacing) / 2) solid var(--default-border-color);
+}
+main .post blockquote * {
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+/* Hr Tag */
+main .post hr {
+  margin: var(--content-spacing-4) 0;
+  border: 1px solid var(--default-border-color);
+  border-bottom: none;
+}
+
+/* Image tag */
+main .post img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Table tag */
+main .post table {
+  width: 100%;
+  margin: var(--content-spacing-3) 0;
+  border-collapse: collapse;
+  border-radius: 4px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px var(--default-border-color);
+  overflow: hidden;
+}
+main .post table thead {
+  background-color: #1c2128;
+}
+main .post table th,
+main .post table tr {
+  border-bottom: 1px solid var(--default-border-color);
+}
+main .post table th,
+main .post table td {
+  text-align: left;
+  border-right: 1px solid var(--default-border-color);
+  padding: var(--content-spacing-0);
+}
+main .post table th {
+  font-size: 12px;
+  line-height: var(--default-line-height);
+  font-family: var(--strong-font);
+  color: white;
+}
+main .post table td {
+  font-family: var(--p-font);
+  font-size: 12px;
+  line-height: var(--default-line-height);
+}
+
+/* Checkbox */
+main .post ul.checkbox-list {
+  list-style: none;
+}
+main .post ul.checkbox-list li.checkbox-list-item input[type='checkbox'] {
+  display: none;
+}
+main
+  .post
+  ul.checkbox-list
+  li.checkbox-list-item
+  input[type='checkbox']
+  + label {
+  position: relative;
+  padding-left: 4px;
+  display: block;
+}
+main
+  .post
+  ul.checkbox-list
+  li.checkbox-list-item
+  input[type='checkbox']
+  + label::before {
+  width: 14px;
+  height: 14px;
+  content: '';
+  font-size: 10px;
+  text-align: center;
+  position: absolute;
+  left: -22px;
+  top: 4px;
+  border: 1px solid var(--default-border-color);
+  border-radius: 4px;
+}
+main
+  .post
+  ul.checkbox-list
+  li.checkbox-list-item
+  input[type='checkbox']:checked
+  + label::before {
+  background: var(--brand-color);
+}
+
+/* MARKDOWN ALERT */
+.markdown-alert {
+  padding: 14px;
+  color: inherit;
+  border: 1px solid;
+  border-radius: 4px;
+  margin: var(--content-spacing-2) 0;
+}
+main .post .markdown-alert p {
+  font-size: 12px;
+  color: inherit;
+  margin: var(--content-spacing-0) 0;
+}
+main .post .markdown-alert p.markdown-alert-title {
+  font-size: 12px;
+}
+.markdown-alert > :first-child {
+  margin-top: 0 !important;
+}
+.markdown-alert > :last-child {
+  margin-bottom: 0 !important;
+}
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: var(--base-text-weight-medium, 500);
+  align-items: center;
+  position: relative;
+}
+.markdown-alert .markdown-alert-title:before {
+  content: ' ';
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+@media print {
+  .markdown-alert .markdown-alert-title:before {
+    display: none;
+  }
+}
+.markdown-alert.markdown-alert-note {
+  color: #2f81f7;
+}
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: #2f81f7;
+}
+.markdown-alert.markdown-alert-note .markdown-alert-title::before {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%232f81f7' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+}
+.markdown-alert.markdown-alert-important {
+  color: #a371f7;
+}
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: #a371f7;
+}
+.markdown-alert.markdown-alert-important .markdown-alert-title::before {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23a371f7' d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+}
+.markdown-alert.markdown-alert-tip {
+  color: #3fb950;
+}
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: #3fb950;
+}
+.markdown-alert.markdown-alert-tip .markdown-alert-title::before {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%233fb950' d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'/%3E%3C/svg%3E");
+}
+.markdown-alert.markdown-alert-warning {
+  color: #d29922;
+}
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: #d29922;
+}
+.markdown-alert.markdown-alert-warning .markdown-alert-title::before {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23d29922' d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+}
+.markdown-alert.markdown-alert-caution {
+  color: #f85149;
+}
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: #f85149;
+}
+.markdown-alert.markdown-alert-caution .markdown-alert-title::before {
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23f85149' d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+}
