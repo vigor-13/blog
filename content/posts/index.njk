@@ -6,6 +6,8 @@ eleventyNavigation:
   order: 2
 ---
 {% block main %}
+  {% if collections.post %}
+  {% set posts = collections.post %}
   <div class="page-wrapper">
     <section class="home-latest-posts">
       <h2>최신글</h2>
@@ -15,4 +17,9 @@ eleventyNavigation:
     </section>
     {{ content | safe }}
   </div>
+  {% else %}
+  <div class="no-list">
+    NO LIST
+  </div>
+  {% endif %}
 {% endblock %}

@@ -33,9 +33,18 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter('filterTagList', function filterTagList(tags) {
-    return (tags || []).filter(
+    const t = (tags || []).filter(
       (tag) => !['all', 'nav', 'post', 'posts'].includes(tag),
     );
+    return t;
+  });
+
+  eleventyConfig.addFilter('isEmpty', function isEmptyList(tags) {
+    const t = (tags || []).filter(
+      (tag) => !['all', 'nav', 'post', 'posts'].includes(tag),
+    );
+
+    return t.length > 0 ? true : false;
   });
 
   return {
