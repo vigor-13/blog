@@ -9,6 +9,7 @@
 {% block main %}
 {# LEFT #}
 <section class="post-left">
+{% if tags | isEmpty %}
   <div class="info-box">
     <div>태그</div>
     <ul class="post-tag-list">
@@ -21,6 +22,7 @@
       {%- endfor %}
     </ul>
   </div>
+{% endif %}
 </section>
 {# CENTER #}
 <section class="post post-page-box">
@@ -36,23 +38,25 @@
 </section>
 {# RIGHT #}
 <section class="post-right">
-  {% set previousPost = collections.post | getPreviousCollectionItem %}
-  {% set nextPost = collections.post | getNextCollectionItem %}
-  {% if previousPost or nextPost %}
-    <div class="info-box related-post">      
-    {% if previousPost %}
-    <div class="related-post-item _previous">
-      <p>이전글</p>
-      <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
-    </div>
+  {% if collections.post %}
+    {% set previousPost = collections.post | getPreviousCollectionItem %}
+    {% set nextPost = collections.post | getNextCollectionItem %}
+    {% if previousPost or nextPost %}
+      <div class="info-box related-post">      
+      {% if previousPost %}
+      <div class="related-post-item _previous">
+        <p>이전글</p>
+        <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+      </div>
+      {% endif %}
+      {% if nextPost %}
+      <div class="related-post-item _next">
+        <p>다음글</p>
+        <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+      </div>
+      {% endif %}
+      </div>
     {% endif %}
-    {% if nextPost %}
-    <div class="related-post-item _next">
-      <p>다음글</p>
-      <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
-    </div>
-    {% endif %}
-    </div>
   {% endif %}
 </section>
 {% endblock %}

@@ -7,23 +7,18 @@
   background-color: var(--background-color-section);
 }
 
-.post-list-item ._top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-10);
-  padding-bottom: var(--spacing-10);
-}
-.post-list-item ._top ._title {
+.post-list-item ._title {
   font-family: var(--font-family-list-title);
-  font-size: var(--font-size-20);
-  margin-right: var(--spacing-5);
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: white;
 }
-.post-list-item ._top ._date {
+.post-list-item:hover ._title {
+  color: var(--brand-color);
+}
+
+.post-list-item ._date {
   font-family: var(--font-family-info);
   font-size: var(--font-size-info);
   color: var(--text-color-info);
-}
-
-.post-list-item ._bottom {
 }
