@@ -1,7 +1,7 @@
 main .page-wrapper {
   display: flex;
   justify-content: center;
-  padding: var(--spacing-30);
+  padding: 30px;
 }
 
 section.home-latest-posts {
@@ -10,7 +10,7 @@ section.home-latest-posts {
 }
 
 section.home-latest-posts > h2 {
-  font-family: var(--font-family-title);
-  font-size: var(--font-size-30);
-  margin-bottom: var(--spacing-10);
+  font-weight: 900;
+  font-size: 30px;
+  margin-bottom: 16px;
 }

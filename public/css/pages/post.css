@@ -1,12 +1,12 @@
 main {
   display: flex;
   justify-content: center;
-  margin: var(--spacing-30);
+  margin: 30px;
 }
 
 .post-page-box {
-  padding: var(--spacing-40);
-  border-radius: var(--radius-4);
+  padding: 40px;
+  border-radius: 4px;
   background: var(--background-color-section);
   border: 1px solid var(--color-gray-50);
 }
@@ -14,7 +14,7 @@ main {
 .info-box {
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: var(--radius-4);
+  border-radius: 4px;
   background: var(--background-color-section);
   border: 1px solid var(--color-gray-50);
 }
@@ -22,7 +22,7 @@ main {
   margin-bottom: 0;
 }
 .info-box.content-index ul {
-  list-style: circle;
+  list-style: none;
 }
 .info-box.content-index > ul {
   padding-left: var(--content-spacing-2);
@@ -35,13 +35,30 @@ main {
   margin: var(--content-spacing-0) 0;
   position: relative;
 }
+.info-box.content-index ul li a {
+  line-height: var(--default-line-height);
+}
 .info-box.content-index ul:before {
   content: '';
   position: absolute;
   top: 20px;
-  left: -15px;
+  left: -12px;
   border-left: 1px solid var(--default-border-color);
   height: calc(100% - 20px);
+}
+.info-box.content-index ul li {
+  margin: var(--content-spacing-0) 0;
+  position: relative;
+}
+.info-box.content-index ul li:before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  border: 1px solid var(--color-crayal-100);
 }
 
 section.post {
@@ -50,12 +67,13 @@ section.post {
 }
 
 main section.post ._date {
-  margin-top: var(--spacing-10);
-  margin-bottom: var(--spacing-20);
+  margin-top: 10px;
+  margin-bottom: 20px;
   color: var(--text-color-info);
 }
 main section.post ._date p {
   margin: 0;
+  margin-top: 4px;
 }
 
 section.post-left {
@@ -73,7 +91,6 @@ section.post-right {
   flex-direction: row;
 }
 .post-tag-list li {
-  /* margin-bottom: 10px; */
   margin-right: 10px;
   margin-top: 10px;
 }
@@ -102,7 +119,7 @@ main .post h1 {
 }
 .related-post .related-post-item > p {
   width: 50px;
-  font-family: NotoSansKR-Thin;
+  font-weight: 100;
 }
 .related-post .related-post-item > a {
   flex: 1;
