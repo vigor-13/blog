@@ -14,9 +14,10 @@ main {
 
 .placeholder-wrap h2 {
   width: 100%;
-  font-family: var(--font-family-title);
+  font-family: BlackHanSans-Regular;
   font-size: 60px;
   text-align: center;
+  margin-top: 10px;
 }
 
 .placeholder-wrap img {
@@ -32,10 +33,11 @@ main {
 }
 .placeholder-wrap a span {
   color: white;
-  font-family: NotoSansKR-Black;
+  font-weight: 900;
+  font-size: 16px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 75%;
   transform: translate(-50%, -50%);
   display: none;
 }

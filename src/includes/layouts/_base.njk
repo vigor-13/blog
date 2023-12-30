@@ -8,10 +8,37 @@
       name="description"
       content="{{ description or metadata.description }}"
     />
-
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossOrigin=""
+      href="/fonts/woff2/Pretendard-Regular.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossOrigin=""
+      href="/fonts/woff2/Pretendard-Thin.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossOrigin=""
+      href="/fonts/woff2/Pretendard-Black.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossOrigin=""
+      href="/fonts/woff2/BlackHanSans-Regular.woff2"
+    />
     {%- css %}{% include "public/css/reset.css" %}{% endcss %}
     {%- css %}{% include "public/css/font.css" %}{% endcss %}
-    {%- css %}{% include "public/css/index.css" %}{% endcss %}
+    {%- css %}{% include "public/css/variables.css" %}{% endcss %}
     {%- css %}{% include "public/css/base.css" %}{% endcss %}
     <style>{% getBundle "css" %}</style>
 

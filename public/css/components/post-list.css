@@ -1,24 +1,24 @@
 .post-list-item {
   display: block;
   border: 1px solid var(--color-gray-50);
-  padding: var(--spacing-20);
-  border-radius: var(--radius-4);
-  margin-bottom: var(--spacing-20);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
   background-color: var(--background-color-section);
 }
 
 .post-list-item ._title {
-  font-family: var(--font-family-list-title);
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 15px;
   color: white;
+  font-weight: 900;
 }
 .post-list-item:hover ._title {
   color: var(--brand-color);
 }
 
 .post-list-item ._date {
-  font-family: var(--font-family-info);
-  font-size: var(--font-size-info);
+  font-weight: 100;
+  font-size: 12px;
   color: var(--text-color-info);
 }
