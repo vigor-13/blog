@@ -17,7 +17,7 @@
       {# {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
       <li><a href="{{ tagUrl }}" class="post-tag-item">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li> #}
       <li>
-        <div class="tag">{{ tag }}</div>
+        <div class="post-tag-item">{{ tag }}</div>
       </li>
       {%- endfor %}
     </ul>

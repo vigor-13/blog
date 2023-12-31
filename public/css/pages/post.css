@@ -99,7 +99,7 @@ section.post-right {
   margin-right: 0;
 }
 
-.tag {
+.post-tag-item {
   display: inline-block;
   font-size: var(--font-size-tag);
   background-color: var(--tag-background-color);
