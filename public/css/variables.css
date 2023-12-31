@@ -11,7 +11,7 @@
   --default-head-color: #ffffff;
 
   /* Branding */
-  --brand-font-family: BlackHanSans-Regular Helvetica, Arial, Sans-Serif;
+  --brand-font-family: BlackHanSans-Regular, Helvetica, Arial, Sans-Serif;
   --brand-color: #99cccc;
 
   /* Width */
