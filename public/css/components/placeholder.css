@@ -30,6 +30,7 @@ main {
 
 .placeholder-wrap a {
   position: relative;
+  text-align: center;
 }
 .placeholder-wrap a span {
   color: white;
@@ -64,6 +65,6 @@ main {
     height: 70%;
   }
   .placeholder-wrap h2 {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
