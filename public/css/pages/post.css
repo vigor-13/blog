@@ -135,20 +135,24 @@ main .post h1 {
     justify-content: flex-start;
   }
 
+  section.post,
+  section.post-left,
+  section.post-right {
+    max-width: 100%;
+  }
+
   section.post {
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
   section.post-left {
-    max-width: 640px;
     width: 100%;
     margin-right: 0;
     flex: 0;
   }
 
   section.post-right {
-    max-width: 640px;
     width: 100%;
     margin-left: 0;
     flex: 0;
@@ -156,5 +160,27 @@ main .post h1 {
 
   .info-box {
     margin-bottom: 10px;
+  }
+
+  main {
+    margin: 20px;
+  }
+
+  section.post {
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  main {
+    margin: 10px;
+  }
+
+  section.post {
+    padding: 16px;
+  }
+
+  .info-box {
+    padding: 16px;
   }
 }
