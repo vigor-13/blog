@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 {% block main %}
   {% if collections.post %}
-  {% set posts = collections.post %}
+  {% set posts = collections.post | reverse %}
   <div class="page-wrapper">
     <section class="home-latest-posts">
       <h2>최신글</h2>
