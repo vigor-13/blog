@@ -31,8 +31,12 @@
   <blockquote>{{ description }}</blockquote>
   {% endif %}
   <div class="_date">
-    <p>생성일: {{ created }}</p>
-    <p>수정일: {{ updated }}</p>
+    <p>생성일: {{ date | htmlDateString }}</p>
+    {% if modified %}
+    <p>수정일: {{ modified | htmlDateString }}</p>
+    {% else %}
+    <p>수정일: {{ date | htmlDateString }}</p>
+    {% endif %}
   </div>
   {{ content | safe }}
 </section>
