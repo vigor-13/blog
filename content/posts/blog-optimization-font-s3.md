@@ -2,12 +2,12 @@
 title: 블로그 최적화 - 폰트 리소스 S3로 이전하기
 description: 블로그 작업 일지
 tags: [font, aws, s3]
-date: 2024-01-06
+date: 2024-01-05
 ---
 
 ## 문제점
 
-2024년 현재 블로그를 Netlify에서 호스팅하고 있다. 다만 Netlify 무료 계정에서는 서버가 한국에 없기 때문에 폰트를 Netlify 서버에서 호스팅할 수는 없다.
+2024년 현재 블로그를 Netlify에서 호스팅하고 있다. 다만 무료 계정에서는 한국 CDN을 사용할 수 없기 때문에 폰트 리소스들을 S3로 이전 하기로 결정했다.
 
 참고로 현재(2023년 기준) Netlify CDN 위치는 다음과 같다. ([참조](https://answers.netlify.com/t/is-there-a-list-of-where-netlifys-cdn-pops-are-located/855))
 
@@ -42,8 +42,6 @@ date: 2024-01-06
   - Oceania (Sydney, Australia)
 
 ## 해결 방법
-
-이미지 호스팅을 어디서 해야할지 고민해 봤는데 S3가 가장 무난하다고 생각했다.
 
 방법은 간단하다. 원하는 버킷에 폰트를 업로드하고 CSS에서 주소만 변경하면 된다.
 
