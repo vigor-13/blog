@@ -24,6 +24,7 @@
   </div>
 {% endif %}
 </section>
+
 {# CENTER #}
 <section class="post post-page-box">
   <h1 class="_title">{{ title }}</h1>
@@ -40,13 +41,29 @@
   </div>
   {{ content | safe }}
 </section>
+
 {# RIGHT #}
 <section class="post-right">
+  {# 레퍼런스 블록 #}
+  {% if references %}
+  <div class="info-box content-index">
+    <div>참조</div>
+    <ul>
+      {%- for reference in references %}
+      <li>
+        <a href="{{ reference.value }}">{{ reference.key }}</a>{%- if not loop.last %}, {% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# 이전글, 다음글 블록 #}
   {% if collections.post %}
     {% set previousPost = collections.post | getPreviousCollectionItem %}
     {% set nextPost = collections.post | getNextCollectionItem %}
     {% if previousPost or nextPost %}
-      <div class="info-box related-post">      
+      <div class="info-box related-post">
       {% if previousPost %}
       <div class="related-post-item _previous">
         <p>이전글</p>
