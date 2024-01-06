@@ -1,12 +1,15 @@
 ---
 title: 블로그 최적화 - 웹폰트
 description: 빠르게 웹폰트 제공하기
-tags: [font]
 date: 2024-01-01
+tags: [font]
 references:
-  {
-    '지연 시간 없이 웹폰트 서빙하기 - Feat. Safari & Edge functions': 'https://blog.banksalad.com/tech/font-preload-on-safari/',
-  }
+  [
+    {
+      key: '지연 시간 없이 웹폰트 서빙하기 - Feat. Safari & Edge functions',
+      value: 'https://blog.banksalad.com/tech/font-preload-on-safari/',
+    },
+  ]
 ---
 
 Eleventy로 블로그를 만들어 Netlify에 배포했다. 라이트하우스로 성능을 측정해 봤는데 웹폰트 로딩에서 문제가 있었다.
