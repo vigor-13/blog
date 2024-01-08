@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const titleElement = document.createElement('div');
   titleElement.textContent = '목차';
 
-  let indexUlElement = _createList(headings, 0);
+  let indexUlElement = _createList(headings);
 
   containerElement.appendChild(titleElement);
   containerElement.appendChild(indexUlElement);
   sectionElement.appendChild(containerElement);
 });
 
-const _tempList = [];
-function _createList(headings, index, parent) {
+function _createList(headings, index = 0, parent, parents = [], root) {
   const head = headings[index];
   if (!head) return;
 
@@ -27,7 +26,11 @@ function _createList(headings, index, parent) {
     ulElement = parent;
   } else {
     ulElement = document.createElement('ul');
-    _tempList.push(ulElement);
+    parents.push(ulElement);
+  }
+
+  if (index !== 0 && headings[index].tagName === 'H2') {
+    ulElement = root;
   }
 
   const liElement = document.createElement('li');
@@ -42,20 +45,22 @@ function _createList(headings, index, parent) {
   }
 
   if (headings.length - 1 > index) {
-    let parent;
+    let _rootUl = index === 0 ? ulElement : root;
+    let _parent;
+    let _parents = parents;
     let currentDepth = Number(headings[index].tagName[1]);
     let nextDepth = Number(headings[index + 1].tagName[1]);
 
     if (nextDepth > currentDepth) {
-      parent = liElement;
+      _parent = liElement;
     } else if (currentDepth === nextDepth) {
-      parent = ulElement;
+      _parent = ulElement;
     } else {
       const depth = currentDepth - nextDepth + 1;
-      parent = _tempList[_tempList.length - depth];
+      _parent = _parents[_parents.length - depth];
     }
 
-    _createList(headings, index + 1, parent);
+    _createList(headings, index + 1, _parent, _parents, _rootUl);
   }
 
   return ulElement;
