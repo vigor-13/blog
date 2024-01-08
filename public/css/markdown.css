@@ -19,7 +19,7 @@
   --bold-color: var(--brand-color);
   --italic-color: #ff8a36;
   --code-color: #ffbbec;
-  --link-color: #398fd1;
+  --link-color: #96d0ff;
 }
 
 /* Head Tag */
@@ -177,6 +177,16 @@ main .post img {
   margin: 0 auto;
   max-width: 100%;
   border-radius: 4px;
+}
+
+main .post figure figcaption {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: var(--markdown-font-family);
+  font-weight: 100;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
 }
 
 /* Table tag */
