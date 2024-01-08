@@ -27,6 +27,7 @@ main {
 .info-box.content-index > ul {
   padding-left: var(--content-spacing-2);
   margin: var(--content-spacing-0) 0;
+  margin-bottom: 0;
 }
 .info-box.content-index ul ul {
   padding-left: var(--content-spacing-2);
@@ -59,6 +60,9 @@ main {
   height: 4px;
   border-radius: 50%;
   border: 1px solid var(--color-crayal-100);
+}
+.info-box.content-index ul li:last-of-type {
+  margin-bottom: 0;
 }
 
 section.post {
@@ -126,6 +130,13 @@ main .post h1 {
 }
 .related-post .related-post-item:last-of-type {
   margin-bottom: 0px;
+}
+
+/* utterances */
+.utterances {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 @media only screen and (max-width: 1280px) {
