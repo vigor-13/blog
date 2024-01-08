@@ -30,6 +30,9 @@ devDependencies:
   '@mdit/plugin-container':
     specifier: ^0.8.0
     version: 0.8.0(markdown-it@14.0.0)
+  '@mdit/plugin-figure':
+    specifier: ^0.8.0
+    version: 0.8.0(markdown-it@14.0.0)
   '@types/markdown-it':
     specifier: ^13.0.7
     version: 13.0.7
@@ -504,6 +507,19 @@ packages:
 
   /@mdit/plugin-container@0.8.0(markdown-it@14.0.0):
     resolution: {integrity: sha512-uWK3t0CWssintcmT5PTJVhAwbstcD+SrtijQKs6BhLRtGGgHJ9mOf0ybGjlJhn4077yFFTHmaCIT3K+n5ZVjPg==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      markdown-it: ^14.0.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+    dependencies:
+      '@types/markdown-it': 13.0.7
+      markdown-it: 14.0.0
+    dev: true
+
+  /@mdit/plugin-figure@0.8.0(markdown-it@14.0.0):
+    resolution: {integrity: sha512-/o4RoKjnkdWc+K7m6mR7BAu2J79yYE38s8HUc8iKk9v+e9j1E+6LeXcpx1LoPnHzUhT4EO2QmUsv+kAaPFfZYw==}
     engines: {node: '>= 18'}
     peerDependencies:
       markdown-it: ^14.0.0
