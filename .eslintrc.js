@@ -6,5 +6,6 @@ module.exports = {
     'dist',
     'public',
     'eleventy.callout.js',
+    'eleventy.linkPreview.js',
   ],
 };

@@ -5,6 +5,7 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const { attrs } = require('@mdit/plugin-attrs');
 const markdownItCheckbox = require('markdown-it-task-checkbox');
 const markdownItCallout = require('./eleventy.callout');
+const markdownItLinkPreview = require('./eleventy.linkPreview');
 
 module.exports = function (eleventyConfig) {
   /* Plugins */
@@ -21,6 +22,9 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItCallout));
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(attrs));
+  eleventyConfig.amendLibrary('md', (mdLib) =>
+    mdLib.use(markdownItLinkPreview),
+  );
 
   /* Public Asset */
   eleventyConfig.addPassthroughCopy({
@@ -48,6 +52,11 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
+    // templateFormats: ['md', 'njk', 'html', 'css', 'png', 'jpg', 'gif'],
+    // markdownTemplateEngine: 'njk',
+    // htmlTemplateEngine: 'njk',
+    // dataTemplateEngine: 'njk',
+    // passthroughFileCopy: true,
     dir: {
       input: 'content', // default: "."
       includes: '../src/includes', // default: "_includes"
