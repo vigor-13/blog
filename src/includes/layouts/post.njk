@@ -51,7 +51,7 @@
     <ul>
       {%- for reference in references %}
       <li>
-        <a href="{{ reference.value }}">{{ reference.key }}</a>{%- if not loop.last %}, {% endif %}
+        <a href="{{ reference.value }}">{{ reference.key }}</a>{%- if not loop.last %} {% endif %}
       </li>
       {%- endfor %}
     </ul>

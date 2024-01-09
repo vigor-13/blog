@@ -34,14 +34,60 @@ main .post h6 {
   margin-top: var(--content-spacing-4);
   margin-bottom: var(--content-spacing-2);
   line-height: 1.4;
+  position: relative;
+  padding-left: 28px;
+}
+main .post h2:before,
+main .post h3:before,
+main .post h4:before,
+main .post h5:before,
+main .post h6:before {
+  content: 'r';
+  line-height: 1;
+  border: 1px solid #ddd;
+  font-size: 10px;
+  pointer-events: none;
+  padding: 2px;
+  border-radius: 4px;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+main .post h2:before {
+  content: 'H2';
+  transform: translateY(-70%);
+  color: #f85149;
+  border-color: #f85149;
+}
+main .post h3:before {
+  content: 'H3';
+  color: #d29922;
+  border-color: #d29922;
+}
+main .post h4:before {
+  content: 'H4';
+  color: #3fb950;
+  border-color: #3fb950;
+}
+main .post h5:before {
+  content: 'H5';
+  color: #2f81f7;
+  border-color: #2f81f7;
+}
+main .post h6:before {
+  content: 'H6';
+  color: #a371f7;
+  border-color: #a371f7;
 }
 main .post h1 {
   font-size: var(--h1-size);
+  padding-left: 0px;
 }
 main .post h2 {
   font-size: var(--h2-size);
   border-bottom: 1px solid var(--default-border-color);
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 main .post h3 {
   font-size: var(--h3-size);
@@ -142,11 +188,12 @@ main .post ul li:before {
   content: '';
   position: absolute;
   left: -16px;
-  top: 8px;
+  top: 6px;
   width: 4px;
   height: 4px;
   border-radius: 50%;
   border: 1px solid var(--color-crayal-100);
+  border-color: inherit;
 }
 
 /* Blockquote Tag */
