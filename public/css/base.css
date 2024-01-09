@@ -83,4 +83,11 @@ footer {
   border-top: 1px solid var(--color-gray-50);
   font-weight: 100;
   font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .icons img {
+  width: 20px;
+  height: 20px;
 }
