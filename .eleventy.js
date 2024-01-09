@@ -54,11 +54,6 @@ module.exports = function (eleventyConfig) {
   });
 
   return {
-    // templateFormats: ['md', 'njk', 'html', 'css', 'png', 'jpg', 'gif'],
-    // markdownTemplateEngine: 'njk',
-    // htmlTemplateEngine: 'njk',
-    // dataTemplateEngine: 'njk',
-    // passthroughFileCopy: true,
     dir: {
       input: 'content', // default: "."
       includes: '../src/includes', // default: "_includes"
