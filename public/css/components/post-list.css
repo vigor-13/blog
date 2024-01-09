@@ -12,6 +12,7 @@
   margin-bottom: 15px;
   color: white;
   font-weight: 900;
+  line-height: 1.4;
 }
 .post-list-item:hover ._title {
   color: var(--brand-color);

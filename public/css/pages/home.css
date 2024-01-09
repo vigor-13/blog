@@ -24,3 +24,13 @@ section.home-latest-posts > h2 {
   align-items: center;
   font-size: 18px;
 }
+
+@media only screen and (max-width: 414px) {
+  main .page-wrapper {
+    padding: 20px 10px;
+  }
+
+  main .post-list-item {
+    padding: 14px;
+  }
+}
