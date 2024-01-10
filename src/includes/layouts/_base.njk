@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="kr">
+<html lang={{metadata.language}}>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{{metadata.author}}" />
     <title>{{ title or metadata.title }}</title>
     <meta
       name="description"
       content="{{ description or metadata.description }}"
     />
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <link
       rel="preload"
       as="font"
@@ -74,6 +76,11 @@
     </main>
     <footer>
       <div>© Copyright 2024 | vigor-13</div>
+      <div class="icons">
+        <a href="https://github.com/vigor-13">
+          <img src="/img/github.svg" />
+        </a>
+      </div>
     </footer>
     {% block foot %}
     {% endblock %}

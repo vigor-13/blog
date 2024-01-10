@@ -16,6 +16,7 @@
     "@mdit/plugin-attrs": "^0.8.0",
     "@mdit/plugin-container": "^0.8.0",
     "@mdit/plugin-figure": "^0.8.0",
+    "@mdit/plugin-tab": "^0.8.0",
     "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.9.0",
     "eslint": "^8.53.0",

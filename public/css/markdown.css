@@ -35,7 +35,7 @@ main .post h6 {
   margin-bottom: var(--content-spacing-2);
   line-height: 1.4;
   position: relative;
-  padding-left: 28px;
+  padding-left: 25px;
 }
 main .post h2:before,
 main .post h3:before,
@@ -402,4 +402,46 @@ main .post .markdown-alert p {
 .markdown-alert ul,
 .markdown-alert ol {
   margin-left: 20px;
+}
+
+.tabs-tabs-wrapper {
+  margin: 1.5rem 0;
+  border: 1px solid var(--default-border-color);
+  border-radius: 4px;
+}
+.tabs-tabs-header {
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px 4px 0 0;
+  background: var(--background-color-body);
+  list-style: none;
+  white-space: nowrap;
+  transition: background var(--background-color-section);
+}
+.tabs-tab-button {
+  border-width: 0;
+  position: relative;
+  min-width: 4rem;
+  margin: 0;
+  padding: 0.5em 1em;
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  color: var(--text-color-default);
+  font-weight: 600;
+  font-size: 0.85em;
+  line-height: 1.75;
+  cursor: pointer;
+  /* transition: background var(--vp-ct),color var(--vp-ct); */
+}
+.tabs-tab-button.active {
+  background: var(--background-color-section);
+  color: var(--brand-color);
+}
+.tabs-tabs-container .tabs-tab-content {
+  display: none;
+  padding: 0 20px;
+}
+.tabs-tabs-container .tabs-tab-content.active {
+  display: block;
 }
