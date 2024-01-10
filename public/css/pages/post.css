@@ -5,7 +5,7 @@ main {
 }
 
 .post-page-box {
-  padding: 40px;
+  padding: 20px;
   border-radius: 4px;
   background: var(--background-color-section);
   border: 1px solid var(--color-gray-50);

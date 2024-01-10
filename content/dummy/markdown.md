@@ -67,6 +67,18 @@ tags: [markdown]
 | Header _sdlfjl_ | Title       |
 | Paragraph       | Text        |
 
+:::tabs#fruit
+
+@tab:active apple#apple
+
+Apple
+
+@tab banana#banana
+
+Banana
+
+:::
+
 - [x] Write the press release sdlfjksdlfjlkdsjfkl sdjfkldsjkl slfk sl;dfk sdkfkwp sdfklj dsjfklds fdsjklsf dksfjsd lfjl
   - [ ] sdkfjl
   - [ ] sdlfjl
