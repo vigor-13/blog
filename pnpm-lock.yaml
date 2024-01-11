@@ -33,6 +33,9 @@ devDependencies:
   '@mdit/plugin-figure':
     specifier: ^0.8.0
     version: 0.8.0(markdown-it@14.0.0)
+  '@mdit/plugin-img-size':
+    specifier: ^0.8.0
+    version: 0.8.0(markdown-it@14.0.0)
   '@mdit/plugin-tab':
     specifier: ^0.8.0
     version: 0.8.0(markdown-it@14.0.0)
@@ -523,6 +526,19 @@ packages:
 
   /@mdit/plugin-figure@0.8.0(markdown-it@14.0.0):
     resolution: {integrity: sha512-/o4RoKjnkdWc+K7m6mR7BAu2J79yYE38s8HUc8iKk9v+e9j1E+6LeXcpx1LoPnHzUhT4EO2QmUsv+kAaPFfZYw==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      markdown-it: ^14.0.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+    dependencies:
+      '@types/markdown-it': 13.0.7
+      markdown-it: 14.0.0
+    dev: true
+
+  /@mdit/plugin-img-size@0.8.0(markdown-it@14.0.0):
+    resolution: {integrity: sha512-r+LbAizP/hw5SisY44VbHEnR7XUKpcHM2k2fwu5wb1+V1crxeigG4sa8rzrJEddU+k6uCl27yL5FTGbHjAl82Q==}
     engines: {node: '>= 18'}
     peerDependencies:
       markdown-it: ^14.0.0
