@@ -257,17 +257,22 @@ main .post table th,
 main .post table td {
   text-align: left;
   border-right: 1px solid var(--default-border-color);
-  padding: var(--content-spacing-0);
+  padding: 4px 10px;
+  font-size: 0.85em;
 }
 main .post table th {
   line-height: var(--default-line-height);
   font-family: var(--markdown-font-family);
   font-weight: 700;
   color: white;
+  font-size: 0.90em;
 }
 main .post table td {
   font-family: var(--markdown-font-family);
   line-height: var(--default-line-height);
+}
+main .post table tr:nth-of-type(2n) {
+  background: #202429;
 }
 
 /* Checkbox */
