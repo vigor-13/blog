@@ -4,6 +4,7 @@ const pluginBundle = require('@11ty/eleventy-plugin-bundle');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const { attrs } = require('@mdit/plugin-attrs');
 const { figure } = require('@mdit/plugin-figure');
+const { imgSize } = require('@mdit/plugin-img-size');
 const { tab } = require('@mdit/plugin-tab');
 const markdownItCheckbox = require('markdown-it-task-checkbox');
 const markdownItCallout = require('./eleventy.callout');
@@ -25,6 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(markdownItCallout));
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(attrs));
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(figure));
+  eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(imgSize));
   eleventyConfig.amendLibrary('md', (mdLib) => mdLib.use(tab));
   eleventyConfig.amendLibrary('md', (mdLib) =>
     mdLib.use(markdownItLinkPreview),
