@@ -6,6 +6,7 @@ const { attrs } = require('@mdit/plugin-attrs');
 const { figure } = require('@mdit/plugin-figure');
 const { imgSize } = require('@mdit/plugin-img-size');
 const { tab } = require('@mdit/plugin-tab');
+const embedYouTube = require('eleventy-plugin-youtube-embed');
 const markdownItCheckbox = require('markdown-it-task-checkbox');
 const markdownItCallout = require('./eleventy.callout');
 const markdownItLinkPreview = require('./eleventy.linkPreview');
@@ -31,6 +32,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.amendLibrary('md', (mdLib) =>
     mdLib.use(markdownItLinkPreview),
   );
+
+  eleventyConfig.addPlugin(embedYouTube, {
+    embedClass: 'youtube-embed',
+  });
 
   /* Public Asset */
   eleventyConfig.addPassthroughCopy({

@@ -20,6 +20,7 @@
     "@mdit/plugin-tab": "^0.8.0",
     "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.9.0",
+    "eleventy-plugin-youtube-embed": "^1.10.1",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.1.1",
