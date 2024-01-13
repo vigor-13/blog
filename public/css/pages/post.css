@@ -1,7 +1,7 @@
 main {
   display: flex;
   justify-content: center;
-  margin: 30px;
+  margin: 20px;
 }
 
 .post-page-box {
@@ -81,12 +81,12 @@ main section.post ._date p {
 }
 
 section.post-left {
-  margin-right: 30px;
+  margin-right: 20px;
   flex: 1;
 }
 
 section.post-right {
-  margin-left: 30px;
+  margin-left: 20px;
   flex: 1;
 }
 
