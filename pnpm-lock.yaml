@@ -45,6 +45,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.9.0
     version: 20.10.5
+  eleventy-plugin-youtube-embed:
+    specifier: ^1.10.1
+    version: 1.10.1
   eslint:
     specifier: ^8.53.0
     version: 8.56.0
@@ -1487,6 +1490,11 @@ packages:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
 
+  /deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
   /defer-to-connect@2.0.1:
     resolution: {integrity: sha512-4tvttepXG1VaYGrRibk5EwJd1t4udunSOVMdLSAL6mId1ix438oPwPZMALY41FCijukO1L0twNcGsdzS7dHgDg==}
     engines: {node: '>=10'}
@@ -1629,6 +1637,13 @@ packages:
     hasBin: true
     dependencies:
       jake: 10.8.7
+    dev: true
+
+  /eleventy-plugin-youtube-embed@1.10.1:
+    resolution: {integrity: sha512-8A5OKrayK9A2afScBms/xxYK4VwgDBbnBKUVcUf1yzoD9KlPgqXt6QG+UA3bdiHwxqEq+9B/PKzdmQ7PzgiFLg==}
+    dependencies:
+      deepmerge: 4.3.1
+      lite-youtube-embed: 0.3.0
     dev: true
 
   /emoji-regex@8.0.0:
@@ -2933,6 +2948,10 @@ packages:
 
   /list-to-array@1.1.0:
     resolution: {integrity: sha512-+dAZZ2mM+/m+vY9ezfoueVvrgnHIGi5FvgSymbIgJOFwiznWyA59mav95L+Mc6xPtL3s9gm5eNTlNtxJLbNM1g==}
+    dev: true
+
+  /lite-youtube-embed@0.3.0:
+    resolution: {integrity: sha512-3DUqE1C4s/+a8PVM4ik8anBsmHOW0zUavPyFQWugBulKyQpbZFE+/268Aq/pDNW7hRQJXkXpk4QjdSCpwf7Cvg==}
     dev: true
 
   /locate-path@5.0.0:

@@ -466,6 +466,12 @@ main .post .markdown-alert p {
   display: block;
 }
 
+.youtube-embed {
+  margin: 20px 0px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
 @media only screen and (max-width: 414px) {
   main .post img {
     width: 100%!important;
