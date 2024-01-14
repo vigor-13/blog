@@ -71,9 +71,9 @@
   {% endif %}
 
   {# 이전글, 다음글 블록 #}
-  {% if collections.post %}
-    {% set previousPost = collections.post | getPreviousCollectionItem %}
-    {% set nextPost = collections.post | getNextCollectionItem %}
+  {% if collections.posts %}
+    {% set previousPost = collections.posts | getPreviousCollectionItem %}
+    {% set nextPost = collections.posts | getNextCollectionItem %}
     {% if previousPost or nextPost %}
       <div class="info-box related-post">
       {% if previousPost %}

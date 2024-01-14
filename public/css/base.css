@@ -85,8 +85,8 @@ main {
   border: 1px solid var(--default-border-color);
 }
 #main-navigation ul li a img {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   filter: invert(79%) sepia(8%) saturate(471%) hue-rotate(169deg)
     brightness(93%) contrast(89%);
 }
