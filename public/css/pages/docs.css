@@ -18,11 +18,19 @@ main {
   background: var(--background-color-section);
   border: 1px solid var(--default-border-color);
   border-radius: 10px;
-  transition: 0.2s padding linear;
+  transition: 0.2s all linear;
 }
 .docs-item:hover {
   padding: 0;
 }
+.docs-item:hover > a .docs-item-title {
+  color: #fff;
+}
+.docs-item:hover > a img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%)
+    hue-rotate(192deg) brightness(102%) contrast(101%);
+}
+
 .docs-item > a {
   width: 100%;
   height: 100%;
@@ -35,12 +43,14 @@ main {
 .docs-item > a img {
   width: 64px;
   height: 64px;
+  transition: 0.3s all linear;
 }
 .docs-item-title {
   font-size: 24px;
   color: black;
   font-weight: 700;
   text-align: right;
+  transition: 0.3s all linear;
 }
 
 .docs-item.no-content a {
