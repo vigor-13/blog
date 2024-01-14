@@ -87,7 +87,15 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
+footer .icons a {
+  display: inline-flex;
+  margin-left: 4px;
+  border: 1px solid var(--default-border-color);
+  padding: 4px;
+  border-radius: 4px;
+  align-items: center;
+}
 footer .icons img {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
 }
