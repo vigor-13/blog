@@ -96,7 +96,7 @@ section.post-right {
 }
 .post-tag-list li {
   margin-right: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .post-tag-list li:last-of-type {
   margin-bottom: 0;
@@ -137,6 +137,24 @@ main .post h1 {
   max-width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 12px;
+  /* border-bottom: 1px solid var(--default-border-color); */
+}
+.title-with-icon .svg-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  filter: invert(79%) sepia(8%) saturate(471%) hue-rotate(169deg)
+    brightness(93%) contrast(89%);
+}
+.title-with-icon > div {
+  font-weight: 700;
 }
 
 @media only screen and (max-width: 1280px) {
