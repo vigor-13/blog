@@ -5,8 +5,8 @@ eleventyNavigation:
   order: 1
 ---
 {% block main %}
-  {% if collections.post %}
-  {% set posts = collections.post | reverse %}
+  {% if collections.posts %}
+  {% set posts = collections.posts | reverse %}
   <div class="page-wrapper">
     <section class="home-latest-posts">
       <h2>최신글</h2>

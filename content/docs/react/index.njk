@@ -1,0 +1,106 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+<section class="docs-banner">
+  <div class="docs-banner-left">
+    <div class=""></div>
+  </div>
+  <div class="docs-banner-center">
+    <div class="content-index">
+      <ul>
+        <li>
+          <a>시작하기</a>
+          <ul>
+            <li>
+              <a>빠른 시작</a>
+            </li>
+            <li>
+              <a>리액트로 생각하기</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>설치</a>
+          <ul>
+            <li>
+              <a>새 프로젝트에서 시작하기</a>
+            </li>
+            <li>
+              <a>기존 프로젝트에서 시작하기</a>
+            </li>
+            <li>
+              <a>에디터 셋업</a>
+            </li>
+            <li>
+              <a>타입스크립트 적용하기</a>
+            </li>
+            <li>
+              <a>개발자 도구</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>개념 정리</a>
+          <ul>
+            <li>
+              <a>UI 표현하기</a>
+            </li>
+            <li>
+              <a>상호작용 하기</a>
+            </li>
+            <li>
+              <a>상태 만들기</a>
+            </li>
+            <li>
+              <a>이스케이프 해치</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>기능 정리</a>
+          <ul>
+            <li>
+              <a>react</a>
+              <ul>
+                <li>
+                  <a>Hooks</a>
+                </li>
+                <li>
+                  <a>Components</a>
+                </li>
+                <li>
+                  <a>API's</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a>react-dom</a>
+              <ul>
+                <li>
+                  <a>Hooks</a>
+                </li>
+                <li>
+                  <a>Components</a>
+                </li>
+                <li>
+                  <a>API's</a>
+                </li>
+                <li>
+                  <a>Client API's</a>
+                </li>
+                <li>
+                  <a>Server API's</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="docs-banner-right"></div>
+</section>
+{% endblock %}
