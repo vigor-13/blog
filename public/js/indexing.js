@@ -2,19 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const headings = document.querySelectorAll('h2, h3, h4, h5, h6');
   if (!headings.length) return;
 
-  const sectionElement = document.querySelector('.post-left');
-
-  const containerElement = document.createElement('div');
-  containerElement.className = 'info-box content-index';
-
-  const titleElement = document.createElement('div');
-  titleElement.textContent = '목차';
-
+  const indexContainer = document.querySelector('.info-box.content-index');
   let indexUlElement = _createList(headings);
-
-  containerElement.appendChild(titleElement);
-  containerElement.appendChild(indexUlElement);
-  sectionElement.appendChild(containerElement);
+  indexContainer.appendChild(indexUlElement);
 });
 
 function _createList(headings, index = 0, parent, parents = [], root) {

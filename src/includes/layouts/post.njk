@@ -11,7 +11,10 @@
 <section class="post-left">
 {% if tags | isEmpty %}
   <div class="info-box">
-    <div>태그</div>
+    <div class="title-with-icon">
+      <img class="svg-icon" src="/img/icons/tag.svg" />
+      <div>태그</div>
+    </div>
     <ul class="post-tag-list">
       {%- for tag in tags | filterTagList %}
       {# {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
@@ -23,6 +26,12 @@
     </ul>
   </div>
 {% endif %}
+  <div class="info-box content-index">
+    <div class="title-with-icon">
+      <img class="svg-icon" src="/img/icons/list.svg" />
+      <div>목차</div>
+    </div>
+  </div>
 </section>
 
 {# CENTER #}
@@ -47,7 +56,10 @@
   {# 레퍼런스 블록 #}
   {% if references %}
   <div class="info-box content-index">
-    <div>참조</div>
+    <div class="title-with-icon">
+      <img class="svg-icon" src="/img/icons/pin.svg" />
+      <div>참조</div>
+    </div>
     <ul>
       {%- for reference in references %}
       <li>
