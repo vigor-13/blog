@@ -98,6 +98,9 @@ main {
   border: 1px solid var(--default-border-color);
   border-radius: 4px;
 }
+.content-index ul li.active:before {
+  background: var(--brand-color);
+}
 .content-index ul li:last-of-type {
   margin-bottom: 0;
 }

@@ -16,7 +16,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginBundle);
   eleventyConfig.addPlugin(syntaxHighlight, {
-    alwaysWrapLineHighlights: true,
+    // alwaysWrapLineHighlights: true,
   });
   eleventyConfig.amendLibrary('md', (mdLib) =>
     mdLib.use(markdownItCheckbox, {
@@ -49,14 +49,14 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter('filterTagList', function filterTagList(tags) {
     const t = (tags || []).filter(
-      (tag) => !['all', 'nav', 'post', 'posts'].includes(tag),
+      (tag) => !['all', 'nav', 'post', 'posts', 'docs'].includes(tag),
     );
     return t;
   });
 
   eleventyConfig.addFilter('isEmpty', function isEmptyList(tags) {
     const t = (tags || []).filter(
-      (tag) => !['all', 'nav', 'post', 'posts'].includes(tag),
+      (tag) => !['all', 'nav', 'post', 'posts', 'docs'].includes(tag),
     );
 
     return t.length > 0 ? true : false;

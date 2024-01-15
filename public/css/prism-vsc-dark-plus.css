@@ -1,8 +1,8 @@
 pre[class*='language-'] {
   border-radius: 4px;
-  counter-reset: lineNumber;
+  /* counter-reset: lineNumber; */
 }
-code .highlight-line:before {
+/* code .highlight-line:before {
   -webkit-user-select: none;
   border-right: 1px solid #404040;
   color: #858585;
@@ -14,7 +14,7 @@ code .highlight-line:before {
   padding-right: 1em;
   text-align: right;
   width: 1em;
-}
+} */
 
 pre[class*='language-'],
 code[class*='language-'] {
