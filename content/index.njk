@@ -8,12 +8,20 @@ eleventyNavigation:
   {% if collections.posts %}
   {% set posts = collections.posts | reverse %}
   <div class="page-wrapper">
-    <section class="home-latest-posts">
+    {# <section class="home-latest-posts">
       <h2>최신글</h2>
       <div>
       {% include "components/post-list.njk" %}
       </div>
-    </section>
+    </section> #}
+    <div class="shaka">
+      <img src="img/icons/buddism.svg" />
+      <p class="kr">
+        스스로를 등불로 삼아 스스로에 의지하며 살아라. 다른 것에 의지하지 말고.<br/>
+        진리를 등불로 삼아 진리에 의지하라. 다른 것에 의지하지 말고.
+      </p>
+      <p class="cn">自燈明 法燈明 自歸依 法歸依</p>
+    </div>
     {{ content | safe }}
   </div>
   {% else %}
