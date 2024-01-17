@@ -1,5 +1,5 @@
 ---
-title: Turborepo - 빠르게 시작하기
+title: Turborepo 빠르게 시작하기
 description: Turborepo 소개
 date: 2024-01-16
 tags: []
