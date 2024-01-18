@@ -452,7 +452,6 @@ main .post .markdown-alert p {
   font-size: 0.85em;
   line-height: 1.75;
   cursor: pointer;
-  /* transition: background var(--vp-ct),color var(--vp-ct); */
 }
 .tabs-tab-button.active {
   background: var(--background-color-section);
@@ -470,6 +469,26 @@ main .post .markdown-alert p {
   margin: 20px 0px;
   border-radius: 4px;
   overflow: hidden;
+}
+
+/* Diff CSS */
+.token.deleted {
+  background-color: hsl(350deg 100% 60% / 20%);
+}
+.token.inserted {
+  background-color: hsl(120deg 73% 30% / 30%);
+}
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+}
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
 }
 
 @media only screen and (max-width: 414px) {
