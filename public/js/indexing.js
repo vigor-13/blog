@@ -48,6 +48,7 @@ function _createList(headings, index = 0, parent, parents = [], root) {
     } else {
       const depth = currentDepth - nextDepth + 1;
       _parent = _parents[_parents.length - depth];
+      _parents.pop();
     }
 
     _createList(headings, index + 1, _parent, _parents, _rootUl);
