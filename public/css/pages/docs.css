@@ -72,6 +72,16 @@ main {
 .docs-item.style-dictionary a {
   background: #40c6c0;
 }
+.docs-item.storybook a {
+  background: #ff4785;
+}
+.docs-item.stylex a {
+  background: linear-gradient(
+    90deg,
+    rgba(206, 91, 216, 1) 0%,
+    rgba(4, 162, 255, 1) 100%
+  );
+}
 .docs-item.turborepo a img {
   width: 56px;
   height: 56px;
