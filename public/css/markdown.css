@@ -35,7 +35,8 @@ main .post h6 {
   margin-bottom: var(--content-spacing-2);
   line-height: 1.4;
   position: relative;
-  padding-left: 25px;
+  align-items: center;
+  /* padding-left: 25px; */
 }
 main .post h2:before,
 main .post h3:before,
@@ -43,20 +44,18 @@ main .post h4:before,
 main .post h5:before,
 main .post h6:before {
   content: 'r';
-  line-height: 1;
   border: 1px solid #ddd;
   font-size: 10px;
   pointer-events: none;
   padding: 2px;
   border-radius: 4px;
-  position: absolute;
-  left: 0px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-right: 8px;
+  position: relative;
+  top: -3px;
 }
 main .post h2:before {
   content: 'H2';
-  transform: translateY(-70%);
+  /* transform: translateY(-70%); */
   color: #f85149;
   border-color: #f85149;
 }
@@ -459,7 +458,7 @@ main .post .markdown-alert p {
 }
 .tabs-tabs-container .tabs-tab-content {
   display: none;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .tabs-tabs-container .tabs-tab-content.active {
   display: block;

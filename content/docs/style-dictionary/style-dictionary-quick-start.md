@@ -14,13 +14,13 @@ references:
 
 ## 설치
 
-CLI를 사용하려면 NPM을 통해 전역으로 설치할 수 있다:
+CLI는 NPM을 통해 전역으로 설치할 수 있다:
 
 ```bash
 npm install -g style-dictionary
 ```
 
-또는 일반 NPM 의존성처럼 설치할 수 있다. 스타일 사전은 빌드 도구이므로 아마도 dev dependency로 사용할 것이다:
+일반 NPM 의존성처럼 설치할 수도 있다. 스타일 사전은 빌드 도구이므로 dev dependency로 설치한다:
 
 ```bash
 npm install -D style-dictionary
