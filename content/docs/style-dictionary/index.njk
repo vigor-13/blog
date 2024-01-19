@@ -1,0 +1,86 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>시작하기</a>
+            <ul>
+              <li>
+                <a>개요</a>
+              </li>
+              <li>
+                <a>버전 3.0</a>
+              </li>
+              <li>
+                <a>버전 4.0</a>
+              </li>
+              <li>
+                <a>빠른 시작</a>
+              </li>
+              <li>
+                <a>예제</a>
+              </li>
+              <li>
+                <a>구성</a>
+              </li>
+              <li>
+                <a>토큰</a>
+              </li>
+              <li>
+                <a>패키지 구조</a>
+              </li>
+              <li>
+                <a>확장</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>레퍼런스</a>
+            <ul>
+              <li>
+                <a>아키텍처</a>
+              </li>
+              <li>
+                <a>CLI 사용하기</a>
+              </li>
+              <li>
+                <a>NPM 모듈 사용하기</a>
+              </li>
+              <li>
+                <a>API</a>
+              </li>
+              <li>
+                <a>파서</a>
+              </li>
+              <li>
+                <a>트랜스폼</a>
+              </li>
+              <li>
+                <a>트랜스폼 그룹</a>
+              </li>
+              <li>
+                <a>포맷</a>
+              </li>
+              <li>
+                <a>템플릿</a>
+              </li>
+              <li>
+                <a>액션</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}

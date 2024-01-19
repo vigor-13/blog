@@ -1,0 +1,56 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>소개</a>
+          </li>
+          <li>
+            <a>StyleX로 생각하기</a>
+          </li>
+          <li>
+            <a>설치</a>
+          </li>
+          <li>
+            <a>스타일</a>
+            <ul>
+              <li>
+                <a>스타일 정의하기</a>
+              </li>
+              <li>
+                <a>스타일 사용하기</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>테마</a>
+            <ul>
+              <li>
+                <a>변수 정의하기</a>
+              </li>
+              <li>
+                <a>변수 사용하기</a>
+              </li>
+              <li>
+                <a>테마 생성하기</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>정적 타입</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}
