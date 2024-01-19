@@ -13,7 +13,6 @@ main {
 }
 
 .docs-item {
-  /* display: flex; */
   padding: 10px;
   background: var(--background-color-section);
   border: 1px solid var(--default-border-color);
@@ -69,6 +68,9 @@ main {
     rgba(255, 30, 87, 1) 0%,
     rgba(2, 150, 255, 1) 100%
   );
+}
+.docs-item.style-dictionary a {
+  background: #40c6c0;
 }
 .docs-item.turborepo a img {
   width: 56px;
