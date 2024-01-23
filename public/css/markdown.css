@@ -180,14 +180,15 @@ main .post > ul ul {
 
 /* Li Tag */
 main .post li {
-  margin: var(--content-spacing-0) 0;
+  /* margin: var(--content-spacing-0) 0; */
+  margin: 2px 0;
   position: relative;
 }
 main .post ul li:before {
   content: '';
   position: absolute;
   left: -16px;
-  top: 6px;
+  top: 9px;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -308,6 +309,7 @@ main
   text-align: center;
   position: absolute;
   left: -22px;
+  top: 3px;
   border: 1px solid var(--default-border-color);
   border-radius: 4px;
 }
