@@ -51,7 +51,6 @@ main .post h6:before {
   border-radius: 4px;
   margin-right: 8px;
   position: relative;
-  top: 0px;
 }
 main .post h2:before {
   content: 'H2';
@@ -64,12 +63,13 @@ main .post h3:before {
   content: 'H3';
   color: #d29922;
   border-color: #d29922;
-  top: -2px;
+  top: -3px;
 }
 main .post h4:before {
   content: 'H4';
   color: #3fb950;
   border-color: #3fb950;
+  top: -2px;
 }
 main .post h5:before {
   content: 'H5';
