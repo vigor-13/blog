@@ -47,22 +47,24 @@ main .post h6:before {
   border: 1px solid #ddd;
   font-size: 10px;
   pointer-events: none;
-  padding: 2px;
+  padding: 1px 2px;
   border-radius: 4px;
   margin-right: 8px;
   position: relative;
-  top: -3px;
+  top: 0px;
 }
 main .post h2:before {
   content: 'H2';
   /* transform: translateY(-70%); */
   color: #f85149;
   border-color: #f85149;
+  top: -4px;
 }
 main .post h3:before {
   content: 'H3';
   color: #d29922;
   border-color: #d29922;
+  top: -2px;
 }
 main .post h4:before {
   content: 'H4';
