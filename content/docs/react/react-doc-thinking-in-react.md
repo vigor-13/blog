@@ -1,5 +1,5 @@
 ---
-title: React - React로 생각하기
+title: React로 생각하기
 description: React로 관점 바꾸기
 date: 2024-01-15
 tags: []
