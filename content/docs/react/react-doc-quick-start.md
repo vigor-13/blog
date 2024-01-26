@@ -1,5 +1,5 @@
 ---
-title: React - 빠르게 시작하기
+title: 빠르게 시작하기
 description: React의 기본적인 내용을 빠르게 살펴보기
 date: 2024-01-15
 tags: []
