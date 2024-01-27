@@ -82,6 +82,9 @@ main {
     rgba(4, 162, 255, 1) 100%
   );
 }
+.docs-item.waku a {
+  background: #e23710;
+}
 .docs-item.turborepo a img {
   width: 56px;
   height: 56px;
