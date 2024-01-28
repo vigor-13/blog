@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="{{metadata.author}}" />
+    <meta name="author" content="{{metadata.author}}"/>
+    <meta name="google-site-verification" content="Uo0W00Z1AxGTQRn8rxzBECIy5evJQKk3BigXDDXN_LQ"/>
     <title>{{ title or metadata.title }}</title>
     <meta
       name="description"
       content="{{ description or metadata.description }}"
-    />
+/>
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <link
       rel="preload"
@@ -16,40 +17,42 @@
       type="font/woff2"
       crossOrigin=""
       href="/fonts/woff2/Pretendard-Regular.woff2"
-    />
+/>
     <link
       rel="preload"
       as="font"
       type="font/woff2"
       crossOrigin=""
       href="/fonts/woff2/Pretendard-Thin.woff2"
-    />
+/>
     <link
       rel="preload"
       as="font"
       type="font/woff2"
       crossOrigin=""
       href="/fonts/woff2/Pretendard-Bold.woff2"
-    />
+/>
     <link
       rel="preload"
       as="font"
       type="font/woff2"
       crossOrigin=""
       href="/fonts/woff2/Pretendard-Black.woff2"
-    />
+/>
     <link
       rel="preload"
       as="font"
       type="font/woff2"
       crossOrigin=""
       href="/fonts/woff2/BlackHanSans-Regular.woff2"
-    />
+/>
     {%- css %}{% include "public/css/reset.css" %}{% endcss %}
     {%- css %}{% include "public/css/font.css" %}{% endcss %}
     {%- css %}{% include "public/css/variables.css" %}{% endcss %}
     {%- css %}{% include "public/css/base.css" %}{% endcss %}
-    <style>{% getBundle "css" %}</style>
+    <style>
+      {% getBundle "css" %}
+    </style>
 
     {# {% if css %}
       {% for link in css %}
@@ -57,51 +60,48 @@
       {% endfor %}
     {% endif %} #}
 
-    {% block head %}
-    {% endblock %}
+    {% block head %}{% endblock %}
   </head>
   <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
     <header>
       <a id="logo" href="/">
-        <img src="/img/logo.jpg" />
+        <img src="/img/logo.jpg"/>
         <span>VIGOROUSLY</span>
       </a>
       <nav id="main-navigation">
         <ul>
           <li>
             <a href="/docs">
-              <img src="/img/icons/category.svg" />
+              <img src="/img/icons/category.svg"/>
             </a>
           </li>
           <li>
             <a href="/posts">
-              <img src="/img/icons/notes.svg" />
+              <img src="/img/icons/notes.svg"/>
             </a>
           </li>
           <li>
             <a href="/about">
-              <img src="/img/icons/user.svg" />
+              <img src="/img/icons/user.svg"/>
             </a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-    {% block main %}
-    {% endblock %}
+      {% block main %}{% endblock %}
     </main>
     <footer>
       <div>© Copyright 2024 | vigor-13</div>
       <div class="icons">
         <a href="https://twitter.com/vigor13_dev">
-          <img src="/img/twitter.svg" />
+          <img src="/img/twitter.svg"/>
         </a>
         <a href="https://github.com/vigor-13">
-          <img src="/img/github.svg" />
+          <img src="/img/github.svg"/>
         </a>
       </div>
     </footer>
-    {% block foot %}
-    {% endblock %}
+    {% block foot %}{% endblock %}
   </body>
 </html>
