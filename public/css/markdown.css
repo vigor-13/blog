@@ -22,6 +22,12 @@
   --link-color: #96d0ff;
 }
 
+br {
+  display: block;
+  content: "";
+  margin-top: 10px;
+}
+
 /* Head Tag */
 main .post h1,
 main .post h2,
@@ -260,7 +266,7 @@ main .post table td {
   text-align: left;
   border-right: 1px solid var(--default-border-color);
   padding: 4px 10px;
-  font-size: 0.85em;
+  font-size: 0.90em;
 }
 main .post table th {
   line-height: var(--default-line-height);
