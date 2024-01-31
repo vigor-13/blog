@@ -48,7 +48,7 @@ root.render(<App />);
 
 #### 리턴 {#returns1}
 
-`createRoot` 는 `render` 와 `unmount` 라는 두 가지 메서드가 있는 객체를 리턴한다.
+`createRoot` 는 `render` 와 `unmount` 두 가지 메서드가 있는 객체를 리턴한다.
 
 #### 주의사항 {#caveats1}
 
