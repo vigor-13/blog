@@ -25,6 +25,12 @@ main {
 .docs-item:hover > a .docs-item-title {
   color: #fff;
 }
+.docs-item.nextjs:hover > a .docs-item-title {
+  color: #000;
+}
+.docs-item.nextjs:hover > a img {
+  filter: none;
+}
 .docs-item:hover > a img {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%)
     hue-rotate(192deg) brightness(102%) contrast(101%);
@@ -84,6 +90,9 @@ main {
 }
 .docs-item.waku a {
   background: #e23710;
+}
+.docs-item.nextjs a {
+  background: linear-gradient(180deg, #fff, #adadad);
 }
 .docs-item.turborepo a img {
   width: 56px;
