@@ -2,7 +2,7 @@
 title: hydrateRoot
 description: hydrateRoot API 문서
 date: 2024-01-31
-tags: [react_dom, api, server]
+tags: [react_dom, api]
 references:
   [
     {
