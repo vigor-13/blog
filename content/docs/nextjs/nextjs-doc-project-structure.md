@@ -27,6 +27,8 @@ references:
 
 Next.js 프로젝트를 처음 초기화할 때 앱 라우터와 src 폴더를 선택 했다면 다음과 같은 모습으로 초기화 된다.
 
+![](https://s3.ap-northeast-2.amazonaws.com/vigorously.xyz/assets/images/nextjs-doc-project-structure/1.png)
+
 ## 최상위 레벨 파일 {#top-level-files}
 
 | 파일                | 설명                                  |
