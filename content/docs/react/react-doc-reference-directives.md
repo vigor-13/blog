@@ -2,7 +2,7 @@
 title: 지시어
 description:
 date: 2024-02-04
-tags: [directive]
+tags: [directive, server_component]
 references:
   [
     {
@@ -13,7 +13,7 @@ references:
 ---
 
 :::note Canary
-지시어는 React 서버 컴포넌트를 사용하거나 이와 호환되는 라이브러리를 빌드하는 경우에만 필요하다.
+지시어는 React 서버 컴포넌트를 지원하는 라이브러리를 사용하는 경우에만 필요하다.
 :::
 
 지시어는 React 서버 컴포넌트를 지원하는 번들러에 대한 지침을 제공한다.
