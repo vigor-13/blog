@@ -1,7 +1,7 @@
 ---
-title: 마크다운 엘리먼트 디자인
-layout: 'layouts/post.njk'
+title: 마크다운 예제
 description: '마크다운 엘리먼트 디자인 확인을 위한 페이지'
+date: 2024-02-29
 tags: [markdown]
 ---
 
