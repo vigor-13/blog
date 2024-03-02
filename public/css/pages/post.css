@@ -92,11 +92,12 @@ section.post-right {
 
 .post-tag-list {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 .post-tag-list li {
   margin-right: 10px;
-  /* margin-top: 10px; */
+  margin-top: 12px;
 }
 .post-tag-list li:last-of-type {
   margin-bottom: 0;
@@ -143,7 +144,7 @@ main .post h1 {
   display: flex;
   align-items: center;
   flex: 1;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   /* border-bottom: 1px solid var(--default-border-color); */
 }
 .title-with-icon .svg-icon {
