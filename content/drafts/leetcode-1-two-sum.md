@@ -2,7 +2,7 @@
 title: Two Sum
 description:
 date: 2024-03-03
-tags: [leetcode, easy, complement, brute_force, hashmap]
+tags: [leetcode, easy, complement, brute_force, array, hashmap]
 references: [{ key: '원문', value: 'https://leetcode.com/problems/two-sum/' }]
 ---
 
@@ -20,7 +20,7 @@ function twoSum(nums: number[], target: number): number[] {
 
 어떤 순서로든 답을 반환할 수 있다.
 
-- Example 1:
+- 예제 1:
 
 ```text
 Input: nums = [2,7,11,15], target = 9
@@ -28,14 +28,14 @@ Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
 
-- Example 2:
+- 예제 2:
 
 ```text
 Input: nums = [3,2,4], target = 6
 Output: [1,2]
 ```
 
-- Example 3:
+- 예제 3:
 
 ```text
 Input: nums = [3,3], target = 6
