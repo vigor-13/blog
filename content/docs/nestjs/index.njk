@@ -1,0 +1,55 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>소개</a>
+          </li>
+          <li>
+            <a>개요</a>
+          </li>
+          <li>
+            <a>기본</a>
+          </li>
+          <li>
+            <a>기술</a>
+          </li>
+          <li>
+            <a>보안</a>
+          </li>
+          <li>
+            <a>GraphQL</a>
+          </li>
+          <li>
+            <a>웹소켓</a>
+          </li>
+          <li>
+            <a>마이크로서비스</a>
+          </li>
+          <li>
+            <a>Standalone 애플리케이션</a>
+          </li>
+          <li>
+            <a>CLI</a>
+          </li>
+          <li>
+            <a>OPENAPI</a>
+          </li>
+          <li>
+            <a>레시피</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}

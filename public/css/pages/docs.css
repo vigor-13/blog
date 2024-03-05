@@ -98,6 +98,9 @@ main {
   width: 56px;
   height: 56px;
 }
+.docs-item.nestjs a {
+  background: #ed2945;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
