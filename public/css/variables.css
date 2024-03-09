@@ -14,6 +14,9 @@
   --brand-font-family: BlackHanSans-Regular, Helvetica, Arial, Sans-Serif;
   --brand-color: #99cccc;
 
+  /* Code font */
+  --code-font-family: CascadiaCode, Helvetica, Arial, Sans-Serif;
+
   /* Width */
   --main-section-width: 620px;
 }
