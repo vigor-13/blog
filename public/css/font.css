@@ -1,3 +1,23 @@
+/* CascadiaCode */
+@font-face {
+  font-family: 'CascadiaCode';
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local('CascadiaCode Bold'),
+    url(https://s3.ap-northeast-2.amazonaws.com/vigorously.xyz/assets/fonts/woff2/CascadiaCode-Bold.woff2)
+      format('woff2');
+}
+@font-face {
+  font-family: 'CascadiaCode';
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('CascadiaCode Regular'),
+    url(https://s3.ap-northeast-2.amazonaws.com/vigorously.xyz/assets/fonts/woff2/CascadiaCode-Regular.woff2)
+      format('woff2');
+}
+
 /* Pretendard */
 @font-face {
   font-family: 'Pretendard';

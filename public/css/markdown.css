@@ -1,5 +1,6 @@
 :root {
   --markdown-font-family: var(--default-font-family);
+  --markdown-code-family: var(--code-font-family);
 
   /* Font size */
   --h1-size: calc(var(--base-font-size) * 4);
@@ -138,11 +139,12 @@ main .post table td code,
 main .post li code,
 main .post li label code {
   color: var(--code-color);
-  font-family: var(--markdown-font-family);
-  font-weight: 100;
+  font-family: var(--markdown-code-family);
+  font-weight: 400;
   border: 1px solid var(--default-border-color);
   padding: 1px 4px;
   border-radius: 4px;
+  font-size: 0.72rem;
 }
 main .post p a,
 main .post table td a,
