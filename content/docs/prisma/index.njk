@@ -1,0 +1,40 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li class="">
+            <a href="">개요</a>
+          </li>
+          <li class="">
+            <a href="">스키마</a>
+          </li>
+          <li class="">
+            <a href="">클라이언트</a>
+          </li>
+          <li class="">
+            <a href="">마이그레이션</a>
+          </li>
+          <li class="">
+            <a href="">도구</a>
+          </li>
+          <li class="">
+            <a href="">참조</a>
+          </li>
+          <li class="">
+            <a href="">더보기</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}
