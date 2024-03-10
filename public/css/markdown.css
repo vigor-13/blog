@@ -3,12 +3,12 @@
   --markdown-code-family: var(--code-font-family);
 
   /* Font size */
-  --h1-size: calc(var(--base-font-size) * 4);
-  --h2-size: calc(var(--h1-size) - 4px);
-  --h3-size: calc(var(--base-font-size) * 3);
-  --h4-size: calc(var(--h3-size) - 4px);
-  --h5-size: calc(var(--base-font-size) * 2);
-  --h6-size: var(--default-font-size);
+  --h1-size: 1.8rem;
+  --h2-size: 1.3rem;
+  --h3-size: 1.2rem;
+  --h4-size: 1.1rem;
+  --h5-size: 1.0rem;
+  --h6-size: 0.9rem;
 
   /* Gap */
   --content-spacing-0: calc(var(--base-spacing));
