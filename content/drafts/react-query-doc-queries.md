@@ -14,7 +14,7 @@ references:
 
 ## 쿼리 기초 {#query-basics}
 
-구성 요소나 사용자 정의 훅에서 쿼리를 구독하려면, 적어도 useQuery 훅을 호출하십시오.
+컴포넌트나 커스텀 훅(Hook)에서 쿼리를 구독하려면, `useQuery` 등의 훅을 사용한다.
 
 쿼리는 **고유 키**에 연결된 비동기 데이터 소스에 대한 선언적 종속성이다. 쿼리는 서버에서 데이터를 가져오기 위해 모든 프로미스 기반 메서드(GET 및 POST 메서드 포함)와 함께 사용할 수 있다. 메서드가 서버의 데이터를 수정하는 경우 대신 [변형(Mutations)](https://tanstack.com/query/latest/docs/framework/react/guides/mutations)을 사용하는 것이 좋다.
 
