@@ -1,0 +1,52 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>시작하기</a>
+            <ul>
+              <li class="active">
+                <a href="zustand-doc-introduction">소개</a>
+              </li>
+              <li class="active">
+                <a href="zustand-doc-comparison">비교</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>가이드</a>
+            <ul>
+              <li class="active">
+                <a href="zustand-doc-updating-state">상태 업데이트하기</a>
+              </li>
+              <li class="active">
+                <a href="zustand-doc-immutable-state-and-merging">불변 상태와 병합</a>
+              </li>
+              <li class="active">
+                <a href="zustand-doc-flux-inspired-practice">추천 패턴 - Flux</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>통합</a>
+            <ul>
+              <li class="active">
+                <a href="zustand-doc-persisting-store-data">스토어 데이터 유지하기</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}

@@ -104,6 +104,9 @@ main {
 .docs-item.prisma a {
   background: #5a67d8;
 }
+.docs-item.zustand a {
+  background: #2356bd;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
