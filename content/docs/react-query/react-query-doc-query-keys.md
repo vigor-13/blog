@@ -2,7 +2,7 @@
 title: 쿼리 키
 description:
 date: 2024-03-16
-tags: [react_query, tanstack_query, query]
+tags: [query]
 references:
   [
     {

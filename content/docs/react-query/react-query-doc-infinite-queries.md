@@ -2,7 +2,7 @@
 title: 무한 쿼리
 description:
 date: 2024-03-16
-tags: [react_query, tanstack_query, infinite_query]
+tags: [infinite_query]
 references:
   [
     {

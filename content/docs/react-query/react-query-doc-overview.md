@@ -2,7 +2,7 @@
 title: React Query 개요
 description:
 date: 2024-03-16
-tags: [react_query, tanstack_query]
+tags: []
 references:
   [
     {
