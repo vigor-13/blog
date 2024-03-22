@@ -76,7 +76,8 @@ main {
   );
 }
 .docs-item.style-dictionary a {
-  background: #40c6c0;
+  /* background: #40c6c0; */
+  background: #d9f8f5;
 }
 .docs-item.storybook a {
   background: #ff4785;
