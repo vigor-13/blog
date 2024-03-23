@@ -184,7 +184,9 @@ main .post > ul {
   margin: var(--content-spacing-2) 0;
 }
 main .post > ol ol,
-main .post > ul ul {
+main .post > ol ul,
+main .post > ul ul,
+main .post > ul ol {
   padding-left: var(--content-spacing-2);
 }
 

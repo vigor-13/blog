@@ -92,7 +92,7 @@ SQL 쿼리 빌더의 가장 큰 단점은 애플리케이션 개발자가 여전
 
 개발자는 SQL 쿼리에서 "올바른 작업을 수행하는지"에 대해 걱정할 필요 없이 필요한 데이터를 요청할 수 있어야 한다. 개발자는 올바른 결정을 내릴 수 있는 추상화를 사용해야 한다. 이는 추상화가 개발자의 실수를 방지하는 특정 "건전한" 제약 조건을 부과한다는 것을 의미한다.
 
-## Prisma ORM은 개잘자의 생산성을 높인다 {#prisma-orm-makes-developers-productivity}
+## Prisma ORM은 개발자의 생산성을 높인다 {#prisma-orm-makes-developers-productivity}
 
 Prisma ORM의 주요 목표는 애플리케이션 개발자가 데이터베이스로 작업할 때 생산성을 높이는 것이다. 생산성과 제어 사이의 절충점을 다시 한 번 고려할 때 Prisma ORM은 여기에 적합하다:
 
