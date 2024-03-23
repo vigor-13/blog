@@ -16,7 +16,9 @@ references:
 
 이 가이드에서는 Docker Desktop에서 실제 컨테이너를 탐색해 본다.
 
+:::note
 시작하기 전에 최신 버전의 [Docker Desktop](https://docs.docker.com/get-docker/)을 설치한다. Docker는 정기적으로 새로운 기능을 추가하므로 이 가이드의 일부분은 최신 버전의 Docker Desktop에서만 작동할 수 있다.
+:::
 
 ## 1단계: 연습 설정 {#step1-set-up-the-walkthrough}
 

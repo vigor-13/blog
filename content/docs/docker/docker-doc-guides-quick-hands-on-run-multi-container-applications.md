@@ -45,11 +45,11 @@ docker compose up -d
 
 위의 명령에서 `-d` 플래그는 애플리케이션이 detached 모드에서 실행되도록 한다.
 
-## 단계4: 프론트엔드에서 할일 추가하기 {#step-4-view-the-frontend-and-add-todos}
+## 단계4: 프론트엔드 페이지에서 할일 추가하기 {#step-4-view-the-frontend-and-add-todos}
 
 Docker Desktop의 **Containers** 탭에는 두 개의 컨테이너(`todo-app`, `todo-database`)가 실행 중인 애플리케이션 스택을 확인할 수 있다.
 
-프론트엔드를 보려면 다음과 같이 한다:
+프론트엔드 페이지를 확인하려면 다음과 같이 한다:
 
 1. Docker Desktop에서 **Containers**에 있는 애플리케이션 스택을 확장한다.
 2. **Port(s)** 열에서 **3000** 포트 링크를 선택하거나 http://localhost:3000로 접속한다.
