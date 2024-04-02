@@ -7,6 +7,8 @@ tags: [markdown]
 
 ![Image](/img/logo.jpg)
 
+![Image](/img/logo.jpg =60%x)
+
 # H1
 
 ## h2
