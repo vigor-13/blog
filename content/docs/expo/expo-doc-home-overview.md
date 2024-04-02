@@ -11,17 +11,17 @@ Expo는 Android, iOS, 웹에서 네이티브로 실행되는 앱을 위한 오�
 
 Expo는 모바일과 웹의 장점을 결합하고 앱을 구축하고 확장하는 데 중요한 많은 기능을 제공한다.
 
-## 시작하기
+## 시작하기 {#get-started}
 
-전제 조건과 Expo로 프로젝트를 빠르게 시작하는 방법에 대해 알아본다.
+사전 요구 사항과 Expo로 프로젝트를 빠르게 시작하는 방법에 대해 알아본다.
 
-## 개발
+## 개발 {#develop}
 
 Expo로 앱을 개발할 때 JavaScript/TypeScript로 코드를 작성해야 한다.
 
 새 프로젝트를 만들 때 Expo는 필요에 따라 사용자 지정할 수 있는 표준 [프로젝트 구조](https://docs.expo.dev/develop/project-structure/)를 제공한다. 또한 팀이 웹과 같은 반복 속도로 신속하고 안전하게 반복할 수 있도록 도와주는 [개발 빌드](https://docs.expo.dev/develop/development-builds/introduction/)를 제공한다.
 
-## 검토
+## 검토 {#review}
 
 앱의 미리 보기 버전을 배포하려면 품질 보증(QA)을 위해 팀과 공유해야 한다. 이는 앱을 스토어에 배포하기 전에 앱을 개선하는 데 도움이 되는 피드백 루프다.
 
@@ -39,10 +39,10 @@ Expo는 개발 빌드를 사용하여 [EAS Update](https://docs.expo.dev/review/
 요약하면, Expo의 EAS 업데이트 기능은 QA 프로세스를 간소화하고 개발 속도를 높이는 데 큰 도움이 된다. 앱을 다시 빌드하거나 앱 스토어에 업로드할 필요 없이 팀원들과 빠르게 앱을 공유하고, 피드백을 수집하며, 업데이트를 적용할 수 있다. 이를 통해 더 나은 품질의 앱을 더 빠르게 개발할 수 있다.
 :::
 
-## 배포
+## 배포 {#deploy}
 
 앱을 배포하려면 Play Store 및 App Store에 앱을 게시해야 한다. Expo는 Android 및 iOS용 앱 빌드에 도움이 되는 [빌드 서비스](https://docs.expo.dev/deploy/build-project/)를 제공한다. 또한 [스토어에 앱 바이너리를 자동으로 업로드 및 제출](https://docs.expo.dev/deploy/submit-to-app-stores/)하는 방법을 제공하고 앱 스토어 제출 중간에 작은 버그를 수정하고 [빠른 수정을 적용](https://docs.expo.dev/deploy/instant-updates/)하는 것을 쉽게 만든다.
 
-## 기타 내용
+## 기타 내용 {#other-content}
 
 Expo CLI를 사용하여 명령줄에서 작업하고, Expo 모듈을 사용하고, 디버깅하고, 팀과 협업하는 등 계속 탐색할 수 있는 다른 많은 기능과 모범 사례가 있다.
