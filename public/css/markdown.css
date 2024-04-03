@@ -183,6 +183,8 @@ main .post > ul {
   padding-left: var(--content-spacing-2);
   margin: var(--content-spacing-2) 0;
 }
+main .post .tabs-tab-content ul,
+main .post .tabs-tab-content ol,
 main .post > blockquote ul,
 main .post > ol ol,
 main .post > ol ul,
