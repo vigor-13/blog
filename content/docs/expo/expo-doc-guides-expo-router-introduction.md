@@ -3,7 +3,13 @@ title: Expo Router 소개
 description: Expo Router는 Expo로 구축된 범용 React Native 애플리케이션을 위한 오픈소스 라우팅 라이브러리다.
 date: 2024-04-04
 tags: [expo_router]
-references: [{ key: 'Expo 공식 문서', value: '' }]
+references:
+  [
+    {
+      key: 'Expo 공식 문서',
+      value: 'https://docs.expo.dev/router/introduction/',
+    },
+  ]
 ---
 
 Expo Router는 React Native와 웹 애플리케이션을 위한 파일 기반 라우터다. 이를 통해 앱의 화면 간 탐색을 관리할 수 있으며, 사용자가 Android, iOS, 웹 등 다양한 플랫폼에서 동일한 컴포넌트를 사용하여 앱 UI의 다른 부분 사이를 원활하게 이동할 수 있다.
