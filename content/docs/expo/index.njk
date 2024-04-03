@@ -1,0 +1,274 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>홈</a>
+            <ul>
+              <li class="active">
+                <a href="expo-doc-home-overview">개요</a>
+              </li>
+              <li>
+                <a>시작하기</a>
+                <ul>
+                  <li class="active">
+                    <a href="expo-doc-home-installation">설치</a>
+                  </li>
+                  <li class="active">
+                    <a href="expo-doc-home-expo-go">Expo Go</a>
+                  </li>
+                  <li class="active">
+                    <a href="expo-doc-home-create-a-project">프로젝트 생성하기</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>개발</a>
+                <ul>
+                  <li class="active">
+                    <a href="expo-doc-home-develop-project-structure">프로젝트 구조</a>
+                    <ul>
+                      <li>
+                        <a>유저 인터페이스</a>
+                        <ul>
+                          <li>
+                            <a>Splash screen</a>
+                          </li>
+                          <li>
+                            <a>App icons</a>
+                          </li>
+                          <li>
+                            <a>Safe areas</a>
+                          </li>
+                          <li>
+                            <a>Fonts</a>
+                          </li>
+                          <li>
+                            <a>Color themes</a>
+                          </li>
+                          <li>
+                            <a>Animation</a>
+                          </li>
+                          <li>
+                            <a>Store data</a>
+                          </li>
+                          <li>
+                            <a>다음 단계</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a>개발 빌드</a>
+                        <ul>
+                          <li class="active">
+                            <a href="expo-doc-home-develop-development-builds-introduction">소개</a>
+                          </li>
+                          <li>
+                            <a>빌드 생성하기</a>
+                          </li>
+                          <li>
+                            <a>빌드 사용하기</a>
+                          </li>
+                          <li>
+                            <a>팀과 공유하기</a>
+                          </li>
+                          <li>
+                            <a>툴, 워크플로 그리고 익스텐션</a>
+                          </li>
+                          <li>
+                            <a>다음 단계</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a>구성 플러그인</a>
+                        <ul>
+                          <li class="active">
+                            <a href="expo-doc-home-develop-config-plugins-introduction">소개</a>
+                          </li>
+                          <li>
+                            <a>플러그인과 모드</a>
+                          </li>
+                          <li>
+                            <a>개발과 디버깅</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a>디버깅</a>
+                        <ul>
+                          <li>
+                            <a>에러와 경고</a>
+                          </li>
+                          <li>
+                            <a>런타임 이슈</a>
+                          </li>
+                          <li>
+                            <a>도구</a>
+                          </li>
+                          <li>
+                            <a>개발 도구 플러그인</a>
+                          </li>
+                          <li>
+                            <a>Create a dev tools plugin</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a>인증</a>
+                  </li>
+                  <li>
+                    <a>유닛 테스트</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>리뷰</a>
+                <ul>
+                  <li>
+                    <a>리뷰용 앱 배포하기</a>
+                  </li>
+                  <li>
+                    <a>Open updates with Orbit</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>배포</a>
+                <ul>
+                  <li>
+                    <a>프로젝트 빌드하기</a>
+                  </li>
+                  <li>
+                    <a>앱 스토어에 제출하기</a>
+                  </li>
+                  <li>
+                    <a>앱 스토어 메타데이터</a>
+                  </li>
+                  <li>
+                    <a>실시간 업데이트</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>더 보기</a>
+                <ul>
+                  <li>
+                    <a>핵심 컨셉</a>
+                  </li>
+                  <li>
+                    <a>FAQ</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>가이드</a>
+            <ul>
+              <li class="active">
+                <a href="expo-doc-guides-overview">개요</a>
+              </li>
+              <li>
+                <a>개발 프로세스</a>
+                <ul>
+                  <li class="active">
+                    <a href="expo-doc-guides-develop-an-app-with-expo">Expo로 앱 개발하기</a>
+                  </li>
+                  <li class="active">
+                    <a href="expo-doc-guides-configure-with-app-config">app config로 설정하기</a>
+                  </li>
+                  <li class="active">
+                    <a href="expo-doc-guides-local-app-development">로컬 앱 개발</a>
+                  </li>
+                  <li class="">
+                    <a href="">번들링</a>
+                    <ul>
+                      <li class="active">
+                        <a href="expo-doc-guides-metro-bundler">Metro 번들러</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="">
+                    <a>레퍼런스</a>
+                    <ul>
+                      <li class="">
+                        <a href="">모노레포로 작업하기</a>
+                      </li>
+                      <li class="">
+                        <a href="">로그 보기</a>
+                      </li>
+                      <li class="active">
+                        <a href="expo-doc-guides-development-and-production-modes">개발 및 프로덕션 모드</a>
+                      </li>
+                      <li class="">
+                        <a href="">자주 발생하는 개발 에러</a>
+                      </li>
+                      <li class="active">
+                        <a href="expo-doc-guides-new-architecture">새 아키텍처</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>Expo Router</a>
+              </li>
+              <li>
+                <a>Expo Modules API</a>
+              </li>
+              <li>
+                <a>EAS</a>
+              </li>
+              <li>
+                <a>EAS Build</a>
+              </li>
+              <li>
+                <a>EAS Submit</a>
+              </li>
+              <li>
+                <a>EAS Update</a>
+              </li>
+              <li>
+                <a>EAS Metadata</a>
+              </li>
+              <li>
+                <a>EAS Insights</a>
+              </li>
+              <li>
+                <a>푸시 알림</a>
+              </li>
+              <li>
+                <a>배포</a>
+              </li>
+              <li>
+                <a>더보기</a>
+              </li>
+              <li>
+                <a>Regulatory compilance</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>레퍼런스</a>
+          </li>
+          <li>
+            <a>배우기</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}

@@ -118,6 +118,9 @@ main {
 .docs-item.docker a {
   background: #e5f2fc;
 }
+.docs-item.expo a {
+  background: #fff;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
