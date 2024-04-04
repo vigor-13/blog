@@ -8,11 +8,10 @@ main {
   height: 100%;
   grid-gap: 1rem;
   grid-template-columns: repeat(5, 1fr);
-  grid-auto-columns: minmax(160px, auto);
-  grid-auto-rows: minmax(160px, auto);
 }
 
 .docs-item {
+  height: 200px;
   padding: 10px;
   background: var(--background-color-section);
   border: 1px solid var(--default-border-color);
@@ -22,19 +21,12 @@ main {
 .docs-item:hover {
   padding: 0;
 }
-/* .docs-item:hover > a .docs-item-title {
-  color: #fff;
-} */
 .docs-item.nextjs:hover > a .docs-item-title {
   color: #000;
 }
 .docs-item.nextjs:hover > a img {
   filter: none;
 }
-/* .docs-item:hover > a img {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%)
-    hue-rotate(192deg) brightness(102%) contrast(101%);
-} */
 
 .docs-item > a {
   width: 100%;
@@ -121,15 +113,18 @@ main {
 .docs-item.expo a {
   background: #fff;
 }
+.docs-item.react-navigation a {
+  background: #d7d7f6;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media only screen and (max-width: 768px) {
   .docs-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (max-width: 600px) {
