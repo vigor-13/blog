@@ -1,0 +1,86 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>기초</a>
+            <ul>
+              <li class="active">
+                <a href="react-navigation-doc-getting-started">시작하기</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-hello-react-navigation">Hello React Navigation</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-moving-between-screens">화면간 이동하기</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-passing-parameters-to-routes">라우트에 파라미터 전달하기</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-configuring-the-header-bar">헤더 바 설정하기</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-header-buttons">헤더 버튼</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-nesting-navigators">중첩 네비게이터</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-navigation-lifecycle">네비게이션 라이프사이클</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-limitations">제한 사항</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>가이드</a>
+            <ul>
+              <li class="active">
+                <a href="react-navigation-doc-tab-navigation">탭 네비게이션</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-drawer-navigation">드로어 네비게이션</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-authentication-flows">인증 플로우</a>
+              </li>
+              <li class="active">
+                <a href="react-navigation-doc-supporting-safe-areas">안전 영역 지원</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>네비게이터</a>
+          </li>
+          <li>
+            <a>라이브러리</a>
+          </li>
+          <li>
+            <a>API 레퍼런스</a>
+          </li>
+          <li>
+            <a>자체 네비게이터 빌드하기</a>
+          </li>
+          <li>
+            <a>추가 리소스</a>
+          </li>
+          <li>
+            <a>Meta</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}
