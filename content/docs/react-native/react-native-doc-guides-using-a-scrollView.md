@@ -1,5 +1,5 @@
 ---
-title: ScrollView 사용하기
+title: 스크롤 뷰 사용하기
 description:
 date: 2024-04-10
 tags: []

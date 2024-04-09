@@ -1,5 +1,5 @@
 ---
-title: TextInput 다루기
+title: 텍스트 입력 처리하기
 description:
 date: 2024-04-10
 tags: []
