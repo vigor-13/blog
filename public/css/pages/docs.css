@@ -46,7 +46,6 @@ main {
 }
 .docs-item > a img {
   width: 64px;
-  height: 64px;
   transition: 0.3s all linear;
 }
 .docs-item-title {
@@ -122,6 +121,9 @@ main {
 }
 .docs-item.react-navigation a {
   background: #d7d7f6;
+}
+.docs-item.eleventy a {
+  background: #49d8e8;
 }
 
 @media only screen and (max-width: 1024px) {
