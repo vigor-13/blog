@@ -2,6 +2,7 @@
 title: Expo로 앱 개발하기
 description: Expo 앱 개발 프로세스의 개요를 알아본다.
 date: 2024-04-02
+modified: 2024-04-13
 tags: []
 references:
   [{ key: 'Expo 공식 문서', value: 'https://docs.expo.dev/workflow/overview/' }]
