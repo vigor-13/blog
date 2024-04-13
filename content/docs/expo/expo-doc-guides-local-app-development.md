@@ -2,6 +2,7 @@
 title: 로컬 앱 개발
 description: Expo를 사용할 때 로컬에서 앱을 컴파일하고 빌드하는 방법을 알아본다.
 date: 2024-04-03
+modified: 2024-04-13
 tags: []
 references:
   [
@@ -16,28 +17,24 @@ references:
 
 :::important 네이티브 코드 생성 & 디버그 빌드 & 프로덕션 빌드
 
-1. 네이티브 코드 생성:
-
+1. **네이티브 코드 생성**:
    - 수동으로 네이티브 코드를 생성할 때는 일반적으로 `expo prebuild` 명령을 사용한다.
-   - 이 명령은 iOS 및 Android용 네이티브 프로젝트 디렉토리를 생성하고, Expo 설정 파일(**app.json** 또는 **app.config.js**)을 기반으로 네이티브 프로젝트 파일을 생성하거나 수정한다.
+   - 이 명령은 iOS 및 Android용 네이티브 프로젝트 디렉토리를 생성하고, Expo 설정 파일(`app.json/app.config.js`)을 기반으로 네이티브 프로젝트 파일을 생성하거나 수정한다.
    - 이렇게 생성된 네이티브 코드는 Xcode 또는 Android Studio에서 열어 수정할 수 있다.
-
-2. 디버그 빌드:
-
+2. **디버그 빌드**:
    - 디버그 빌드는 개발 및 테스트 목적으로 사용되는 앱 버전이다.
    - 디버그 빌드에는 개발자 도구, 추가 로깅, 핫 리로딩 등의 기능이 포함되어 있어 개발 과정에서 유용하다.
    - Expo CLI의 `expo run:ios` 또는 `expo run:android` 명령을 사용하거나, Xcode 또는 Android Studio에서 직접 디버그 빌드를 생성할 수 있다.
-
-3. 프로덕션 빌드:
+3. **프로덕션 빌드**:
    - 프로덕션 빌드는 앱 스토어에 제출하거나 최종 사용자에게 배포할 준비가 된 앱 버전이다.
    - 프로덕션 빌드는 코드 서명, 최적화, 불필요한 개발자 도구 제거 등의 추가 단계를 거친다.
    - Xcode 또는 Android Studio를 사용하여 프로덕션 빌드를 생성하고, 필요한 설정 및 빌드 설정을 수동으로 조정해야 한다.
 
 :::
 
-## **요구 사항**
+## 사전 준비 사항 {#prerequisites}
 
-이 가이드에 설명된 단계를 따르려면 아래 지침을 참조하여 개발 환경을 설정하는 방법을 확인한다.
+아래 지침을 참조하여 개발 환경을 설정하는 방법을 확인한다.
 
 :::tabs
 
@@ -57,7 +54,7 @@ macOS에서 Android용 개발 환경을 설정하려면 `Node.js`, `Watchman`, `
 brew install watchman
 ```
 
-3. Homebrew를 사용하여 Azul Zulu라는 OpenJDK 배포를 설치한다. 이 배포판은 M1 및 Intel Mac용 JDK를 제공한다.
+3. Homebrew를 사용하여 Azul Zulu라는 OpenJDK 배포를 설치한다. (이 배포판은 M1 및 Intel Mac용 JDK를 제공한다.)
 
 ```bash
 # SDK 50 이상
@@ -102,7 +99,7 @@ brew install watchman
 
 ## 로컬 앱 컴파일 {#local-app-compilation}
 
-프로젝트를 로컬에서 빌드하려면 Expo CLI의 컴파일 명령을 사용할 수 있다. 이 명령은 **android** 와 **ios** 디렉토리를 생성한다:
+프로젝트를 로컬에서 빌드하려면 Expo CLI의 컴파일 명령을 사용할 수 있다. 이 명령은 `android/ios` 디렉토리를 생성한다:
 
 ```bash
 # Android 네이티브 프로젝트 빌드
@@ -112,15 +109,15 @@ npx expo run:android
 npx expo run:ios
 ```
 
-위의 명령은 로컬에 설치된 Android SDK 또는 Xcode를 사용하여 프로젝트를 컴파일하고 앱의 디버그 빌드를 생성한다.
+위의 명령은 로컬에 설치된 Android SDK 또는 Xcode를 사용하여 **프로젝트를 컴파일하고 앱의 디버그 빌드를 생성한다.**
 
-- 위의 명령은 빌드 전에 먼저 `npx expo prebuild` 를 실행하여 네이티브 디렉토리(**android**와 **ios**)를 생성한다. 디렉토리가 이미 존재하면 이 단계는 건너뛴다.
+- 위의 명령은 빌드 전에 먼저 `npx expo prebuild` 를 실행하여 네이티브 디렉토리(`android/ios`)를 생성한다. 디렉토리가 이미 존재하면 이 단계는 건너뛴다.
 - `--device` 플래그를 추가하여 앱을 실행할 디바이스를 선택할 수 있다. 물리적으로 연결된 디바이스나 에뮬레이터/시뮬레이터를 선택할 수 있다.
 - `--variant release`(Android) 또는 `--configuration Release`(iOS)를 전달하여 [앱의 프로덕션 버전](https://docs.expo.dev/deploy/build-project/#production-builds-locally)을 빌드할 수 있다.
 
 첫 번째 빌드 후에 프로젝트의 설정이나 네이티브 코드를 수정하려면 프로젝트를 다시 빌드해야 한다. `npx expo prebuild` 를 다시 실행하면 변경 사항이 기존 파일 위에 계층화된다. 때문에 빌드 후에 다른 결과를 생성할 수도 있다.
 
-이를 방지하려면 프로젝트의 **.gitignore**에 네이티브 디렉토리를 추가하고 `npx expo prebuild --clean` 명령을 사용한다. 이렇게 하면 프로젝트가 항상 관리되고, `--clean` 플래그가 디렉토리를 재생성하기 전에 기존 디렉토리를 삭제한다. 앱 설정을 사용하거나 설정 플러그인을 만들어 네이티브 디렉토리 내에서 프로젝트의 설정이나 코드를 수정할 수 있다.
+이를 방지하려면 프로젝트의 `.gitignore` 에 네이티브 디렉토리를 추가하고 `npx expo prebuild --clean` 명령을 사용한다. 이렇게 하면 프로젝트가 항상 관리되고, `--clean` 플래그가 디렉토리를 재생성하기 전에 기존 디렉토리를 삭제한다. 앱 설정을 사용하거나 설정 플러그인을 만들어 네이티브 디렉토리 내에서 프로젝트의 설정이나 코드를 수정할 수 있다.
 
 컴파일과 prebuild가 어떻게 작동하는지 자세히 알아보려면 다음 가이드를 참조한다:
 
@@ -129,7 +126,7 @@ npx expo run:ios
 
 ## expo-dev-client를 사용한 로컬 빌드 {#local-builds-with-expo-dev-client}
 
-프로젝트에 `expo-dev-client` 를 설치하면 프로젝트의 디버그 빌드에 `expo-dev-client` UI와 도구가 포함되며, 이를 개발 빌드라고 부른다.
+**프로젝트에 `expo-dev-client` 를 설치하면 프로젝트의 디버그 빌드에 `expo-dev-client` UI와 도구가 포함되며, 이를 개발 빌드라고 부른다.**
 
 ```bash
 npx expo install expo-dev-client
