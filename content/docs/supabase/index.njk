@@ -1,0 +1,64 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>시작 하기</a>
+            <ul>
+              <li>
+                <a>기능</a>
+              </li>
+              <li class="active">
+                <a href="supabase-doc-architecture">아키텍처</a>
+              </li>
+              <li>
+                <a>프레임워크 빠른 시작</a>
+                <ul>
+                  <li>
+                    <a>Next.js</a>
+                  </li>
+                  <li>
+                    <a>React</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>모바일 튜토리얼</a>
+                <ul>
+                  <li>
+                    <a>Expo React Native</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>제품</a>
+          </li>
+          <li>
+            <a>데이터 API</a>
+          </li>
+          <li>
+            <a>개발 사이클</a>
+          </li>
+          <li>
+            <a>클라이언트 라이브러리 레퍼런스</a>
+          </li>
+          <li>
+            <a>리소스</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}
