@@ -125,6 +125,9 @@ main {
 .docs-item.eleventy a {
   background: #49d8e8;
 }
+.docs-item.supabase a {
+  background: #37996b;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
