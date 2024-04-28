@@ -128,6 +128,9 @@ main {
 .docs-item.supabase a {
   background: #37996b;
 }
+.docs-item.resend a {
+  background: #fff;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
