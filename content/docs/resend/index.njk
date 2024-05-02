@@ -1,0 +1,71 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>빠른 시작</a>
+            <ul>
+              <li>
+                <a>SMTP</a>
+                <ul>
+                  <li class="active">
+                    <a href="resend-doc-quickstart-smtp-introduction">소개</a>
+                  </li>
+                  <li class="active">
+                    <a href="resend-doc-smtp-supabase">Supabase</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>배우기</a>
+            <ul>
+              <li class="">
+                <a>이메일</a>
+                <ul>
+                  <li class="active">
+                    <a href="resend-doc-email-introduction">소개</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>도메인</a>
+                <ul>
+                  <li class="active">
+                    <a href="resend-doc-domain-introduction">소개</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>API 키</a>
+              </li>
+              <li>
+                <a>Webhooks</a>
+              </li>
+              <li>
+                <a>Audiences</a>
+              </li>
+              <li>
+                <a>Broadcasts</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>리소스</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}
