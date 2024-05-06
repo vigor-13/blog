@@ -1,0 +1,84 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/home.njk
+---
+{%- css %}{% include "public/css/pages/docs-banner.css" %}{% endcss %}
+{% block main %}
+  <section class="docs-banner">
+    <div class="docs-banner-left">
+      <div class=""></div>
+    </div>
+    <div class="docs-banner-center">
+      <div class="content-index">
+        <ul>
+          <li>
+            <a>플랫폼</a>
+            <ul>
+              <li>
+                <a>시작하기 튜토리얼</a>
+                <ul>
+                  <li class="active">
+                    <a href="vercel-doc-get-started-with-vercel">시작하기</a>
+                  </li>
+                  <li class="active">
+                    <a href="vercel-doc-projects-and-deployments">프로젝트와 배포</a>
+                  </li>
+                  <li class="active">
+                    <a href="vercel-doc-import-an-existing-project">기존 프로젝트 가져오기</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>프레임워크 튜토리얼</a>
+                <ul>
+                  <li class="active">
+                    <a href="vercel-doc-frameworks-on-vercel">Vercel의 프레임워크 지원</a>
+                  </li>
+                  <li class="active">
+                    <a href="vercel-doc-nextjs-on-vercel">Vercel에서의 Next.js</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>배포 튜토리얼</a>
+                <ul>
+                  <li class="active">
+                    <a href="vercel-doc-deploying-to-vercel">Vercel에 배포하기</a>
+                  </li>
+                  <li class="active">
+                    <a href="vercel-doc-deploying-git-repositories-with-vercel">Git 레포지토리 Vercel에 배포하기</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>인프라구조</a>
+          </li>
+          <li>
+            <a>워크플로우</a>
+          </li>
+          <li>
+            <a>스토리지</a>
+          </li>
+          <li>
+            <a>Observability</a>
+          </li>
+          <li>
+            <a>통합</a>
+          </li>
+          <li>
+            <a>보안</a>
+          </li>
+          <li>
+            <a>CLI & API</a>
+          </li>
+          <li>
+            <a>레시피</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-banner-right"></div>
+  </section>
+{% endblock %}

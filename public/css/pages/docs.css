@@ -131,6 +131,9 @@ main {
 .docs-item.resend a {
   background: #fff;
 }
+.docs-item.vercel a {
+  background: #fff;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
