@@ -199,47 +199,6 @@ ESLint를 전역으로 설치하는 것은 편리해 보일 수 있지만, 장�
 
 ## 수동 설정 {#manual-set-up}
 
-<!-- ESLint를 프로젝트에 수동으로 설정할 수도 있습니다.
-
-시작하기 전에 package.json 파일이 이미 있어야 합니다. 없는 경우 사전에 npm init 또는 yarn init을 실행하여 파일을 생성해야 합니다.
-
-프로젝트에 ESLint 패키지를 설치합니다:
-
-```bash
-npm install --save-dev eslint @eslint/js
-```
-
-eslint.config.js 파일을 추가합니다:
-
-```bash
-touch eslint.config.js
-```
-
-eslint.config.js 파일에 구성을 추가합니다. 규칙, 사용자 지정 구성, 플러그인 등을 추가하는 방법을 알아보려면 ESLint 구성 문서를 참조하세요.
-
-```js
-import js from '@eslint/js';
-
-export default [
-  js.configs.recommended,
-
-  {
-    rules: {
-      'no-unused-vars': 'warn',
-      'no-undef': 'warn',
-    },
-  },
-];
-```
-
-ESLint CLI를 사용하여 코드를 린트합니다:
-
-```bash
-npx eslint project-dir/ file1.js
-```
-
-사용 가능한 CLI 옵션에 대한 자세한 내용은 명령줄 인터페이스를 참조하세요. -->
-
 ESLint를 프로젝트에 수동으로 설정할 수 있다. 이 과정은 프로젝트의 특정 요구 사항에 맞게 ESLint를 구성하고자 할 때 유용하다.
 
 1. **사전 요구 사항**
