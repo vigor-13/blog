@@ -134,10 +134,10 @@ main .post li label em {
   font-style: italic;
   color: var(--italic-color);
 }
-main .post p code,
-main .post table td code,
-main .post li code,
-main .post li label code {
+main .post p > code,
+main .post table td > code,
+main .post li > code,
+main .post li label > code {
   color: var(--code-color);
   font-family: var(--markdown-code-family);
   font-weight: 400;
