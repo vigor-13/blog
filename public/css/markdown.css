@@ -146,7 +146,8 @@ main .post li label > code {
   border-radius: 4px;
   font-size: 0.72rem;
 }
-main .post a > code {
+main .post a > code,
+main .post strong > code {
   font-family: var(--markdown-code-family);
   font-weight: 400;
   border: 1px solid var(--default-border-color);
