@@ -134,6 +134,9 @@ main {
 .docs-item.vercel a {
   background: #fff;
 }
+.docs-item.eslint a {
+  background: #ccccfa;
+}
 
 @media only screen and (max-width: 1024px) {
   .docs-container {
