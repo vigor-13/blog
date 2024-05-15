@@ -146,6 +146,15 @@ main .post li label > code {
   border-radius: 4px;
   font-size: 0.72rem;
 }
+main .post a > code,
+main .post strong > code {
+  font-family: var(--markdown-code-family);
+  font-weight: 400;
+  border: 1px solid var(--default-border-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+}
 main .post p a,
 main .post table td a,
 main .post li a,
