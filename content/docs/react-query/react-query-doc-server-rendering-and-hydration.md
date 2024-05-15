@@ -12,52 +12,108 @@ references:
   ]
 ---
 
-이 가이드에서는 React Query를 서버 렌더링과 함께 사용하는 방법을 배우게 된다.
+이 가이드에서는 서버 렌더링 환경에서 React Query를 활용하는 방법을 알아본다.
 
-**Prefetching & Router Integration** 가이드와 **Performance & Request Waterfalls** 가이드를 확인하는 것이 좋다.
+시작하기 전에 다음을 먼저 읽어보는 것을 추천한다.
 
-스트리밍, 서버 컴포넌트, 새로운 Next.js 앱 라우터와 같은 고급 서버 렌더링 패턴에 대해서는 **Advanced Server Rendering** 가이드를 참고한다.
+- [성능 & 요청 워터폴](https://www.vigorously.xyz/docs/react-query/react-query-doc-performance-and-request-waterfalls/)
+- [프리페칭 & 라우터 통합](https://www.vigorously.xyz/docs/react-query/react-query-doc-prefetching-and-router-integration/)
 
-단순히 코드만 보고 싶다면 아래 [**Full Next.js pages 라우터 예제**](https://tanstack.com/query/v5/docs/framework/react/guides/ssr#full-nextjs-pages-router-example) 또는 [**Full Remix 예제**](https://tanstack.com/query/v5/docs/framework/react/guides/ssr#full-remix-example)로 바로 이동할 수 있다.
+스트리밍, 서버 컴포넌트, Next.js 앱 라우터와 같은 고급 서버 렌더링 기법이 궁금하다면 다음을 참조한다.
+
+- [고급 서버 렌더링](https://www.vigorously.xyz/docs/react-query/react-query-doc-advanced-server-rendering/)
+
+코드 예제만 바로 확인하고 싶다면 다음을 참조한다.
+
+- [Next.js pages 라우터 예제](https://tanstack.com/query/v5/docs/framework/react/guides/ssr#full-nextjs-pages-router-example)
+- [Remix 예제](https://tanstack.com/query/v5/docs/framework/react/guides/ssr#full-remix-example)
 
 ## 서버 렌더링과 React Query {#server-rendering-and-react-query}
 
-서버 렌더링이란 무엇일까? 이 가이드의 나머지 부분에서는 이 개념에 익숙할 것이라고 가정하겠지만, 서버 렌더링이 React Query와 어떻게 관련되는지 살펴봐야한다. 서버 렌더링은 사용자가 페이지를 로드할 때 즉시 콘텐츠를 볼 수 있도록 서버에서 초기 HTML을 생성하는 것이다. 이는 페이지가 요청될 때 실시간으로 이루어질 수 있고(SSR), 이전 요청이 캐시되었거나 빌드 시점에 미리 이루어질 수도 있다(SSG).
+서버 렌더링은 사용자가 웹 페이지를 요청했을 때, 서버에서 미리 HTML을 생성하여 보내주는 것을 말한다. 이렇게 하면 사용자는 페이지를 로드하자마자 바로 콘텐츠를 볼 수 있다.
 
-요청 워터폴 가이드를 읽었다면 다음을 기억할 것이다:
+서버 렌더링은 사용자가 요청할 때마다 실시간으로 HTML을 만들 수도 있고(SSR), 이전에 만들어 둔 HTML을 캐시에서 가져오거나 웹 사이트를 빌드할 때 미리 만들어 둘 수도 있다(SSG).
 
-```bash
+이전에 요청 워터폴 가이드를 읽었다면, 클라이언트 렌더링 애플리케이션은 사용자에게 콘텐츠를 보여주기 위해 최소 3번의 왕복이 필요하다는 걸 기억할 것이다.
+
+```text
 1. |-> Markup (without content)
 2.   |-> JS
 3.     |-> Query
 ```
 
-클라이언트 렌더링 애플리케이션에서는 사용자에게 콘텐츠를 표시하기 전에 최소 3번의 서버 왕복이 필요하다. 서버 렌더링의 관점에서 보면 다음과 같이 바뀐다:
+하지만 서버 렌더링을 사용하면 다음과 같이 달라진다.
 
-```bash
+```text
 1. |-> Markup (with content AND initial data)
 2.   |-> JS
 ```
 
-**1.** 이 완료되면 사용자가 즉시 콘텐츠를 볼 수 있고, **2.** 가 완료되면 페이지가 상호작용 가능해진다. 마크업에 이미 필요한 초기 데이터가 포함되어 있기 때문에 **3.** 은 클라이언트에서 실행되지 않아도 된다. 데이터를 다시 확인해야 하는 경우에만 실행된다.
+- 1번이 완료되면 사용자는 바로 콘텐츠를 볼 수 있고,
+- 2번이 완료되면 페이지와 상호작용할 수 있게 된다.
+- 필요한 초기 데이터가 이미 마크업에 포함되어 있기 때문에, 3번 과정에서의 데이터 요청은 꼭 필요한 경우에만 일어난다.
 
-위의 프로세스는 클라이언트 사이드에서 발생한다. 서버 사이드에서는 마크업을 생성/렌더링하기 전에 해당 데이터를 **prefetch**해야 하며, 직렬화 가능한 형식으로 **디하이드레이션**해야 한다. 그리고 클라이언트에서는 이 데이터를 React Query 캐시로 **하이드레이션**해야 하여 새로운 fetch를 할 필요가 없다.
+위의 과정은 클라이언트에서 일어나는 일이다. 서버에서는 마크업을 만들기 전에 필요한 데이터를 미리 가져와야 한다(**prefetch**).
 
-이 세 단계를 React Query로 구현하는 방법을 계속 학습해 보자.
+그리고 이 데이터를 클라이언트로 보낼 수 있는 형태로 가공해야 하는데, 이걸 디하이드레이션(**dehydration**)이라고 한다.
 
-## Suspense에 대한 간단한 메모 {#a-quick-note-on-suspense}
+클라이언트는 받은 데이터를 React Query 캐시에 넣어서(**hydration**), 새로 데이터를 요청할 필요가 없게 만든다.
 
-이 가이드는 일반 `useQuery` API를 사용한다. 꼭 권장되는 것은 아니지만, `useSuspenseQuery`로 대체하는 것도 가능하다. 단, **모든 쿼리를 반드시 사전에 prefetch해야 한다**.
+이제 React Query로 이 prefetch, dehydration, hydration 과정을 어떻게 구현하는지 계속 알아보자!
 
-장점은 클라이언트에서 `<Suspense>`를 사용하여 로딩 상태를 처리할 수 있다는 것이다.
+## Suspense에 대한 주의사항 {#a-quick-note-on-suspense}
 
-`useSuspenseQuery`를 사용할 때 prefetch를 잊으면 프레임워크에 따라 결과가 달라진다. 일부 경우 데이터가 중단되어 서버에서 fetch하지만 클라이언트에는 하이드레이션되지 않아 다시 fetch하게 된다. 이러한 경우 서버와 클라이언트가 서로 다른 것을 렌더링하려 하므로 마크업 하이드레이션 불일치가 발생할 수 있다.
+이 가이드에서는 `useQuery` API를 주로 사용한다. 물론 `useSuspenseQuery` 를 대신 사용할 수도 있다. 그런데 `useSuspenseQuery` 를 쓸 때는 꼭 기억해야 할 점이 있다. 바로 **모든 쿼리 데이터를 미리 가져와야 한다**는 것이다.
+
+`useSuspenseQuery` 를 쓰면 좋은 점은 클라이언트에서 `<Suspense>` 를 사용해서 로딩 상태를 처리할 수 있다는 것이다.
+
+그런데 `useSuspenseQuery` 를 쓸 때 데이터를 미리 가져오지 않으면, 어떤 일이 일어날지는 사용하는 프레임워크에 따라 달라진다.
+
+어떤 경우에는 데이터를 가져오기가 중단되어서, 서버에서는 데이터를 가져오지만 클라이언트에는 그 데이터가 전달되지 않는다. 이 경우 클라이언트는 다시 데이터를 요청하게 된다.
+
+이런 상황이 일어나면 서버와 클라이언트가 서로 다른 내용을 보여주려고 하기 때문에, 화면이 깨지는 현상이 일어날 수 있다. 우리는 이걸 "마크업 하이드레이션 불일치"라고 부른다.
 
 ## 초기 설정 {#initial-setup}
 
-React Query를 사용하려면 항상 `queryClient` 를 생성하고 애플리케이션을 `<QueryClientProvider>` 로 래핑해야 한다. 서버 렌더링을 할 때는 `queryClient` 인스턴스를 **애플리케이션 내부의 React 상태(ref도 가능)에서 생성**해야 한다. **이렇게 하면 각 사용자와 요청마다 데이터가 공유되지 않으면서도 컴포넌트 생명 주기당 `queryClient`를 한 번만 생성할 수 있다**.
+React Query에서 `queryClient` 는 모든 쿼리와 뮤테이션의 상태를 관리하는 중심 허브다.
 
-Next.js pages 라우터:
+`queryClient` 는 애플리케이션 전체를 `QueryClientProvider` 로 감싸서 제공된다.
+
+```jsx
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {/* 나머지 애플리케이션 */}
+    </QueryClientProvider>
+  );
+}
+```
+
+그런데 SSR 환경에서는 이 `queryClient` 를 설정할 때 주의해야 할 점이 있다.
+
+먼저, `queryClient` 를 파일의 최상단이나 컴포넌트 밖에서 생성하면 안 된다. 그렇게 하면 모든 요청이 같은 `queryClient` 인스턴스를 공유하게 되는데, 이는 모든 사용자가 같은 쿼리 캐시를 공유한다는 것을 의미한다. 이는 성능 문제를 일으킬 뿐만 아니라, 한 사용자의 데이터가 다른 사용자에게 노출되는 심각한 보안 문제를 야기할 수 있다.
+
+대신, `queryClient` 는 각 요청마다 새로 생성되어야 한다. 이를 위해 React의 `useState` 훅을 사용할 수 있다. ( `ref` 도 가능하다)
+
+```jsx
+export default function MyApp({ Component, pageProps }) {
+  const [queryClient] = React.useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+  );
+}
+```
+
+`useState` 훅의 초기값으로 `queryClient` 를 생성하는 함수를 전달하면, 컴포넌트가 마운트될 때마다(즉, 각 요청마다) 새로운 `queryClient` 인스턴스가 생성된다. 이렇게 하면 각 사용자가 자신만의 독립적인 쿼리 캐시를 가질 수 있다.
+
+또한, SSR 환경에서는 `staleTime` 옵션을 설정하는 것이 일반적이다. `staleTime` 은 데이터가 오래된 것으로 간주되기 전까지의 시간을 말한다. SSR에서는 이 값을 0보다 크게 설정하는 것이 좋은데, 그렇게 하면 서버에서 렌더링된 초기 데이터를 클라이언트에서 즉시 다시 fetch하는 것을 방지할 수 있다.
 
 ```tsx
 // _app.tsx
@@ -93,9 +149,15 @@ export default function MyApp({ Component, pageProps }) {
 }
 ```
 
+이렇게 `staleTime` 을 설정하면, 서버에서 렌더링된 데이터는 1분 동안 신선한 것으로 간주되어 클라이언트에서 불필요한 refetch를 하지 않게 된다.
+
 ## initialData로 빠르게 시작하기 {#get-started-fast-with-initialData}
 
-React Query에서 `dehydrate` / `hydrate` API를 사용하지 않고 데이터를 쉽고 빠르게 prefetch하는 방법은 `useQuery` 의 `initialData` 옵션에 초기 데이터를 직접 전달하는 것이다. Next.js의 `getServerSideProps` 를 사용한 예시를 살펴보자.
+`initialData` 는 `useQuery` 로 데이터를 fetch하기 전에 초기 데이터를 제공하는 옵션이다.
+
+SSR 시나리오에서는 서버에서 데이터를 fetch한 후 이 데이터를 `initialData` 로 전달하는 방식으로 사용할 수 있다.
+
+Next.js의 페이지 라우터를 예로 들면, `getServerSideProps` 또는 `getStaticProps` 에서 데이터를 fetch하고, 이를 페이지 컴포넌트의 props로 전달한다. 그리고 페이지 컴포넌트에서는 `useQuery` 의 `initialData` 옵션에 이 props를 전달하는 방식이다.
 
 ```tsx
 export async function getServerSideProps() {
@@ -113,40 +175,95 @@ function Posts(props) {
 }
 ```
 
-이 방식은 `getStaticProps`, `getInitialProps` 에서 동작하며, 유사한 함수를 가진 다른 프레임워크에서도 동일한 패턴을 적용할 수 있다.
+이 방식은 설정이 간단하고 직관적이라는 장점이 있다. 하지만 몇 가지 한계와 트레이드오프가 있다.
 
-설정이 간단하며 일부 사례에 빠른 해결책이 될 수 있지만, 다른 접근 방식과 비교했을 때 **고려해야 할 몇 가지 트레이드오프**가 있다:
+1. **데이터 전달의 문제**:
+   - 만약 페이지의 깊은 곳에 있는 컴포넌트에서 `useQuery` 를 사용한다면, `initialData` 를 해당 컴포넌트까지 계속 전달해 주어야 한다. 이는 컴포넌트 구조가 변경되면 데이터 전달 로직도 함께 변경해야 함을 의미한다.
+2. **중복 쿼리의 문제**:
+   - 같은 쿼리를 여러 컴포넌트에서 사용한다면, 모든 컴포넌트에 `initialData` 를 전달해야 한다. 그렇지 않으면 일부 컴포넌트는 초기 데이터 없이 렌더링될 수 있다. 이는 유지보수 측면에서 취약점이 될 수 있다.
+3. **데이터 신선도 판단의 문제**:
+   - `initialData` 를 사용하면, 서버에서 데이터를 fetch한 정확한 시점을 알 수 없다. 따라서 React Query는 데이터의 신선도를 페이지 로드 시점을 기준으로 판단할 수밖에 없다. 이는 실제 데이터의 업데이트 시점과 차이가 있을 수 있다.
+4. **캐시 데이터 업데이트의 문제**:
+   - 가장 중요한 문제는, 쿼리 키에 해당하는 데이터가 이미 캐시에 존재할 때다. `initialData` 는 캐시의 데이터를 절대 덮어쓰지 않는다.
+   - 예를 들어, `getServerSideProps` 를 사용하면 페이지를 이동할 때마다 서버에서 새 데이터를 fetch한다. 하지만 `initialData` 를 사용하면, 클라이언트의 캐시 데이터는 절대 업데이트되지 않는다. 서버에서 가져온 최신 데이터가 있어도, 캐시의 오래된 데이터를 계속 사용하게 된다.
 
-- 트리의 더 깊은 곳에 있는 컴포넌트에서 `useQuery`를 호출하는 경우 `initialData`를 해당 지점까지 전달해야 한다.
+이러한 한계 때문에, React Query는 `initialData` 대신 `hydrate` 와 `dehydrate` 를 사용하는 전체 하이드레이션 방식을 권장한다.
 
-- 여러 위치에서 동일한 쿼리로 `useQuery`를 호출하는 경우, 하나에만 `initialData`를 전달하는 것은 취약할 수 있으며 앱이 변경될 문제가될 수 있다. `initialData` 가 있는 `useQuery` 를 가진 컴포넌트를 제거하거나 이동하면 더 깊이 중첩된 `useQuery` 에는 더 이상 데이터가 존재하지 수 있다. 모든 쿼리에 `initialData` 를 전달하는 것도 번거롭다.
+전체 하이드레이션 방식에서는 서버에서 fetch한 데이터를 `dehydrate` 를 통해 직렬화하고, 이를 클라이언트에 전달한다. 클라이언트에서는 `hydrate` 를 통해 이 데이터를 쿼리 캐시에 복원한다. 이 방식은 데이터 전달, 중복 쿼리, 데이터 신선도, 캐시 업데이트 등의 문제를 모두 해결할 수 있다.
 
-- 서버에서 쿼리가 언제 fetch 됐는지 알 수 없으므로 `dataUpdatedAt` 과 쿼리 refetch 여부는 페이지가 로드된 시점을 기준으로 한다.
-
-- 쿼리에 대한 데이터가 이미 캐시에 있는 경우, **새 데이터가 기존 데이터보다 더 최신이더라도** `initialData` 는 이 데이터를 절대 덮어쓰지 않는다.
-  - 왜 이것이 특히 안 좋은지 이해하려면 위의 `getServerSideProps` 예제를 보면 알 수 있다. 페이지를 여러 번 앞뒤로 이동하면 `getServerSideProps` 가 매번 호출되어 새 데이터를 fetch하지만, `initialData` 옵션을 사용하기 때문에 클라이언트 캐시와 데이터는 절대 업데이트되지 않는다.
-
-전체 하이드레이션 솔루션을 사용하는 것은 간단하며 이러한 단점이 없다.
+물론 `initialData` 가 유용한 경우도 있다. 간단한 시나리오에서 빠르게 적용할 수 있다는 장점이 있다. 하지만 애플리케이션의 규모가 커지고 복잡해질수록, 전체 하이드레이션 방식이 더 안정적이고 유지보수하기 좋은 선택이다.
 
 ## 하이드레이션 API 사용하기 {#using-the-hydration-apis}
 
-약간의 추가 설정만으로도 프리로드 단계에서 `queryClient`를 사용하여 쿼리를 prefetch하고, 직렬화된 버전의 `queryClient` 를 앱의 렌더링 부분에 전달하여 재사용할 수 있다. 이렇게 하면 위의 단점을 피할 수 있다. 하이드레이션 API는 일반적으로 다음과 같은 단계가 있다:
+하이드레이션 API는 크게 세 단계로 이루어진다:
 
-- 프레임워크 로더 함수에서 `const queryClient = new QueryClient(options)`를 생성한다.
+1. **프레임워크 로더 함수에서 QueryClient 생성 및 쿼리 prefetch**
 
-- 로더 함수에서 prefetch하려는 각 쿼리에 대해 `await queryClient.prefetchQuery(...)`를 실행한다.
+   프레임워크 로더 함수는 서버 사이드 렌더링 전에 실행되는 일종의 "프리로딩" 단계다. 이 단계에서는 새로운 `QueryClient` 를 생성한다.
 
-  - 가능한 경우 `await Promise.all(...)`을 사용하여 쿼리를 병렬로 fetch하는 것이 좋다.
-  - prefetch 되지 않은 쿼리가 있어도 괜찮다. 이러한 쿼리는 서버에서 렌더링되지 않고 대신 애플리케이션이 대화형이 된 후 클라이언트에서 fetch한다. 이는 사용자 상호 작용 후에만 표시되거나 페이지 아래쪽에 있어 중요하지 않은 콘텐츠에 좋다.
+   ```javascript
+   const queryClient = new QueryClient(options);
+   ```
 
-- 로더에서 `dehydrate(queryClient)`를 반환한다. 이를 반환하는 정확한 구문은 프레임워크마다 다르다.
+   그리고 이 `queryClient`를 사용하여 필요한 쿼리를 prefetch한다.
 
-- `<HydrationBoundary state={dehydratedState}>` 로 트리를 감싸고, 여기서 `dehydratedState` 는 프레임워크 로더에서 가져온다. `dehydratedState` 를 가져오는 방법도 프레임워크마다 다르다.
-  - 이는 각 경로에 대해 수행하거나 상용구를 피하기 위해 애플리케이션 상단에서 수행할 수 있다.
+   ```javascript
+   await queryClient.prefetchQuery(['posts'], fetchPosts);
+   await queryClient.prefetchQuery(['users'], fetchUsers);
+   ```
 
-> **_흥미로운 세부사항은 실제로 세 개의_** `queryClient`가 관련되어 있다는 것이다. 프레임워크 로더는 렌더링 전에 발생하는 일종의 "프리로딩" 단계이며, 이 단계에는 prefetch를 수행하는 자체 `queryClient`가 있다. 이 단계의 dehydrated 결과는 서버 렌더링 프로세스와 클라이언트 렌더링 프로세스 **모두**에 전달되며, 각각 자체 `queryClient`를 가지고 있다. 이를 통해 둘 다 동일한 데이터로 시작하여 동일한 마크업을 반환할 수 있다.
+   가능하다면 `Promise.all` 을 사용하여 여러 쿼리를 병렬로 fetch하는 것이 좋다. 이는 성능 향상에 도움이 된다.
 
-> **_서버 컴포넌트는 React 컴포넌트 트리의 일부를 "프리로드"(사전 렌더링)할 수도 있는 또 다른 형태의 "프리로딩" 단계다. 자세한 내용은 [고급 서버 렌더링 가이드](https://tanstack.com/query/v5/docs/framework/react/guides/advanced-ssr)를 참조한다._**
+   ```javascript
+   await Promise.all([
+     queryClient.prefetchQuery(['posts'], fetchPosts),
+     queryClient.prefetchQuery(['users'], fetchUsers),
+   ]);
+   ```
+
+   모든 쿼리를 prefetch할 필요는 없다. 사용자 상호작용 후에만 필요한 데이터나 페이지 하단의 중요하지 않은 데이터는 클라이언트에서 fetch해도 된다.
+
+2. **Dehydrate QueryClient 및 dehydrated state 반환**
+
+   쿼리 prefetch가 완료되면, `queryClient` 를 dehydrate한다.
+
+   ```javascript
+   const dehydratedState = dehydrate(queryClient);
+   ```
+
+   이 `dehydratedState` 는 직렬화된 형태의 쿼리 캐시다. 이를 프레임워크 로더 함수에서 반환한다. 정확한 반환 구문은 사용하는 프레임워크에 따라 다르다.
+
+3. **HydrationBoundary로 애플리케이션 감싸기**
+
+   클라이언트에서는 `dehydratedState` 를 받아 `<HydrationBoundary>` 컴포넌트의 `state` prop으로 전달한다.
+
+   ```jsx
+   <HydrationBoundary state={dehydratedState}>
+     {/* 애플리케이션 */}
+   </HydrationBoundary>
+   ```
+
+   `<HydrationBoundary>` 는 dehydrated state를 받아 새로운 `QueryClient` 를 생성하고, 이 state를 hydrate한다. 이렇게 생성된 `QueryClient` 는 `<QueryClientProvider>` 를 통해 애플리케이션에 제공된다.
+
+   `<HydrationBoundary>` 는 각 경로마다 사용할 수도 있고, 코드 중복을 피하기 위해 애플리케이션의 최상단에 한 번만 사용할 수도 있다.
+
+**세 개의 QueryClient**
+
+하이드레이션 과정에는 실제로 세 개의 `QueryClient` 가 관련되어 있다.
+
+1. 프레임워크 로더 함수에서 생성되는 `QueryClient`. 이 `QueryClient` 는 쿼리 prefetch를 수행한다.
+2. 서버 렌더링 과정에서 생성되는 `QueryClient`. 이 `QueryClient` 는 dehydrated state를 hydrate하여 초기 상태를 복원한다.
+3. 클라이언트 렌더링 과정에서 생성되는 `QueryClient`. 이 `QueryClient` 역시 dehydrated state를 hydrate하여 초기 상태를 복원한다.
+
+서버와 클라이언트가 동일한 dehydrated state로 시작하기 때문에, 두 환경에서 동일한 쿼리 캐시를 공유하게 되고, 결과적으로 동일한 마크업을 생성할 수 있다.
+
+이러한 하이드레이션 과정을 통해 React Query는 서버 사이드 렌더링과 클라이언트 사이드 렌더링 간의 상태 불일치 문제를 해결하고, 초기 로딩 성능을 향상시킨다.
+
+**서버 컴포넌트와의 관계**
+
+_React의 서버 컴포넌트는 또 다른 형태의 "프리로딩" 단계를 제공한다._ 서버 컴포넌트는 React 컴포넌트 트리의 일부를 서버 사이드에서 미리 렌더링할 수 있다.
+
+서버 컴포넌트와 React Query를 함께 사용하면 더욱 강력한 서버 사이드 렌더링 전략을 구사할 수 있다. 자세한 내용은 [고급 서버 렌더링 가이드](https://www.vigorously.xyz/docs/react-query/react-query-doc-advanced-server-rendering/)에서 확인할 수 있다.
 
 ### 전체 Next.js 페이지 라우터 예제 {#full-nextjs-pages-router-example}
 
@@ -274,7 +391,11 @@ export default function Posts() { ... }
 
 ## 의존성 있는 쿼리 prefetch {#prefetching-dependent-queries}
 
-Prefetch 가이드에서 **의존성 있는 쿼리를 prefetch**하는 방법을 배웠지만, 프레임워크 로더에서는 어떻게 해야 할까? 다음 코드를 살펴보자:
+의존성이 있는 쿼리를 서버에서 prefetch하는 것은 조금 까다로울 수 있다.
+
+클라이언트에서는 React의 상태와 Effect를 사용해서 쿼리 간 의존성을 처리할 수 있다. 하지만 서버에서는 React가 아닌 일반 JavaScript 코드로 이를 처리해야 한다.
+
+예를 들어, 클라이언트에서는 다음과 같이 쿼리를 작성할 수 있다:
 
 ```tsx
 // 사용자 가져오기
@@ -298,7 +419,9 @@ const {
 });
 ```
 
-이를 서버 렌더링할 수 있도록 prefetch하려면 어떻게 해야 할까? 다음은 예시다:
+여기서는 `projects` 쿼리가 `userId` 에 의존하고 있다. `userId` 가 없으면 `projects` 쿼리는 실행되지 않는다.
+
+이를 서버에서 처리하려면, 다음과 같이 할 수 있다:
 
 ```tsx
 export async function getServerSideProps() {
@@ -320,23 +443,36 @@ export async function getServerSideProps() {
 }
 ```
 
-물론 이는 더 복잡해질 수 있지만, 이러한 로더 함수는 단순한 JavaScript이기 때문에 언어의 모든 기능을 사용하여 로직을 구축할 수 있다. 서버 렌더링하려는 모든 쿼리를 prefetch해야 한다.
+여기서 중요한 부분은 이렇다:
+
+1. 먼저 `user` 쿼리를 `fetchQuery` 를 사용해 fetch한다. 그리고 쿼리 결과를 기다린다.
+2. 만약 `user` 가 존재하고 `userId` 가 있다면, `projects` 쿼리를 `prefetchQuery` 를 사용해 prefetch한다.
+3. 마지막으로 `queryClient` 를 dehydrate해서 props로 전달한다.
+
+이렇게 하면 서버에서도 쿼리 간 의존성을 처리할 수 있다. `user` 쿼리의 결과에 따라 `projects` 쿼리를 조건부로 실행하는 것이다.
+
+물론 실제 상황에서는 이보다 더 복잡할 수 있다. 하지만 서버의 코드는 일반 JavaScript이기 때문에, JavaScript의 모든 기능을 사용해서 필요한 로직을 구현할 수 있다.
+
+중요한 것은 서버에서 렌더링하려는 모든 쿼리를 prefetch해야 한다는 것이다. 그래야 서버에서 렌더링한 HTML에 필요한 모든 데이터가 포함될 수 있다.
 
 ## 에러 핸들링 {#error-handling}
 
-React Query는 기본적으로 우아한 성능 저하 전략을 사용한다. 이는 다음을 의미한다:
+React Query는 서버 사이드 렌더링에서 쿼리 실패를 우아하게 처리한다.
 
-- `queryClient.prefetchQuery(...)`는 절대 오류를 발생시키지 않는다.
-- `dehydrate(...)`는 성공한 쿼리만 포함하고 실패한 쿼리는 포함하지 않는다.
+기본적으로 `queryClient.prefetchQuery` 는 쿼리가 실패해도 에러를 던지지 않는다. 그리고 `dehydrate` 는 성공한 쿼리의 데이터만 포함하고, 실패한 쿼리의 데이터는 포함하지 않는다.
 
-이로 인해 실패한 모든 쿼리는 클라이언트에서 재시도되며 서버 렌더링된 출력에는 전체 내용 대신 로딩 상태가 포함된다.
+그 결과, 실패한 쿼리는 클라이언트에서 다시 시도되고, 서버에서 렌더링된 HTML에는 해당 부분이 로딩 상태로 나타난다.
 
-이는 좋은 기본값이지만 때로는 원하는 바가 아닐 수 있다. 중요한 내용이 누락된 경우 상황에 따라 404 또는 500 상태 코드로 응답하고 싶을 수 있다. 이러한 경우 `queryClient.fetchQuery(...)`를 대신 사용하면 실패 시 오류를 발생시켜 적절한 방식으로 처리할 수 있다.
+이런 방식은 대부분의 경우 잘 작동한다. 하지만 가끔은 이게 문제가 될 수 있다.
+
+예를 들어, 중요한 데이터를 가져오는 데 실패했다면, 404나 500 같은 에러 페이지를 보여주고 싶을 수 있다.
+
+이런 경우에는 `queryClient.fetchQuery` 를 사용할 수 있다. 이 함수는 쿼리가 실패하면 에러를 던지기 때문에, 이 에러를 잡아서 적절히 처리할 수 있다.
 
 ```tsx
-let result
+let result;
 try {
-  result = await queryClient.fetchQuery(...)
+  result = await queryClient.fetchQuery(...);
 } catch (error) {
   // 프레임워크 문서를 참조하여 오류를 핸들링한다.
 }
@@ -344,7 +480,7 @@ try {
 // 여기서 잘못된 `result`도 확인하고 핸들링할 수 있다.
 ```
 
-어떤 이유로 재시도를 피하기 위해 실패한 쿼리를 dehydrated 상태에 포함시키려면 `shouldDehydrateQuery` 옵션을 사용하여 기본 함수를 재정의하고 자체 로직을 구현할 수 있다:
+또 다른 경우는, 어떤 이유로든 실패한 쿼리를 dehydrated 상태에 포함시키고 싶은 경우다. 이럴 때는 `shouldDehydrateQuery` 옵션을 사용해서 `dehydrate` 의 기본 동작을 바꿀 수 있다.
 
 ```tsx
 dehydrate(queryClient, {
@@ -356,19 +492,35 @@ dehydrate(queryClient, {
 });
 ```
 
+이 옵션에 전달하는 함수에서 `query` 객체를 검사해서, 어떤 쿼리를 포함할지 결정할 수 있다.
+
 ## 직렬화 {#serialization}
 
-Next.js에서 `return { props: { dehydratedState: dehydrate(queryClient) } }`를 할 때 일어나는 일은 `queryClient`의 `dehydratedState` 가 프레임워크에 의해 직렬화되어 마크업에 포함되고 클라이언트로 전송될 수 있다는 것이다.
+Next.js에서 `dehydrate(queryClient)` 를 사용하면, React Query의 상태를 특별한 형식으로 변환한다. 이렇게 변환된 상태를 dehydratedState라고 부른다.
 
-기본적으로 이러한 프레임워크는 안전하게 직렬화/파싱할 수 있는 것들만 반환하는 것을 지원하므로 `undefined`, `Error`, `Date`, `Map`, `Set`, `BigInt`, `Infinity`, `NaN`, `-0`, 정규식 등은 지원하지 않는다. 이는 쿼리에서 이러한 값들을 반환할 수 없다는 것을 의미한다. 이러한 값들을 반환하는 것이 원하는 바라면 [**superjson**](https://github.com/blitz-js/superjson)이나 유사한 패키지를 확인해본다.
+이 dehydratedState는 직력화되어 서버에서 만든 HTML에 포함되고 클라이언트(브라우저)로 전송된다. 클라이언트에서는 이 상태를 사용해 React Query를 초기화한다. 이렇게 하면 서버와 클라이언트의 상태가 동일해진다.
 
-사용자 정의 SSR 설정을 사용하는 경우 이 단계를 직접 처리해야 한다. 처음에는 `JSON.stringify(dehydratedState)`를 사용하는 것이 좋을 수 있지만, 이는 기본적으로 `<script>alert('Oh no..')</script>`와 같은 것을 이스케이프하지 않기 때문에 애플리케이션에서 쉽게 **XSS 취약점**으로 이어질 수 있다. **superjson**도 값을 **이스케이프하지 않으며** 사용자 정의 SSR 설정에서 단독으로 사용하기에 안전하지 않다(출력을 이스케이프하는 추가 단계를 추가하지 않는 한). 대신 **Serialize JavaScript**나 **devalue**와 같은 라이브러리를 사용하는 것이 좋다. 이들은 기본적으로 XSS 인젝션에 안전하다.
+그런데 이 과정에서 주의할 점이 있다. dehydratedState로 만들 때 일부 데이터 타입(`undefined`, `Error`, `Date`, `Map`, `Set`, `BigInt`, `Infinity`, `NaN`, `-0`, 정규식 등)은 지원되지 않는다. 만약 꼭 이런 데이터를 사용해야 한다면, [superjson](https://github.com/blitz-js/superjson)과 같은 별도의 라이브러리를 사용할 수 있다.
+
+또한 Next.js를 사용하지 않고 서버 사이드 렌더링을 직접 구현한다면, dehydratedState를 안전하게 처리해야 한다. 이 때 `JSON.stringify` 를 직접 사용하면 보안 문제가 생길 수 있으니, Serialize JavaScript나 devalue 같은 라이브러리를 사용하는 게 좋다.
+
+:::note 직렬화와 보안
+
+dehydratedState는 클라이언트로 전송되어 HTML에 삽입되므로, 이 데이터에 악성 스크립트가 포함되어 있다면 크로스 사이트 스크립팅(XSS) 공격에 취약해질 수 있다.
+
+예를 들어, 만약 dehydratedState에 `<script>alert('Oh no..')</script>` 와 같은 스크립트 태그가 포함되어 있다면, 이를 그대로 JSON.stringify로 직렬화하여 HTML에 삽입하면 해당 스크립트가 실행될 수 있다. 이는 XSS 취약점으로 이어질 수 있다.
+
+superjson과 같은 커스텀 직렬화 라이브러리를 사용하더라도, 기본적으로는 이런 악성 스크립트를 이스케이프 처리하지 않는다. 따라서 추가적인 보안 조치 없이 사용자 정의 SSR에서 단독으로 사용하기에는 안전하지 않다.
+
+이러한 보안 이슈를 방지하기 위해, Serialize JavaScript나 devalue와 같은 전용 라이브러리를 사용하는 것이 좋다. 이 라이브러리들은 dehydratedState를 직렬화할 때 잠재적인 악성 스크립트를 자동으로 이스케이프 처리해주므로, XSS 공격을 예방할 수 있다.
+
+:::
 
 ## 요청 워터폴에 대한 참고사항 {#a-note-about-request-warterfalls}
 
-**성능 및 요청 워터폴 가이드**에서 서버 렌더링이 좀 더 복잡한 중첩된 워터폴 중 하나를 어떻게 변경하는지 다시 살펴보겠다고 언급했다. 예제를 다시 확인해 보겠지만, 다시 한 번 살펴보면 `<Feed>` 컴포넌트 내에 코드 스플리팅된 `<GraphFeedItem>` 컴포넌트가 있다. 이는 피드에 그래프 항목이 포함된 경우에만 렌더링되며 이 두 컴포넌트는 각자 자신의 데이터를 fetch한다. 클라이언트 렌더링을 사용하면 다음과 같은 요청 워터폴이 발생한다:
+[성능 및 요청 워터폴 가이드](https://www.vigorously.xyz/docs/react-query/react-query-doc-performance-and-request-waterfalls/)에서는 서버 렌더링이 복잡한 중첩 워터폴을 어떻게 개선할 수 있는지 살펴보겠다고 했다. 예를 들어, `<Feed>` 컴포넌트 안에 코드 스플리팅된 `<GraphFeedItem>` 컴포넌트가 있다고 해보자. 이 컴포넌트들은 피드에 그래프 항목이 포함된 경우에만 렌더링되며, 각자 필요한 데이터를 가져와야 한다. 클라이언트 렌더링을 사용하면 아래와 같은 요청 워터폴이 발생한다:
 
-```bash
+```text
 1. |> Markup (without content)
 2.   |> JS for <Feed>
 3.     |> getFeed()
@@ -376,65 +528,75 @@ Next.js에서 `return { props: { dehydratedState: dehydrate(queryClient) } }`를
 5.         |> getGraphDataById()
 ```
 
-서버 렌더링의 좋은 점은 위의 내용을 다음과 같이 변경할 수 있다는 것이다:
+서버 렌더링의 장점은 위의 워터폴을 다음과 같이 개선할 수 있다는 것이다:
 
-```bash
+```text
 1. |> Markup (with content AND initial data)
 2.   |> JS for <Feed>
 2.   |> JS for <GraphFeedItem>
 ```
 
-쿼리는 더 이상 클라이언트에서 fetch하지 않고 대신 마크업에 데이터가 포함되었음을 주목한다. 이제 JS를 병렬로 로드할 수 있는 이유는 `<GraphFeedItem>`이 서버에서 렌더링되었기 때문에 클라이언트에서도 이 JS가 필요할 것이라는 것을 알고 있으며 마크업에 이 청크에 대한 script 태그를 삽입할 수 있기 때문이다. 서버에서는 여전히 다음과 같은 요청 워터폴이 있을 것이다:
+쿼리가 더 이상 클라이언트에서 데이터를 가져오지 않고, 대신 마크업에 데이터가 포함되어 있다는 점이 중요하다. JS를 병렬로 로드할 수 있는 이유는 `<GraphFeedItem>` 이 서버에서 렌더링되었기 때문에, 클라이언트에서도 해당 JS가 필요할 것임을 알 수 있고, 마크업에 해당 청크의 script 태그를 삽입할 수 있기 때문이다. 다만 서버에서는 여전히 아래와 같은 요청 워터폴이 발생한다:
 
-```bash
+```text
 1. |> getFeed()
 2.   |> getGraphDataById()
 ```
 
-피드를 fetch하기 전에는 그래프 데이터도 fetch해야 하는지 알 수 없다. 이들은 의존적인 쿼리다. 이는 일반적으로 지연 시간이 더 낮고 안정적인 서버에서 발생하기 때문에 종종 큰 문제가 되지 않는다.
+피드를 가져오기 전에는 그래프 데이터가 필요한지 알 수 없기 때문에, 이러한 의존성이 있는 쿼리들은 순차적으로 실행된다. 하지만 이는 지연 시간이 낮고 안정적인 서버에서 실행되므로 보통 큰 문제가 되지 않는다.
 
-놀랍게도 우리는 워터폴 대부분을 제거했다! 그러나 한 가지 문제가 있다. 이 페이지를 `/feed` 페이지라고 하고 `/posts`와 같은 다른 페이지도 있다고 가정해 보자. URL 표시줄에 `www.example.com/feed`를 직접 입력하고 Enter 키를 누르면 이러한 훌륭한 서버 렌더링 이점을 모두 얻을 수 있지만, 대신 `www.example.com/posts`를 입력한 다음 `/feed` **링크를 클릭**하면 다음과 같이 되돌아간다:
+놀랍게도 우리는 워터폴의 대부분을 제거했다! 그러나 한 가지 문제가 있다. 이 페이지가 `/feed` 페이지이고 `/posts` 와 같은 다른 페이지도 있다고 가정해 보자. URL에 `www.example.com/feed` 를 직접 입력하고 Enter를 누르면 서버 렌더링의 장점을 모두 누릴 수 있지만, `www.example.com/posts` 를 입력한 뒤 `/feed` 링크를 클릭하면 다음과 같은 상황으로 돌아간다:
 
-```bash
+```text
 1. |> JS for <Feed>
 2.   |> getFeed()
 3.     |> JS for <GraphFeedItem>
 4.       |> getGraphDataById()
 ```
 
-SPA에서는 서버 렌더링이 초기 페이지 로드에만 작동하고 이후 탐색에는 작동하지 않기 때문이다.
+SPA에서 서버 렌더링은 초기 페이지 로드 시에만 작동하고, 이후 페이지 탐색에는 적용되지 않기 때문이다.
 
-최신 프레임워크는 종종 초기 코드와 데이터를 병렬로 가져와 이 문제를 해결하려고 시도한다. 따라서 의존 쿼리를 prefetch하는 방법을 포함하여 이 가이드에서 설명한 prefetch 패턴을 사용하여 Next.js 또는 Remix를 사용하는 경우 실제로는 다음과 같이 보일 것이다:
+최신 프레임워크는 종종 초기 코드와 데이터를 병렬로 가져와 이 문제를 해결하려 한다. 따라서 의존 쿼리를 미리 가져오는 방법을 포함하여 이 가이드에서 설명한 패턴을 Next.js나 Remix에 적용하면 실제로는 다음과 같이 보일 것이다:
 
-```bash
+```text
 1. |> JS for <Feed>
 1. |> getFeed() + getGraphDataById()
 2.   |> JS for <GraphFeedItem>
 ```
 
-이것이 훨씬 낫지만, 이를 더 개선하려면 서버 컴포넌트를 사용하여 단일 왕복으로 이를 평탄화할 수 있다. **고급 서버 렌더링 가이드**에서 방법을 알아본다.
+이는 이전보다 훨씬 나아졌지만, 서버 컴포넌트를 사용하면 단일 왕복으로 더 개선할 수 있다. [고급 서버 렌더링 가이드](https://www.vigorously.xyz/docs/react-query/react-query-doc-advanced-server-rendering/)를 참조한다.
 
 ## 팁, 트릭 및 주의사항 {#tips-tricks-and-caveats}
 
 ### stale 시간은 서버에서 쿼리를 fetch한 시점부터 측정된다 {#staleness-is-measured-from-when-the-query-was-fetched-on-the-server}
 
-쿼리는 `dataUpdatedAt`에 따라 오래된 것으로 간주된다. 여기서 주의할 점은 이것이 제대로 작동하려면 서버에 올바른 시간이 있어야 한다는 것이지만, UTC가 사용되므로 시간대는 이 문제에 영향을 미치지 않는다.
+React Query는 각 쿼리 결과에 `dataUpdatedAt` 속성을 추가한다. 이 속성은 서버에서 데이터를 가져온 시간을 나타낸다. `staleTime` 은 이 `dataUpdatedAt` 을 기준으로 계산된다.
 
-`staleTime` 의 기본값이 `0` 이기 때문에 페이지 로드 시 기본적으로 쿼리가 백그라운드에서 다시 fetch된다. 특히 마크업을 캐시하지 않는 경우 이 중복 fetch를 피하려면 더 높은 `staleTime`을 사용할 수 있다.
+즉, 현재 시간과 `dataUpdatedAt` 사이의 차이가 `staleTime` 보다 크면 해당 데이터는 오래된(stale) 것으로 간주된다.
 
-CDN에서 마크업을 캐싱할 때 이러한 만료된 쿼리의 refetch는 완벽하게 일치한다! 서버에서 페이지를 다시 렌더링하지 않도록 페이지 자체의 캐시 시간을 적절히 높게 설정할 수 있지만, 사용자가 페이지를 방문하자마자 백그라운드에서 데이터를 다시 fetch하도록 쿼리의 `staleTime`을 더 낮게 구성할 수 있다. 페이지를 일주일 동안 캐시하지만 페이지 로드 시 데이터가 하루 이상 오래된 경우 자동으로 데이터를 다시 fetch하고 싶을 수 있다.
+이 메커니즘이 제대로 작동하려면 서버의 시간이 정확해야 한다. 다행히 UTC 시간이 사용되므로 서버와 클라이언트의 시간대 차이는 문제가 되지 않는다.
+
+기본적으로 `staleTime` 은 `0` 으로 설정되어 있다. 이는 페이지 로드 시 쿼리가 항상 백그라운드에서 다시 fetch 된다는 것을 의미한다. 만약 마크업을 캐시하지 않는다면 이러한 중복 fetch를 피하기 위해 `staleTime` 을 더 높게 설정할 수 있다.
+
+하지만 CDN에서 마크업을 캐싱할 때는 이러한 만료된 쿼리의 refetch 기능이 매우 유용하다. 페이지 자체의 캐시 시간을 충분히 높게 설정하여 서버에서 페이지를 자주 렌더링하지 않도록 하면서도, 쿼리의 `staleTime` 은 상대적으로 낮게 설정하여 사용자가 페이지를 방문했을 때 오래된 데이터의 경우 백그라운드에서 자동으로 다시 fetch되도록 할 수 있다.
+
+예를 들어, 페이지는 일주일 동안 캐시하지만 페이지 로드 시 데이터가 하루 이상 오래된 경우에는 자동으로 다시 fetch하도록 설정할 수 있다.
+
+이렇게 `staleTime` 을 활용하면 캐싱의 이점을 최대한 누리면서도 사용자에게는 항상 최신 데이터를 제공할 수 있게 된다. 서버의 부하를 줄이면서도 사용자 경험을 향상시킬 수 있는 강력한 기능이라고 할 수 있다.
 
 ### 서버의 높은 메모리 사용량 {#high-memory-consumption-on-server}
 
-모든 요청에 대해 `QueryClient`를 생성하는 경우 React Query는 이 클라이언트에 대해 격리된 캐시를 생성하며, 이는 `gcTime` 기간 동안 메모리에 보존된다. 해당 기간 동안 요청 수가 많은 경우 서버에서 메모리 사용량이 높아질 수 있다.
+`QueryClient` 를 생성할 때마다 React Query는 해당 클라이언트에 대해 독립적인 캐시를 생성한다. 이 캐시는 `gcTime` 옵션으로 지정된 기간 동안 메모리에 유지된다. 요청 수가 많은 경우, 이로 인해 서버의 메모리 사용량이 증가할 수 있다.
 
-서버에서 `gcTime` 의 기본값은 `Infinity` 이며, 이는 수동 가비지 컬렉션을 비활성화하고 요청이 완료되면 자동으로 메모리를 지운다. 명시적으로 `Infinity`가 아닌 `gcTime`을 설정하는 경우 조기에 캐시를 지워야 한다.
+서버에서 `gcTime` 의 기본값은 `Infinity` 다. 이는 수동 가비지 컬렉션이 비활성화되어 있으며, 요청이 완료되면 자동으로 메모리가 해제됨을 의미한다. 그러나 `Infinity` 가 아닌 `gcTime` 을 명시적으로 설정하면, 캐시가 더 빨리 제거되도록 할 수 있다.
 
-`gcTime`을 `0`으로 설정하면 하이드레이션 오류가 발생할 수 있으므로 피해야한다. 이는 **하이드레이션 경계**가 렌더링에 필요한 데이터를 캐시에 배치하지만, 렌더링이 완료되기 전에 가비지 컬렉터가 데이터를 제거하면 문제가 발생할 수 있기 때문이다. 더 짧은 `gcTime`이 필요한 경우 앱이 데이터를 참조할 수 있는 충분한 시간을 허용하기 위해 `2 * 1000`으로 설정하는 것이 좋다.
+하이드레이션 오류를 발생시킬 수 있기 때문에 `gcTime` 을 `0` 으로 설정하는 것은 권장되지 않는다. **하이드레이션 경계**는 렌더링에 필요한 데이터를 캐시에 저장하지만, 렌더링이 완료되기 전에 가비지 컬렉터가 해당 데이터를 제거하면 문제가 발생할 수 있다. 더 짧은 `gcTime` 이 필요한 경우, 애플리케이션이 데이터를 참조할 수 있는 충분한 시간을 제공하기 위해 `2 * 1000` (2초)로 설정하는 것이 좋다.
 
-캐시가 더 이상 필요하지 않을 때 캐시를 지우고 메모리 사용량을 줄이려면 요청이 처리되고 dehydrated 상태가 클라이언트로 전송된 후 `queryClient.clear()` 호출을 추가한다.
+캐시가 더 이상 필요하지 않을 때 메모리 사용량을 줄이기 위해 캐시를 비울 수 있다. 이를 위해서는 요청이 처리되고 dehydrated 상태가 클라이언트로 전송된 후에 `queryClient.clear()` 를 호출하면 된다.
 
-또는 더 작은 `gcTime`을 설정한다.
+또 다른 방법은 더 작은 `gcTime` 값을 설정하는 것이다. 이렇게 하면 캐시가 더 빨리 제거되므로 메모리 사용량을 줄일 수 있다.
+
+요약하면, React Query에서 `QueryClient` 를 생성할 때마다 독립적인 캐시가 생성되며, 이는 `gcTime` 동안 메모리에 유지된다. 서버의 메모리 사용량을 최적화하기 위해서는 `gcTime` 을 적절히 설정하거나 `queryClient.clear()` 를 사용하여 불필요한 캐시를 제거하는 것이 좋다.
 
 ### Next.js rewrites에 대한 주의사항 {#caveat-for-nextjs-rewrite}
 
