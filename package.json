@@ -38,7 +38,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "build": "eleventy",
-    "dev": "pnpm clean:dist && eleventy --watch --serve --port=8081",
+    "dev": "pnpm clean:dist && eleventy --watch --serve --port=8090",
     "clean:dist": "rimraf dist",
     "clean:modules": "rimraf node_modules"
   },
