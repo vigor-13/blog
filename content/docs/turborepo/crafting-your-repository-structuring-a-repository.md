@@ -12,13 +12,13 @@ references:
   ]
 ---
 
-`turbo` 는 JavaScript 패키지 매니저(npm, yarn, pnpm 등)의 [워크스페이스](https://vercel.com/docs/vercel-platform/glossary#workspace) 기능을 활용해 만들어진 도구다.
+`turbo` 는 JavaScript 패키지 매니저(npm, yarn, pnpm 등)의 [워크스페이스](https://vercel.com/docs/vercel-platform/glossary#workspace) 기능을 활용한다.
 
-워크스페이스를 사용하면 하나의 저장소 안에 여러 패키지를 함께 관리할 수 있다.
+워크스페이스를 사용하면 하나의 저장소 안에서 여러 패키지를 관리할 수 있다.
 
 이렇게 하나의 저장소로 다수의 패키지를 관리하는 방식을 <u>모노레포</u>라고 부른다.
 
-`turbo`를 제대로 활용하려면 프로젝트를 모노레포 형태로 구성해야 한다.
+<u>`turbo`를 제대로 활용하려면 프로젝트를 모노레포 형태로 구성해야 한다.</u>
 
 모노레포로 프로젝트를 구성하면 다음과 같은 장점이 있다.
 
@@ -29,9 +29,7 @@ references:
 
 ## 시작하기
 
-모노레포를 직접 셋팅하는 건 꽤 번거로운 작업이다.
-
-모노레포가 처음이라면 `create-turbo` 를 사용하는 게 좋다.
+모노레포를 직접 셋팅하는 건 꽤 번거로운 작업이다. 모노레포가 처음이라면 `create-turbo` 를 사용하는 게 좋다.
 
 이 도구를 이용하면 몇 가지 기본 설정이 된 모노레포 프로젝트를 쉽게 만들 수 있다.
 
